@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2023 at 05:38 AM
+-- Generation Time: Feb 08, 2023 at 05:24 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -87,6 +87,49 @@ INSERT INTO `general_settings` (`id`, `title`, `name`, `_address`, `keywords`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `menu_id` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `serial` int(11) NOT NULL,
+  `is_dawnloadable` tinyint(4) NOT NULL DEFAULT 0,
+  `created_by` int(11) NOT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menus`
+--
+
+CREATE TABLE `menus` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `menu_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `parent_id` int(11) NOT NULL DEFAULT 0,
+  `serial` double(8,2) NOT NULL DEFAULT 1.00,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `is_main_menu_show` tinyint(4) NOT NULL DEFAULT 1,
+  `is_footer_menu_show` tinyint(4) NOT NULL DEFAULT 0,
+  `page_type` int(11) NOT NULL DEFAULT 1 COMMENT 'multiple post = 1,only page = 2, gallery = 3',
+  `created_by` int(11) NOT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -106,73 +149,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (5, '2020_10_09_135732_create_products_table', 1),
 (6, '2021_05_31_063527_create_general_settings_table', 2),
-(7, '2021_06_01_150128_create_boards_table', 2),
 (19, '2021_06_20_180911_create_page_rows_table', 7),
 (78, '2022_02_01_143528_create_branches_table', 15),
 (88, '2020_10_09_135640_create_permission_tables', 16),
 (89, '2021_06_06_163854_create_social_media_table', 16),
-(90, '2022_02_01_144222_create_account_heads_table', 16),
-(91, '2022_02_01_144223_create_account_groups_table', 16),
-(92, '2022_02_01_144249_create_account_ledgers_table', 16),
-(93, '2022_02_01_144312_create_purchase_orders_table', 16),
-(95, '2022_02_01_144327_create_purchase_order_details_table', 16),
-(96, '2022_02_01_144348_create_purchases_table', 16),
-(97, '2022_02_01_144404_create_purchase_details_table', 16),
-(98, '2022_02_01_144444_create_voucher_masters_table', 17),
-(99, '2022_02_01_144458_create_voucher_master_details_table', 17),
-(100, '2022_02_01_144610_create_sales_orders_table', 17),
-(101, '2022_02_01_144624_create_sales_order_details_table', 17),
-(102, '2022_02_01_144650_create_product_price_lists_table', 17),
-(103, '2022_02_01_144651_create_sales_table', 17),
-(105, '2022_02_01_144722_create_sales_returns_table', 17),
-(106, '2022_02_01_144738_create_sales_return_details_table', 17),
-(107, '2022_02_01_144830_create_purchase_returns_table', 17),
-(109, '2022_02_01_145002_create_proforma_sales_table', 17),
-(110, '2022_02_01_145015_create_proforma_sales_details_table', 17),
-(111, '2022_02_01_145150_create_item_inventories_table', 17),
-(112, '2022_02_01_145216_create_default_ledgers_table', 17),
-(113, '2022_02_01_145357_create_voucher_types_table', 17),
-(114, '2022_02_01_145434_create_cost_centers_table', 17),
-(115, '2022_02_01_145517_create_store_houses_table', 17),
-(116, '2022_02_01_145606_create_store_house_selves_table', 17),
-(117, '2022_03_31_155636_create_item_categories_table', 18),
-(118, '2022_02_01_144326_create_inventories_table', 19),
-(120, '2022_04_15_141902_create_purchase_accounts_table', 20),
-(121, '2022_04_19_200104_create_purchase_return_form_settings_table', 21),
-(122, '2022_04_19_202822_create_purchase_return_accounts_table', 22),
-(123, '2022_04_21_183954_create_sales_form_settings_table', 23),
-(124, '2022_04_22_163045_create_sales_accounts_table', 24),
-(125, '2022_04_22_164221_create_sales_return_accounts_table', 25),
-(126, '2022_04_22_164136_create_sales_return_form_settings_table', 26),
-(127, '2022_02_01_144705_create_sales_details_table', 27),
-(128, '2022_02_01_144901_create_purchase_return_details_table', 28),
-(129, '2022_09_15_160511_create_table_infos_table', 29),
-(130, '2022_09_15_174144_create_resturant_sales_table', 30),
-(131, '2022_09_15_174249_create_resturant_details_table', 31),
-(132, '2022_09_15_174454_create_kitchens_table', 32),
-(133, '2022_09_15_175528_create_kitchen_finish_goods_table', 33),
-(134, '2022_09_15_175551_create_kitchen_row_goods_table', 34),
-(135, '2022_09_15_225434_create_musak_four_point_threes_table', 35),
-(136, '2022_09_15_225531_create_musak_four_point_three_inputs_table', 36),
-(137, '2022_09_15_225636_create_musak_four_point_three_additions_table', 37),
-(138, '2022_09_15_235243_create_resturant_form_settings_table', 38),
-(139, '2022_09_19_174545_create_steward_allocations_table', 39),
-(140, '2022_04_22_163045_create_resturant_sales_accounts_table', 40),
-(141, '2022_10_10_231802_create_unit_conversions_table', 41),
-(142, '2022_10_31_055118_create_device_locations_table', 42),
-(143, '2022_10_31_055326_create_water_logs_table', 42),
-(144, '2022_10_31_055347_create_water_log_details_table', 42),
-(145, '2022_11_02_051936_create_locations_table', 43),
-(146, '2022_11_02_052144_create_projects_table', 43),
-(147, '2023_01_14_133104_create_service_categories_table', 44),
-(148, '2023_01_14_133312_create_currencies_table', 44),
-(149, '2023_01_14_134649_create_service_details_table', 44),
-(150, '2023_01_14_134747_create_payment_details_table', 44),
-(151, '2023_01_14_135326_create_service_rates_table', 44),
-(152, '2023_01_14_135401_create_quotetion_details_table', 44),
-(153, '2023_01_14_135731_create_service_image_details_table', 44),
-(154, '2023_01_14_140334_create_time_base_rate_settings_table', 44),
-(155, '2023_01_23_180903_create_quotation_images_table', 45);
+(157, '2023_02_07_101406_create_menus_table', 17),
+(158, '2023_02_07_101513_create_posts_table', 18),
+(159, '2023_02_07_101532_create_images_table', 19);
 
 -- --------------------------------------------------------
 
@@ -299,6 +282,31 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `type`, `created_at`, `up
 (7, 'user-edit', 'web', 'User', NULL, NULL),
 (8, 'user-delete', 'web', 'User', NULL, NULL),
 (254, 'admin-settings', 'web', 'Settings', '2022-10-29 23:30:15', '2022-10-29 23:30:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `menu_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `post_title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `post_subtitle` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `details` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `author` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image_hide_show` tinyint(4) NOT NULL DEFAULT 1,
+  `position` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `column_size` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'col-md-6',
+  `created_by` int(11) NOT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -747,6 +755,18 @@ ALTER TABLE `general_settings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `menus`
+--
+ALTER TABLE `menus`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -782,6 +802,12 @@ ALTER TABLE `password_resets`
 -- Indexes for table `permissions`
 --
 ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -835,10 +861,22 @@ ALTER TABLE `general_settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `menus`
+--
+ALTER TABLE `menus`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
 
 --
 -- AUTO_INCREMENT for table `page_rows`
@@ -851,6 +889,12 @@ ALTER TABLE `page_rows`
 --
 ALTER TABLE `permissions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=255;
+
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `roles`
