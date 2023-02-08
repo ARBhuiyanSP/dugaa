@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2023 at 05:24 AM
+-- Generation Time: Feb 08, 2023 at 12:47 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -87,6 +87,23 @@ INSERT INTO `general_settings` (`id`, `title`, `name`, `_address`, `keywords`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `homepage_settings`
+--
+
+CREATE TABLE `homepage_settings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `menu_id` int(11) NOT NULL,
+  `serial` int(11) NOT NULL,
+  `order_by` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `limit` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `images`
 --
 
@@ -155,7 +172,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (89, '2021_06_06_163854_create_social_media_table', 16),
 (157, '2023_02_07_101406_create_menus_table', 17),
 (158, '2023_02_07_101513_create_posts_table', 18),
-(159, '2023_02_07_101532_create_images_table', 19);
+(159, '2023_02_07_101532_create_images_table', 19),
+(161, '2023_02_08_083900_create_homepage_settings_table', 20);
 
 -- --------------------------------------------------------
 
@@ -755,6 +773,12 @@ ALTER TABLE `general_settings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `homepage_settings`
+--
+ALTER TABLE `homepage_settings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `images`
 --
 ALTER TABLE `images`
@@ -861,6 +885,12 @@ ALTER TABLE `general_settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `homepage_settings`
+--
+ALTER TABLE `homepage_settings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
@@ -876,7 +906,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
 
 --
 -- AUTO_INCREMENT for table `page_rows`
