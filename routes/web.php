@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SocialMediaController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PostController;
 
 
 
@@ -48,8 +50,18 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('social_media', SocialMediaController::class);
+    Route::resource('main-menu', MenuController::class);
+
+    
     //Admin section Route Controller
     Route::get('admin-settings','App\Http\Controllers\GeneralSettingsController@settings')->name('admin-settings');
     Route::post('admin-settings-store','App\Http\Controllers\GeneralSettingsController@settingsSave')->name('admin-settings-store');
+
+    Route::get('admin-post/{slug}', [PostController::class,'index']);
+    Route::get('admin-post-create/{slug}', [PostController::class,'create']);
+    Route::get('admin-post-edit/{id}', [PostController::class,'edit']);
+    Route::post('admin-post', [PostController::class,'store'])->name('admin-post.store');
+    Route::get('post-image-remove', [PostController::class,'postImageRemove'])->name('post-image-remove');
+    Route::resource('admin-post', PostController::class);
 });
 

@@ -19,8 +19,12 @@ class CreateImagesTable extends Migration
             $table->integer('post_id');
             $table->integer('menu_id');
             $table->tinyInteger('status')->default(1);
-            $table->text('title');
-            $table->integer('serial');
+            $table->text('title')->nullable();
+            $table->text('vedio_link')->nullable();
+            $table->text('sub_title')->nullable();
+            $table->string('_dis_cloumn')->nullable();
+            $table->float('serial')->nullable();
+            $table->tinyInteger('is_video')->default(0);
             $table->tinyInteger('is_dawnloadable')->default(0);
             $table->integer('created_by');
             $table->integer('updated_by')->nullable();

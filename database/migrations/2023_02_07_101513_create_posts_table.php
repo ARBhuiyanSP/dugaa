@@ -24,6 +24,7 @@ class CreatePostsTable extends Migration
             $table->string('author');
             $table->tinyInteger('image_hide_show')->default(1);
             $table->integer('position');
+            $table->tinyInteger('image_possition')->default(1);
             $table->tinyInteger('status')->default(1);
             $table->string('column_size')->default('col-md-6');
             $table->integer('created_by');

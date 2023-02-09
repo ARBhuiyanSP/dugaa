@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+
+
+    public function parent_cat(){
+    	return $this->hasOne(Menu::class,'id','menu_id');
+    }
+
+    public function _images(){
+    	return $this->hasMany(ImageModel::class,'post_id','id')->where('status',1);
+    }
 }

@@ -22,6 +22,7 @@ class CreateMenusTable extends Migration
             $table->tinyInteger('status')->default(1);
             $table->tinyInteger('is_main_menu_show')->default(1);
             $table->tinyInteger('is_footer_menu_show')->default(0);
+            $table->tinyInteger('have_child')->default(0);
             $table->integer('page_type')->default(1)->comment('multiple post = 1,only page = 2, gallery = 3');
             $table->integer('created_by');
             $table->integer('updated_by')->nullable();

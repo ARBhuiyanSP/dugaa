@@ -19,6 +19,7 @@ return array(
     'App\\Http\\Controllers\\FrontendController' => $baseDir . '/app/Http/Controllers/FrontendController.php',
     'App\\Http\\Controllers\\GeneralSettingsController' => $baseDir . '/app/Http/Controllers/GeneralSettingsController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+    'App\\Http\\Controllers\\ImageController' => $baseDir . '/app/Http/Controllers/ImageController.php',
     'App\\Http\\Controllers\\MenuController' => $baseDir . '/app/Http/Controllers/MenuController.php',
     'App\\Http\\Controllers\\PostController' => $baseDir . '/app/Http/Controllers/PostController.php',
     'App\\Http\\Controllers\\RoleController' => $baseDir . '/app/Http/Controllers/RoleController.php',

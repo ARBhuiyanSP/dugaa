@@ -11,9 +11,11 @@
   <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
   <!-- IonIcons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="{{asset('backend/datatable/jquery.dataTables.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
   <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
+ <!--  <link rel="stylesheet" href="{{asset('plugins/summernote/jquery.dataTables.min.css')}}"> -->
   <link rel="stylesheet" href="{{asset('backend/style.css')}}">
 
   @yield('css')
@@ -60,10 +62,14 @@
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap -->
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('backend/datatable/jquery.dataTables.min.js')}}"></script>
 <!-- AdminLTE -->
 <script src="{{asset('dist/js/adminlte.js')}}"></script>
 
 <!-- OPTIONAL SCRIPTS -->
+
+
+
 <!-- Summernote -->
 <script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
@@ -87,7 +93,9 @@
     $('.summernote').summernote()
 
   })
-
+$(document).ready(function () {
+    $('#example').DataTable();
+});
 </script>
 </body>
 </html>

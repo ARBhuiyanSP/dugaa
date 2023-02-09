@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-
+@section('title',$settings->title)
 
 @section('content')
 <!-- Content Header (Page header) -->
