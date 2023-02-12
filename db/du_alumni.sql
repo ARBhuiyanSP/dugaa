@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2023 at 05:02 AM
+-- Generation Time: Feb 12, 2023 at 12:57 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -24,6 +24,88 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `countries`
+--
+
+CREATE TABLE `countries` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `countries`
+--
+
+INSERT INTO `countries` (`id`, `name`, `code`, `created_at`, `updated_at`) VALUES
+(2, 'Bangladesh', 'BN', '2023-02-12 04:01:25', '2023-02-12 04:01:25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `degrees`
+--
+
+CREATE TABLE `degrees` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `degrees`
+--
+
+INSERT INTO `degrees` (`id`, `name`, `code`, `created_at`, `updated_at`) VALUES
+(1, 'Bachelor', 'B', '2023-02-12 04:47:53', '2023-02-12 04:47:53'),
+(2, 'Master', 'M', '2023-02-12 04:48:02', '2023-02-12 04:48:02'),
+(3, 'MPhil', 'P', '2023-02-12 04:48:14', '2023-02-12 04:48:14'),
+(4, 'Doctorate', 'D', '2023-02-12 04:48:25', '2023-02-12 04:48:25'),
+(5, 'Other', 'O', '2023-02-12 04:48:33', '2023-02-12 04:48:33'),
+(6, 'NA', 'N', '2023-02-12 04:48:40', '2023-02-12 04:48:40');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exam_sessions`
+--
+
+CREATE TABLE `exam_sessions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `exam_sessions`
+--
+
+INSERT INTO `exam_sessions` (`id`, `name`, `code`, `created_at`, `updated_at`) VALUES
+(1, '1949-50', '', '2023-02-12 04:53:55', '2023-02-12 04:53:55'),
+(2, '1950-51', '', '2023-02-12 04:54:06', '2023-02-12 04:54:06'),
+(3, '1951-52', '', '2023-02-12 04:54:16', '2023-02-12 04:54:16'),
+(4, '1952-53', '', '2023-02-12 04:54:31', '2023-02-12 04:54:31'),
+(5, '1953-54', '', '2023-02-12 04:54:41', '2023-02-12 04:54:41'),
+(6, '1954-55', '', '2023-02-12 04:54:54', '2023-02-12 04:54:54'),
+(7, '1955-56', '', '2023-02-12 04:55:04', '2023-02-12 04:55:04'),
+(8, '1956-57', '', '2023-02-12 04:55:15', '2023-02-12 04:55:15'),
+(9, '1957-58', '', '2023-02-12 04:55:24', '2023-02-12 04:55:24'),
+(10, '1958-59', '', '2023-02-12 04:55:33', '2023-02-12 04:55:33'),
+(11, '1959-60', '', '2023-02-12 04:55:43', '2023-02-12 04:55:43'),
+(12, '1960-61', '', '2023-02-12 04:55:53', '2023-02-12 04:55:53'),
+(13, '1961-62', '', '2023-02-12 04:56:03', '2023-02-12 04:56:03'),
+(14, '1962-63', '', '2023-02-12 04:56:12', '2023-02-12 04:56:12'),
+(15, '1963-64', '', '2023-02-12 04:56:21', '2023-02-12 04:56:21');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `failed_jobs`
 --
 
@@ -36,6 +118,29 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `genders`
+--
+
+CREATE TABLE `genders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `genders`
+--
+
+INSERT INTO `genders` (`id`, `name`, `code`, `created_at`, `updated_at`) VALUES
+(1, 'Male', 'M', '2023-02-12 04:43:52', '2023-02-12 04:43:52'),
+(2, 'Female', 'F', '2023-02-12 04:43:59', '2023-02-12 04:43:59'),
+(3, 'Others', 'O', '2023-02-12 04:44:06', '2023-02-12 04:44:06');
 
 -- --------------------------------------------------------
 
@@ -87,6 +192,44 @@ INSERT INTO `general_settings` (`id`, `title`, `name`, `_address`, `keywords`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `home_page_setups`
+--
+
+CREATE TABLE `home_page_setups` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `menu_id` int(11) NOT NULL,
+  `serial` double(8,2) NOT NULL,
+  `_limit` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `block_type` int(11) NOT NULL COMMENT '1=main block,2=Side Block',
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `home_page_setups`
+--
+
+INSERT INTO `home_page_setups` (`id`, `menu_id`, `serial`, `_limit`, `status`, `block_type`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 1, 4.00, 5, 1, 1, 1, NULL, NULL, '2023-02-12 02:58:15'),
+(2, 2, 12.00, 5, 0, 1, 1, NULL, NULL, '2023-02-12 02:58:15'),
+(3, 3, 11.00, 5, 0, 1, NULL, NULL, NULL, '2023-02-12 02:58:15'),
+(4, 4, 10.00, 5, 0, 1, NULL, NULL, NULL, '2023-02-12 02:58:15'),
+(5, 5, 9.00, 5, 0, 1, NULL, NULL, NULL, '2023-02-12 02:58:15'),
+(6, 6, 8.00, 5, 0, 1, NULL, NULL, NULL, '2023-02-12 02:58:15'),
+(7, 7, 7.00, 5, 0, 1, NULL, NULL, NULL, '2023-02-12 02:58:15'),
+(8, 8, 3.00, 5, 1, 1, NULL, NULL, NULL, '2023-02-12 02:58:15'),
+(9, 9, 6.00, 5, 0, 1, NULL, NULL, NULL, '2023-02-12 02:58:15'),
+(10, 10, 1.00, 5, 1, 1, NULL, NULL, NULL, '2023-02-12 02:58:15'),
+(11, 11, 2.00, 5, 1, 2, NULL, NULL, NULL, '2023-02-12 02:58:15'),
+(12, 12, 5.00, 5, 0, 1, NULL, NULL, NULL, '2023-02-12 02:58:15'),
+(13, 13, 13.00, 5, 0, 1, NULL, NULL, NULL, '2023-02-12 02:58:15');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `images`
 --
 
@@ -114,14 +257,82 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `image`, `post_id`, `menu_id`, `status`, `title`, `sub_title`, `vedio_link`, `is_video`, `_dis_cloumn`, `serial`, `is_dawnloadable`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'post-image/0209202307241963e49fa3f1310.jpg', 3, 12, 1, 'Title 1', 'Sub Title 1', '', 0, '2', 1, 0, 46, NULL, '2023-02-09 01:24:19', '2023-02-09 03:54:39'),
-(2, 'post-image/0209202307251163e49fd7f2d57.jpg', 4, 12, 1, 'No', 'no', 'ttewtrttrt', 0, '2', 1, 0, 46, NULL, '2023-02-09 01:25:11', '2023-02-09 04:14:03'),
-(3, 'post-image/0209202309351063e4be4e75557.jpg', 4, 12, 1, 're', 'fsa', '<iframe width=\"640\" height=\"360\" src=\"https://www.youtube.com/embed/4RWeFMzGpmo\" title=\"SKYEXCH.NET 10PL SEASON 04 || PRINCE MOVIES -2023 { DAY 2}\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>', 0, '2', 2, 0, 46, NULL, '2023-02-09 01:25:11', '2023-02-09 04:14:03'),
-(4, 'post-image/0209202307251263e49fd800112.jpg', 4, 12, 1, '', '', '', 0, '2', 3, 0, 46, NULL, '2023-02-09 01:25:12', '2023-02-09 04:14:03'),
-(5, 'post-image/0209202309513863e4c22ada4d8.jpg', 3, 12, 1, 'Titile 2', 'sub title 2', '', 0, '2', 1, 0, 46, NULL, '2023-02-09 03:51:38', '2023-02-09 03:54:39'),
-(6, 'post-image/0209202309513863e4c22adb446.jpg', 3, 12, 1, 'Title 3', 'Sub Title 3', '', 0, '4', 1, 0, 46, NULL, '2023-02-09 03:51:38', '2023-02-09 03:53:30'),
-(7, 'post-image/0212202303441263e8608c843ac.jpg', 7, 10, 1, '', NULL, NULL, 0, NULL, 0, 0, 46, NULL, '2023-02-11 21:44:12', '2023-02-11 21:44:12'),
-(8, 'post-image/0212202303511063e8622e12f7b.jpg', 8, 11, 1, '', NULL, NULL, 0, NULL, 0, 0, 46, NULL, '2023-02-11 21:51:10', '2023-02-11 21:51:10');
+(1, 'post-image/0212202304334263e86c26507e2.jpg', 3, 10, 1, '', NULL, NULL, 0, NULL, 0, 0, 46, NULL, '2023-02-11 22:33:42', '2023-02-11 22:33:42'),
+(2, 'post-image/0212202304345263e86c6c9f86f.jpg', 4, 10, 1, '', NULL, NULL, 0, NULL, 0, 0, 46, NULL, '2023-02-11 22:34:52', '2023-02-11 22:34:52'),
+(3, 'post-image/0212202304355463e86caac30dd.jpg', 5, 10, 1, '', NULL, NULL, 0, NULL, 0, 0, 46, NULL, '2023-02-11 22:35:54', '2023-02-11 22:35:54'),
+(4, 'post-image/0212202304365763e86ce9c94ea.jpg', 6, 11, 1, '', NULL, NULL, 0, NULL, 0, 0, 46, NULL, '2023-02-11 22:36:57', '2023-02-11 22:36:57'),
+(5, 'post-image/0212202304373563e86d0fd93f7.jpg', 7, 11, 1, '', NULL, NULL, 0, NULL, 0, 0, 46, NULL, '2023-02-11 22:37:35', '2023-02-11 22:37:35'),
+(6, 'post-image/0212202304382863e86d4498d9c.jpg', 8, 11, 1, '', NULL, NULL, 0, NULL, 0, 0, 46, NULL, '2023-02-11 22:38:28', '2023-02-11 22:38:28'),
+(7, 'post-image/0212202304393863e86d8a01738.jpg', 9, 12, 1, '', '', '', 0, '0', 1, 0, 46, NULL, '2023-02-11 22:39:38', '2023-02-11 22:39:38'),
+(8, 'post-image/0212202304393863e86d8a02fd0.jpg', 9, 12, 1, '', '', '', 0, '0', 2, 0, 46, NULL, '2023-02-11 22:39:38', '2023-02-11 22:39:38'),
+(9, 'post-image/0212202304393863e86d8a04323.jpg', 9, 12, 1, '', '', '', 0, '0', 3, 0, 46, NULL, '2023-02-11 22:39:38', '2023-02-11 22:39:38'),
+(10, 'post-image/0212202304393863e86d8a05213.jpg', 9, 12, 1, '', '', '', 0, '0', 4, 0, 46, NULL, '2023-02-11 22:39:38', '2023-02-11 22:39:38'),
+(11, 'post-image/0212202304405563e86dd72c522.jpg', 10, 12, 1, '', '', '', 0, '0', 1, 0, 46, NULL, '2023-02-11 22:40:55', '2023-02-11 22:40:55'),
+(12, 'post-image/0212202304405563e86dd72da31.jpg', 10, 12, 1, '', '', '', 0, '0', 2, 0, 46, NULL, '2023-02-11 22:40:55', '2023-02-11 22:40:55'),
+(13, 'post-image/0212202304405563e86dd72e975.jpg', 10, 12, 1, '', '', '', 0, '0', 3, 0, 46, NULL, '2023-02-11 22:40:55', '2023-02-11 22:40:55'),
+(14, 'post-image/0212202304405563e86dd72f9cf.jpg', 10, 12, 1, '', '', '', 0, '0', 4, 0, 46, NULL, '2023-02-11 22:40:55', '2023-02-11 22:40:55'),
+(15, 'post-image/0212202304405563e86dd730f8d.jpg', 10, 12, 1, '', '', '', 0, '0', 5, 0, 46, NULL, '2023-02-11 22:40:55', '2023-02-11 22:40:55'),
+(16, 'post-image/0212202304423463e86e3aaa40b.jpg', 11, 13, 1, '', NULL, NULL, 0, NULL, 0, 0, 46, NULL, '2023-02-11 22:42:34', '2023-02-11 22:42:34');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `membership_types`
+--
+
+CREATE TABLE `membership_types` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `membership_types`
+--
+
+INSERT INTO `membership_types` (`id`, `name`, `code`, `created_at`, `updated_at`) VALUES
+(1, 'General Member', 'G', '2023-02-12 04:46:11', '2023-02-12 04:46:11'),
+(2, 'Associate Member', 'A', '2023-02-12 04:46:29', '2023-02-12 04:46:29'),
+(3, 'Life Member', 'L', '2023-02-12 04:46:43', '2023-02-12 04:46:43'),
+(4, 'Type Honorary Member', 'H', '2023-02-12 04:47:02', '2023-02-12 04:47:02'),
+(5, 'Life Member (Associate)', 'S', '2023-02-12 04:47:17', '2023-02-12 04:47:17'),
+(6, 'Other', 'O', '2023-02-12 04:47:25', '2023-02-12 04:47:25'),
+(7, 'Not Registered', 'N', '2023-02-12 04:47:36', '2023-02-12 04:47:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member_infos`
+--
+
+CREATE TABLE `member_infos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `member_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `entery_degree` int(11) DEFAULT NULL,
+  `batch` int(11) DEFAULT NULL,
+  `admission_session` int(11) DEFAULT NULL,
+  `alumni_category` int(11) DEFAULT NULL,
+  `entery_degree_completion_year` int(11) DEFAULT NULL,
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gender_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `exit_degree` int(11) DEFAULT NULL,
+  `exit_year` int(11) DEFAULT NULL,
+  `current_affiliation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `designation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `contact_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `parmanent_address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `note` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `scanced_form` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `member_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `entry_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -256,7 +467,17 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (155, '2023_01_23_180903_create_quotation_images_table', 45),
 (156, '2023_02_07_101406_create_menus_table', 46),
 (157, '2023_02_07_101513_create_posts_table', 47),
-(158, '2023_02_07_101532_create_images_table', 48);
+(158, '2023_02_07_101532_create_images_table', 48),
+(159, '2023_02_12_044537_create_sliders_table', 49),
+(160, '2023_02_12_060530_create_home_page_setups_table', 50),
+(161, '2023_02_12_090332_create_countries_table', 51),
+(162, '2023_02_12_090544_create_degrees_table', 52),
+(163, '2023_02_12_090611_create_membership_types_table', 53),
+(164, '2023_02_12_090642_create_paying_systems_table', 54),
+(165, '2023_02_12_090705_create_exam_sessions_table', 55),
+(166, '2023_02_12_090731_create_genders_table', 56),
+(167, '2023_02_12_090757_create_year_batches_table', 57),
+(168, '2023_02_12_091718_create_member_infos_table', 58);
 
 -- --------------------------------------------------------
 
@@ -357,6 +578,31 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `paying_systems`
+--
+
+CREATE TABLE `paying_systems` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `paying_systems`
+--
+
+INSERT INTO `paying_systems` (`id`, `name`, `code`, `created_at`, `updated_at`) VALUES
+(1, 'Cash', 'Cash', '2023-02-12 04:22:03', '2023-02-12 04:22:03'),
+(2, 'Check', 'Check', '2023-02-12 04:22:13', '2023-02-12 04:49:05'),
+(3, 'Pay-Order', 'PO', '2023-02-12 04:49:20', '2023-02-12 04:49:20'),
+(4, 'Bkash', 'Bkash', '2023-02-12 04:49:28', '2023-02-12 04:49:28'),
+(5, 'others(specify in Note)', 'others(specify in Note)', '2023-02-12 04:49:36', '2023-02-12 04:49:36');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `permissions`
 --
 
@@ -390,7 +636,44 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `type`, `created_at`, `up
 (259, 'admin-post-list', 'web', 'Page/Post', NULL, NULL),
 (260, 'admin-post-create', 'web', 'Page/Post', NULL, NULL),
 (261, 'admin-post-edit', 'web', 'Page/Post', NULL, NULL),
-(262, 'admin-post-delete', 'web', 'Page/Post', NULL, NULL);
+(262, 'admin-post-delete', 'web', 'Page/Post', NULL, NULL),
+(263, 'slider-list', 'web', 'Slider', NULL, NULL),
+(264, 'slider-create', 'web', 'Slider', NULL, NULL),
+(265, 'slider-edit', 'web', 'Slider', NULL, NULL),
+(266, 'slider-delete', 'web', 'Slider', NULL, NULL),
+(267, 'home-page-setup', 'web', 'Settings', '2022-10-29 23:30:15', '2022-10-29 23:30:15'),
+(268, 'countries-list', 'web', 'Country', NULL, NULL),
+(269, 'countries-create', 'web', 'Country', NULL, NULL),
+(270, 'countries-edit', 'web', 'Country', NULL, NULL),
+(271, 'countries-delete', 'web', 'Country', NULL, NULL),
+(272, 'degrees-list', 'web', 'Degree', NULL, NULL),
+(273, 'degrees-create', 'web', 'Degree', NULL, NULL),
+(274, 'degrees-edit', 'web', 'Degree', NULL, NULL),
+(275, 'degrees-delete', 'web', 'Degree', NULL, NULL),
+(276, 'exam-session-list', 'web', 'Exam Session', NULL, NULL),
+(277, 'exam-session-create', 'web', 'Exam Session', NULL, NULL),
+(278, 'exam-session-edit', 'web', 'Exam Session', NULL, NULL),
+(279, 'exam-session-delete', 'web', 'Exam Session', NULL, NULL),
+(280, 'gender-list', 'web', 'Gender', NULL, NULL),
+(281, 'gender-create', 'web', 'Gender', NULL, NULL),
+(282, 'gender-edit', 'web', 'Gender', NULL, NULL),
+(283, 'gender-delete', 'web', 'Gender', NULL, NULL),
+(284, 'paying-system-list', 'web', 'Paying System Method', NULL, NULL),
+(285, 'paying-system-create', 'web', 'Paying System Method', NULL, NULL),
+(286, 'paying-system-edit', 'web', 'Paying System Method', NULL, NULL),
+(287, 'paying-system-delete', 'web', 'Paying System Method', NULL, NULL),
+(288, 'year-batch-list', 'web', 'Year Batch', NULL, NULL),
+(289, 'year-batch-create', 'web', 'Year Batch', NULL, NULL),
+(290, 'year-batch-edit', 'web', 'Year Batch', NULL, NULL),
+(291, 'year-batch-delete', 'web', 'Year Batch', NULL, NULL),
+(292, 'membership-type-list', 'web', 'Membership Type', NULL, NULL),
+(293, 'membership-type-create', 'web', 'Membership Type', NULL, NULL),
+(294, 'membership-type-edit', 'web', 'Membership Type', NULL, NULL),
+(295, 'membership-type-delete', 'web', 'Membership Type', NULL, NULL),
+(296, 'member-info-list', 'web', 'Member Information', NULL, NULL),
+(297, 'member-info-create', 'web', 'Member Information', NULL, NULL),
+(298, 'member-info-edit', 'web', 'Member Information', NULL, NULL),
+(299, 'member-info-delete', 'web', 'Member Information', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -423,14 +706,17 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `menu_id`, `date`, `time`, `post_title`, `image_possition`, `post_subtitle`, `details`, `author`, `image_hide_show`, `position`, `status`, `column_size`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 9, '2023-02-08', '10:31:23', 'Journey of DUAA', 1, 'Jon', '<p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \"Open Sans\", serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">Twenty-fourth September 1949, Nine years after the idea was mooted, the Dhaka University Alumni Association was born. The idea was first articulated by Dr. Mumtazuddin Ahmed, graduate of 1925, who became Director of Public Instruction in East Pakistan and later Vice Chancellor of Rajshahi University. Another stalwart who contributed to the establishment of the Association was Khan Bahadur Naziruddin Ahmed, the first Registrar of the University. The first President and Secretary General of the Association was Justice M. Ibrahim and Mr. Mizanur Rahman of the first batch of students of the University who led it for 1949 to 1962 and bequeathed the ideas of the Grand Assembly, Duty Fund, branches in other towns and cities and Old Students Home. The association was called ‘Old Boys Association’ up to 1959 and then it was named ‘Old Students Association’ the following year. In order to include women students the Association was renamed ‘Alumni Association’ in 1960.</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \"Open Sans\", serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">The Association was formed as a social club of former students of the University with the objective of promoting the interests of the University and its students. It is committed to providing assistance to meritorious students of limited means and at times it has done so from its Duty Fund. It also intended to set up a centre for students’ activities and programs but could not do much in the absence of a regular office or premises of its own. Old students’ home is still an unfulfilled target. In 1965 the Association was hopeful of receiving a piece of land from the University to build an alumni centre. In 1998 Prime Minister Sheikh Hasina announced the allocation of a plot of land from the old Railway area to the association but bureaucratic procedures have blocked the process of such a transfer till now. At one time there were several branches of the Association in other towns and cities but there are none at the moment.</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \"Open Sans\", serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">Under the dynamic leadership of the Executive Committee of DUAA (2004-2013) led by its president Syed Manzur Elahi and Secretary General Raquibuddin Ahmed since 2004 DUAA came to flashlight through arranging its own office complex in the ground floor of “Nabab Nawab Ali Chowdhury Senate Bhavan” of Dhaka University as the construction was completed in 2007 by its own fund. This has been styled as the “Alumni Floor” with 16,000 sft space that includes office rooms, meeting and conference rooms, lobby, library, cyber cafe in a computer lab, coffee house, gym and a big modern prayer hall, all covered by AC. Alumni Floor has become a get-together centre for the alumni with necessary amenities. With about 10,000 life members DUAA Executive Committee (2013-2016), led by Raquibuddin Ahmed and Dewan Rashidul Hasan as President and Secretary General respectively is now committed and actively working towards the development of our alma mater – the University of Dhaka, popularly known as the “Oxford of the East” and welfare of its students of present, past and future. To mention only one of about a dozen projects, DUAA offers about 400 scholarships every year through collecting donations and arranging a number of Trust Funds to each year of each department and Institute of Dhaka University.</p>', 'Amin', 1, 1, 1, '1', 46, NULL, '2023-02-08 04:16:34', '2023-02-08 04:31:23'),
-(2, 9, '2023-02-08', '10:17:04', 'Journey of DUAA', 1, '', '<p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">Twenty-fourth September 1949, Nine years after the idea was mooted, the Dhaka University Alumni Association was born. The idea was first articulated by Dr. Mumtazuddin Ahmed, graduate of 1925, who became Director of Public Instruction in East Pakistan and later Vice Chancellor of Rajshahi University. Another stalwart who contributed to the establishment of the Association was Khan Bahadur Naziruddin Ahmed, the first Registrar of the University. The first President and Secretary General of the Association was Justice M. Ibrahim and Mr. Mizanur Rahman of the first batch of students of the University who led it for 1949 to 1962 and bequeathed the ideas of the Grand Assembly, Duty Fund, branches in other towns and cities and Old Students Home. The association was called ‘Old Boys Association’ up to 1959 and then it was named ‘Old Students Association’ the following year. In order to include women students the Association was renamed ‘Alumni Association’ in 1960.</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">The Association was formed as a social club of former students of the University with the objective of promoting the interests of the University and its students. It is committed to providing assistance to meritorious students of limited means and at times it has done so from its Duty Fund. It also intended to set up a centre for students’ activities and programs but could not do much in the absence of a regular office or premises of its own. Old students’ home is still an unfulfilled target. In 1965 the Association was hopeful of receiving a piece of land from the University to build an alumni centre. In 1998 Prime Minister Sheikh Hasina announced the allocation of a plot of land from the old Railway area to the association but bureaucratic procedures have blocked the process of such a transfer till now. At one time there were several branches of the Association in other towns and cities but there are none at the moment.</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">Under the dynamic leadership of the Executive Committee of DUAA (2004-2013) led by its president Syed Manzur Elahi and Secretary General Raquibuddin Ahmed since 2004 DUAA came to flashlight through arranging its own office complex in the ground floor of “Nabab Nawab Ali Chowdhury Senate Bhavan” of Dhaka University as the construction was completed in 2007 by its own fund. This has been styled as the “Alumni Floor” with 16,000 sft space that includes office rooms, meeting and conference rooms, lobby, library, cyber cafe in a computer lab, coffee house, gym and a big modern prayer hall, all covered by AC. Alumni Floor has become a get-together centre for the alumni with necessary amenities. With about 10,000 life members DUAA Executive Committee (2013-2016), led by Raquibuddin Ahmed and Dewan Rashidul Hasan as President and Secretary General respectively is now committed and actively working towards the development of our alma mater – the University of Dhaka, popularly known as the “Oxford of the East” and welfare of its students of present, past and future. To mention only one of about a dozen projects, DUAA offers about 400 scholarships every year through collecting donations and arranging a number of Trust Funds to each year of each department and Institute of Dhaka University.</p>', 'Amin', 1, 1, 1, '1', 46, NULL, '2023-02-08 04:17:04', '2023-02-08 04:17:04'),
-(3, 12, '2023-02-09', '09:54:39', 'সন্ত্রাস, জঙ্গিবাদ, মাদক ও বাল্যবিবাহের বিরুদ্ধে প্রচারাভিযান ২০১৮', 1, 'sub title', '', 'Amin', 1, 1, 1, '1', 46, NULL, '2023-02-09 01:24:19', '2023-02-09 03:54:39'),
-(4, 12, '2023-02-09', '10:14:03', 'আন্তর্জাতিক মাতৃভাষা দিবসে শহিদদের প্রতি শ্রদ্ধা নিবেদন', 1, 'sub title', '', 'Amin', 1, 1, 1, '1', 46, NULL, '2023-02-09 01:25:11', '2023-02-09 04:14:03'),
-(5, 10, '2023-02-09', '11:02:50', 'ঢাকা বিশ্ববিদ্যালয়ের গৌরবময় শতবর্ষপূর্তি উপলক্ষে শতবর্ষের মিলনমেলা অনুষ্ঠিত', 1, 'অত্যন্ত আনন্দ উল্লাসে গত ১২ মার্চ ২০২২ উদ্যাপিত হলো ঢাকা বিশ্ববিদ্যালয়ের গৌরবময় শতবর্ষপূর্তি উপলক্ষে ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন আয়োজিত ‘শতবর্ষের', '<p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">অত্যন্ত আনন্দ উল্লাসে গত ১২ মার্চ ২০২২ উদ্যাপিত হলো ঢাকা বিশ্ববিদ্যালয়ের গৌরবময় শতবর্ষপূর্তি উপলক্ষে ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন আয়োজিত ‘শতবর্ষের মিলনমেলা’। ‘বাংলাদেশের পথযাত্রায় ঢাকা বিশ্ববিদ্যালয় অ্যালামনাই’ এই প্রতিপাদ্য নিয়ে প্রায় ১২,০০০ সম্মানিত সদস্যের উপস্থিতিতে ঢাকা বিশ্ববিদ্যালয় খেলার মাঠে অনুষ্ঠিত হয় ‘শতবর্ষের মিলনমেলা’।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">অনুষ্ঠানে প্রধান অতিথি হিসেবে উপস্থিত ছিলেন ঢাকা বিশ্ববিদ্যালয়ের প্রবীণতম শিক্ষার্থী মতিউল ইসলাম, বিশেষ অতিথি&nbsp; শতবর্ষ উদ্যাপন কমিটির চেয়ারম্যান জনাব সৈয়দ মঞ্জুর এলাহী, ঢাকা বিশ্ববিদ্যালয়ের মাননীয়&nbsp; প্রো-ভাইস চ্যান্সেলর (শিক্ষা) অধ্যাপক ড. এ. এস. এম. মাকসুদ কামাল,&nbsp; প্রো-ভাইস চ্যান্সেলর (প্রশাসন) অধ্যাপক ড. মুহাম্মদ সামাদ, অনুষ্ঠানে সভাপতিত্ব করেন অ্যালামনাই অ্যাসোসিয়েশনের সম্মানিত সভাপতি এ. কে. আজাদ।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">দিনব্যাপী অনুষ্ঠানের শুরুতেই জাতীয় পতাকা উত্তোলন ও বেলুন উড়ানোর মধ্য দিয়ে উদ্বোধনী অনুষ্ঠান অনুষ্ঠিত হয়। জাতীয় পতাকা উত্তোলন করেন প্রধান অতিথি ঢাকা বিশ্ববিদ্যালয়ের প্রবীণতম শিক্ষার্থী মো. মতিউল ইসলাম। ঢাকা বিশ্ববিদ্যালয়ের পতাকা উত্তোলন করেন বিশেষ অতিথি ঢাকা বিশ্ববিদ্যালয়ের প্রো-ভাইস চ্যান্সেলর (শিক্ষা) অধ্যাপক ড. এ. এস. এম. মাকসুদ কামাল, প্রো-ভাইস চ্যান্সেলর (প্রশাসন) অধ্যাপক ড. মুহাম্মদ সামাদ। ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের পতাকা উত্তোলন করেন অ্যালামনাই অ্যাসোসিয়েশন-এর সভাপতি জনাব এ. কে. আজাদ, সিনিয়র সহ-সভাপতি মোল্লা মোহাম্মাদ আবু কাওছার, মহাসচিব রঞ্জন কর্মকার, শতবর্ষ উদ্যাপন কমিটির চেয়ারম্যান জনাব সৈয়দ মঞ্জুর এলাহী, শতবর্ষ উদ্যাপন কমিটির আহ্বায়ক ও সহ-সভাপতি জনাব আনোয়ার-উল-আলম চৌধুরী পারভেজসহ ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের কার্যনির্বাহী কমিটির সদস্যবৃন্দ।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">উদ্বোধনী মঞ্চে উপস্থিত সম্মানিত অতিথিবৃন্দ এবং উদ্বোধনী অনুষ্ঠানে উপস্থিত সকল সম্মানিত অ্যালামনাইগণ বেলুন উড়িয়ে আনন্দ উল্লাসের মধ্য দিয়ে উদ্বোধনী অনুষ্ঠানের মাধ্যমে একে-অপরকে বরণ করে নেন।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">এরপর শত শিল্পীর লাইভ অর্কেস্ট্রা, সংগীত এবং নৃত্য পরিবেশনের মধ্য দিয়ে অনুষ্ঠান শুরু হয়। শতবর্ষ উপলক্ষে প্রকাশিত গ্রন্থসমূহের মোড়ক উম্মোচন ও ‘শিল্পীর রং তুলিতে ঢাকা বিশ্ববিদ্যালয়’ প্রদর্শনী উদ্বোধন করা হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">শতবর্ষের মিলনমেলায় ‘রং তুলিতে ঢাকা বিশ্ববিদ্যালয়’ শীর্ষক কর্মসূচিতে ১০০জন চিত্রশিল্পীর চিত্রকর্ম নিয়ে একটি প্রদর্শনীর ব্যবস্থা ছিল। এছাড়া শতবর্ষের স্মারকগ্রন্থ সহ অন্যান্য প্রকাশনাগুলো অ্যালামনাইদের মাঝে বিক্রয়ের ব্যবস্থা ছিলো। সম্মানিত অ্যালামনাইদের স্বাস্থ্য সুরক্ষার কথা বিবেচনায় নিয়ে একটি মেডিকেল ক্যাম্প করা হয়েছিল। যাতে কোনো অ্যালামনাই অসুস্থ হয়ে পড়লে তাৎক্ষণিক চিকিৎসা প্রদান করা সম্ভব হয়। এছাড়াও অংশগ্রহণকারী অ্যালামনাইদের সার্বক্ষণিক নিরাপত্তা, আপ্যায়ন ও পর্যাপ্ত সেনিটেশন-এর ব্যবস্থা রাখা হয়েছিল।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">শতবর্ষের মিলনমেলায় দিনব্যাপী অনুষ্ঠানের মধ্য দিয়ে সম্মানিত অ্যালামনাইগণ তাঁদের পুরনো দিনের স্মৃতি স্মরণ করেন এবং একে অপরকে তা সহভাগিতা করেন। শতবর্ষের মিলনমেলার মূল আকর্ষণ ছিলো জাকজমকপূর্ণ সাংস্কৃতিক অনুষ্ঠান।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">সাংস্কৃতিক অনুষ্ঠানের শুরুতে রবীন্দ্র, নজরুল ও হারানো দিনের গান পরিবেশন করেন অদিতি মহসীন, প্রিয়াংকা গোপ ও হৈমন্তী রক্ষিত। ৬০ ও ৭০ দশকের বাংলা চলচ্চিত্রের গান নিয়ে নৃত্য পরিবেশন করেন চাঁদনি, সিনথিয়া, মিম চৌধুরী ও তাঁদের দল। আধুনিক ও পুরানো দিনের গান পরিবেশনা করেন জনপ্রিয় শিল্পী সামিনা চৌধুরী ও সন্দীপন। প্রেমা ও তাঁর দলের অংশগ্রহণে পরিবেশন করা হয় আকর্ষণীয় রায়বেশি নৃত্য। এরপর সবথেকে বড় আকর্ষণ ছিল জনপ্রিয় ও জাতীয় পুরস্কারপ্রাপ্ত শিল্পী সাবিনা ইয়াসমিন-এর একক পরিবেশনা। বর্তমান প্রজন্মের শিল্পী নিশীতা বড়য়া-এর সংগীত পরিবেশনার মধ্য দিয়ে সাংস্কৃতিক অনুষ্ঠানের সমাপ্তি ঘোষণা করা হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">শতবর্ষে এসে শিক্ষার গুণগত মান ও পরিবেশ উন্নয়ন এবং গবেষণার পরিধি সম্প্রসারণ করে চতুর্থ শিল্প বিপ্লবের উপযোগী দক্ষ মানব সম্পদ তৈরির লক্ষ্য নিয়ে বর্তমান প্রশাসন একটি পূর্ণাঙ্গ মাস্টার প্ল্যান প্রণয়ন করেছেন।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">আমাদের পূর্বসূরি শ্রদ্ধেয় অ্যালামনাইদের নেতৃত্ব ও অংশগ্রহণে সৃষ্টি বাংলাদেশকে মুক্তিযুদ্ধের চেতনায় বঙ্গবন্ধুর আদর্শে অসাম্প্রদায়িক, গণতান্ত্রিক, মানবিক ও কল্যাণকামী উন্নত সম্বৃদ্ধ রাষ্ট্র প্রতিষ্ঠায় বর্তমান প্রজন্মকে দক্ষ মানব সম্পদ হিসেবে গড়ে তোলার ক্ষেত্রে যার যার অবস্থান থেকে শ্রদ্ধেয় অ্যালামনাইবৃন্দের প্রতি আহ্বান জানানো হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">&nbsp;</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">ঢাকা বিশ্ববিদ্যালয়ের সকল হল ও বিভাগীয় অ্যালামনাই অ্যাসোসিয়েশন একটি পরিবার হয়ে সম্মিলিত প্রচেষ্টায় মাতৃসম অ্যালমা মেটার ঢাকা বিশ্ববিদ্যালয়ের প্রতি আমাদের যে দায়বদ্ধতা তা মোচনের ক্ষেত্রে ভবিষ্যতের উদ্যোগ আরো বেগবান এবং কার্যকর হবে, শতবর্ষে দাঁড়িয়ে এই প্রত্যাশা করার মধ্য দিয়ে শতবর্ষের মিলনমেলা শেষ হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\"><strong style=\"border: 0px; font-variant: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-style: inherit; font-weight: bold; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;\">শতবর্ষের মিলনমেলার প্রকাশনা</strong></p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">ঢাকা বিশ্ববিদ্যালয়ের গৌরবময় শতবর্ষপূর্তি উপলক্ষে ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন বেশ কয়েকটি প্রকাশনা বের করে।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\"><strong style=\"border: 0px; font-variant: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-style: inherit; font-weight: bold; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;\">যাত্রিক বিশেষ সংখ্যা</strong></p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন-এর সম্মানিত সদস্যদের স্মৃতি ও ঢাকা বিশ্ববিদ্যালয় সম্পর্কিত লেখা নিয়ে নিয়মিত যাত্রিকের বিশেষ একটি সংখ্যা মুদ্রণ করা হয়। যা সম্মানিত অ্যালামনাইদের মধ্যে বিনামূল্যে বিতরণ করা হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\"><strong style=\"border: 0px; font-variant: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-style: inherit; font-weight: bold; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;\">শতবর্ষের ঢাকা বিশ্ববিদ্যালয়</strong></p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন কর্তৃক ঢাকা বিশ্ববিদ্যালয়ের শতবর্ষ উপলক্ষে&nbsp; দেশের খ্যাতিমান ও ঢাকা বিশ্ববিদ্যালয়ের বরেণ্য ১০০ জন অ্যালামনাই-এর লেখা সম্বলিত ‘শতবর্ষের ঢাকা বিশ্ববিদ্যালয় শিরোনামে শতবর্ষ স্মারকগ্রন্থ প্রকাশ করা হয়। গ্রন্থটির সম্পাদনার দায়িত্বে ছিলেন একুশে পদকপ্রাপ্ত সাংবাদিক অজয় দাশগুপ্ত। গ্রন্থটি অত্যন্ত তথ্যবহুল ও স্মৃতি বিজড়িত লেখায় পরিপূর্ণ। শতবর্ষের গৌরব, অর্জন, বৈচিত্র্য এবং এমনকি অপূর্ণতা ধারণের চেষ্টা করা হয়েছে এই গ্রন্থটিতে।</p>', 'Amin', 1, 1, 1, '2', 46, NULL, '2023-02-09 05:02:50', '2023-02-09 05:02:50'),
-(6, 10, '2023-02-12', '03:42:58', 'New 2', 1, 'sub news 2', '<p>News Body</p>', 'Amin', 1, 1, 1, '2', 46, NULL, '2023-02-11 21:42:58', '2023-02-11 21:42:58'),
-(7, 10, '2023-02-12', '03:44:12', 'New 2', 1, 'sub news 2', '<p>News Body</p>', 'Amin', 1, 1, 1, '2', 46, NULL, '2023-02-11 21:44:12', '2023-02-11 21:44:12'),
-(8, 11, '2023-02-12', '03:51:10', 'Notice One', 1, 'Notice sub one', '<p>Notice Details</p>', 'Amin', 1, 1, 1, '2', 46, NULL, '2023-02-11 21:51:10', '2023-02-11 21:51:10');
+(1, 9, '2023-02-12', '04:32:39', 'Social Responsibility of Dhaka University Alumni Association', 0, 'Sub Title of  Social Responsibility', '<p class=\"m_bottom_15 fw_light fs_large\" style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \"Open Sans\", serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">commemoration the DUAA objectives one of which says,” to carry out CSR activities and to undertake, support and carry out welfare and development activities of Dhaka University and DUAA”, It has been taking up various programs. <strong style=\"border: 0px; font-variant: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-style: inherit; font-weight: bold; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;\">We arranged about 700 scholarships every year covering all 56 departments and 16 institutes </strong>through collecting donations from individuals, alumni and organizations from home and abroad. Besides, DUAA takes up various projects, publishes books and souvenirs, and organizes seminars, programs and job counselling.<strong style=\"border: 0px; font-variant: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-style: inherit; font-weight: bold; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;\">“Dhaka University is my pride; it is time now to re-pay our debts”</strong> (Dhaka Bishwabidyalaya amar ahangker; Ekhoni samoy dai mochaner) — is the current motto of DUAA.</p><p class=\"m_bottom_15 fw_light fs_large\" style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \"Open Sans\", serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">DUAA now ventures to engage in social work in collaboration with other socio-economic organizations. It collects funds from various banks and financial institutions, business enterprises, generous individuals and the like to arrange scholarships, computer training to students and children of staff members of the university, organize various socio-cultural programs, seminars, job counseling etc. DUAA, in the mean time, distributed 200 bi-cycles for the students in a bid to encourage cycling aimed at maintaining a pollution free society and helping physical fitness in collaboration with Green Belt Trust, a student based NGO. Such program will continue. Another organization named ‘Ethics Club’ in collaboration with DUAA organize seminars aimed at developing the minds of the students and other people in order to build a society free of corruption. In the mean time we chalked out a bi-annual program of seminars from July to December 2011 in various faculties and departments. In collaboration with Green Belt Trust, Fire Service & Civil Defence and Development Initiative DUAA formed a Disaster Management Force (DMF) with 500 volunteers selected from 10 Halls of students of Dhaka University who will be trained by Fire Service & Civil Defence in a two year program funded by Development Initiative. In the mean time, DMF was launched through a ceremony on 26 May 2011 with 50 volunteers recruited from two halls trained for a short period who took part in a demonstration on disaster rescue operation led by Fire Service and Civil Defence. Vice Chancellor of Dhaka University was the Chief Guest and DG of Fire Service & Civil Defence, the special guest.</p><p class=\"m_bottom_15 fw_light fs_large\" style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \"Open Sans\", serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">Development of research activities of the University has been taken up to be implemented in near future along with the improvement of the Library. In the mean time a project was taken up to erect a number of sophisticated and decorative entry gates of the University. The first one is being processed sponsored by the NCC Bank at Shahbag point. Gradually other will be designed and erected.</p>', 'Amin', 1, 1, 1, '4', 46, NULL, '2023-02-11 22:25:58', '2023-02-11 22:32:39'),
+(2, 2, '2023-02-12', '04:32:21', 'Journey of DUAA', 0, 'Sub title of journey of duaa', '<p class=\"m_bottom_15 fw_light fs_large\" style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \"Open Sans\", serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">commemoration the DUAA objectives one of which says,” to carry out CSR activities and to undertake, support and carry out welfare and development activities of Dhaka University and DUAA”, It has been taking up various programs. <strong style=\"border: 0px; font-variant: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-style: inherit; font-weight: bold; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;\">We arranged about 700 scholarships every year covering all 56 departments and 16 institutes </strong>through collecting donations from individuals, alumni and organizations from home and abroad. Besides, DUAA takes up various projects, publishes books and souvenirs, and organizes seminars, programs and job counselling.<strong style=\"border: 0px; font-variant: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-style: inherit; font-weight: bold; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;\">“Dhaka University is my pride; it is time now to re-pay our debts”</strong> (Dhaka Bishwabidyalaya amar ahangker; Ekhoni samoy dai mochaner) — is the current motto of DUAA.</p><p class=\"m_bottom_15 fw_light fs_large\" style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \"Open Sans\", serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">DUAA now ventures to engage in social work in collaboration with other socio-economic organizations. It collects funds from various banks and financial institutions, business enterprises, generous individuals and the like to arrange scholarships, computer training to students and children of staff members of the university, organize various socio-cultural programs, seminars, job counseling etc. DUAA, in the mean time, distributed 200 bi-cycles for the students in a bid to encourage cycling aimed at maintaining a pollution free society and helping physical fitness in collaboration with Green Belt Trust, a student based NGO. Such program will continue. Another organization named ‘Ethics Club’ in collaboration with DUAA organize seminars aimed at developing the minds of the students and other people in order to build a society free of corruption. In the mean time we chalked out a bi-annual program of seminars from July to December 2011 in various faculties and departments. In collaboration with Green Belt Trust, Fire Service & Civil Defence and Development Initiative DUAA formed a Disaster Management Force (DMF) with 500 volunteers selected from 10 Halls of students of Dhaka University who will be trained by Fire Service & Civil Defence in a two year program funded by Development Initiative. In the mean time, DMF was launched through a ceremony on 26 May 2011 with 50 volunteers recruited from two halls trained for a short period who took part in a demonstration on disaster rescue operation led by Fire Service and Civil Defence. Vice Chancellor of Dhaka University was the Chief Guest and DG of Fire Service & Civil Defence, the special guest.</p><p class=\"m_bottom_15 fw_light fs_large\" style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \"Open Sans\", serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">Development of research activities of the University has been taken up to be implemented in near future along with the improvement of the Library. In the mean time a project was taken up to erect a number of sophisticated and decorative entry gates of the University. The first one is being processed sponsored by the NCC Bank at Shahbag point. Gradually other will be designed and erected.</p>', 'Amin', 1, 1, 1, '4', 46, NULL, '2023-02-11 22:26:32', '2023-02-11 22:32:21'),
+(3, 10, '2023-02-12', '04:33:42', 'ঢাকা বিশ্ববিদ্যালয়ের গৌরবময় শতবর্ষপূর্তি উপলক্ষে শতবর্ষের মিলনমেলা অনুষ্ঠিত', 1, 'অত্যন্ত আনন্দ উল্লাসে গত ১২ মার্চ ২০২২ উদ্যাপিত হলো ঢাকা বিশ্ববিদ্যালয়ের গৌরবময় শতবর্ষপূর্তি উপলক্ষে ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন আয়োজিত ‘শতবর্ষের', '<p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">অত্যন্ত আনন্দ উল্লাসে গত ১২ মার্চ ২০২২ উদ্যাপিত হলো ঢাকা বিশ্ববিদ্যালয়ের গৌরবময় শতবর্ষপূর্তি উপলক্ষে ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন আয়োজিত ‘শতবর্ষের মিলনমেলা’। ‘বাংলাদেশের পথযাত্রায় ঢাকা বিশ্ববিদ্যালয় অ্যালামনাই’ এই প্রতিপাদ্য নিয়ে প্রায় ১২,০০০ সম্মানিত সদস্যের উপস্থিতিতে ঢাকা বিশ্ববিদ্যালয় খেলার মাঠে অনুষ্ঠিত হয় ‘শতবর্ষের মিলনমেলা’।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">অনুষ্ঠানে প্রধান অতিথি হিসেবে উপস্থিত ছিলেন ঢাকা বিশ্ববিদ্যালয়ের প্রবীণতম শিক্ষার্থী মতিউল ইসলাম, বিশেষ অতিথি&nbsp; শতবর্ষ উদ্যাপন কমিটির চেয়ারম্যান জনাব সৈয়দ মঞ্জুর এলাহী, ঢাকা বিশ্ববিদ্যালয়ের মাননীয়&nbsp; প্রো-ভাইস চ্যান্সেলর (শিক্ষা) অধ্যাপক ড. এ. এস. এম. মাকসুদ কামাল,&nbsp; প্রো-ভাইস চ্যান্সেলর (প্রশাসন) অধ্যাপক ড. মুহাম্মদ সামাদ, অনুষ্ঠানে সভাপতিত্ব করেন অ্যালামনাই অ্যাসোসিয়েশনের সম্মানিত সভাপতি এ. কে. আজাদ।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">দিনব্যাপী অনুষ্ঠানের শুরুতেই জাতীয় পতাকা উত্তোলন ও বেলুন উড়ানোর মধ্য দিয়ে উদ্বোধনী অনুষ্ঠান অনুষ্ঠিত হয়। জাতীয় পতাকা উত্তোলন করেন প্রধান অতিথি ঢাকা বিশ্ববিদ্যালয়ের প্রবীণতম শিক্ষার্থী মো. মতিউল ইসলাম। ঢাকা বিশ্ববিদ্যালয়ের পতাকা উত্তোলন করেন বিশেষ অতিথি ঢাকা বিশ্ববিদ্যালয়ের প্রো-ভাইস চ্যান্সেলর (শিক্ষা) অধ্যাপক ড. এ. এস. এম. মাকসুদ কামাল, প্রো-ভাইস চ্যান্সেলর (প্রশাসন) অধ্যাপক ড. মুহাম্মদ সামাদ। ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের পতাকা উত্তোলন করেন অ্যালামনাই অ্যাসোসিয়েশন-এর সভাপতি জনাব এ. কে. আজাদ, সিনিয়র সহ-সভাপতি মোল্লা মোহাম্মাদ আবু কাওছার, মহাসচিব রঞ্জন কর্মকার, শতবর্ষ উদ্যাপন কমিটির চেয়ারম্যান জনাব সৈয়দ মঞ্জুর এলাহী, শতবর্ষ উদ্যাপন কমিটির আহ্বায়ক ও সহ-সভাপতি জনাব আনোয়ার-উল-আলম চৌধুরী পারভেজসহ ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের কার্যনির্বাহী কমিটির সদস্যবৃন্দ।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">উদ্বোধনী মঞ্চে উপস্থিত সম্মানিত অতিথিবৃন্দ এবং উদ্বোধনী অনুষ্ঠানে উপস্থিত সকল সম্মানিত অ্যালামনাইগণ বেলুন উড়িয়ে আনন্দ উল্লাসের মধ্য দিয়ে উদ্বোধনী অনুষ্ঠানের মাধ্যমে একে-অপরকে বরণ করে নেন।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">এরপর শত শিল্পীর লাইভ অর্কেস্ট্রা, সংগীত এবং নৃত্য পরিবেশনের মধ্য দিয়ে অনুষ্ঠান শুরু হয়। শতবর্ষ উপলক্ষে প্রকাশিত গ্রন্থসমূহের মোড়ক উম্মোচন ও ‘শিল্পীর রং তুলিতে ঢাকা বিশ্ববিদ্যালয়’ প্রদর্শনী উদ্বোধন করা হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">শতবর্ষের মিলনমেলায় ‘রং তুলিতে ঢাকা বিশ্ববিদ্যালয়’ শীর্ষক কর্মসূচিতে ১০০জন চিত্রশিল্পীর চিত্রকর্ম নিয়ে একটি প্রদর্শনীর ব্যবস্থা ছিল। এছাড়া শতবর্ষের স্মারকগ্রন্থ সহ অন্যান্য প্রকাশনাগুলো অ্যালামনাইদের মাঝে বিক্রয়ের ব্যবস্থা ছিলো। সম্মানিত অ্যালামনাইদের স্বাস্থ্য সুরক্ষার কথা বিবেচনায় নিয়ে একটি মেডিকেল ক্যাম্প করা হয়েছিল। যাতে কোনো অ্যালামনাই অসুস্থ হয়ে পড়লে তাৎক্ষণিক চিকিৎসা প্রদান করা সম্ভব হয়। এছাড়াও অংশগ্রহণকারী অ্যালামনাইদের সার্বক্ষণিক নিরাপত্তা, আপ্যায়ন ও পর্যাপ্ত সেনিটেশন-এর ব্যবস্থা রাখা হয়েছিল।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">শতবর্ষের মিলনমেলায় দিনব্যাপী অনুষ্ঠানের মধ্য দিয়ে সম্মানিত অ্যালামনাইগণ তাঁদের পুরনো দিনের স্মৃতি স্মরণ করেন এবং একে অপরকে তা সহভাগিতা করেন। শতবর্ষের মিলনমেলার মূল আকর্ষণ ছিলো জাকজমকপূর্ণ সাংস্কৃতিক অনুষ্ঠান।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">সাংস্কৃতিক অনুষ্ঠানের শুরুতে রবীন্দ্র, নজরুল ও হারানো দিনের গান পরিবেশন করেন অদিতি মহসীন, প্রিয়াংকা গোপ ও হৈমন্তী রক্ষিত। ৬০ ও ৭০ দশকের বাংলা চলচ্চিত্রের গান নিয়ে নৃত্য পরিবেশন করেন চাঁদনি, সিনথিয়া, মিম চৌধুরী ও তাঁদের দল। আধুনিক ও পুরানো দিনের গান পরিবেশনা করেন জনপ্রিয় শিল্পী সামিনা চৌধুরী ও সন্দীপন। প্রেমা ও তাঁর দলের অংশগ্রহণে পরিবেশন করা হয় আকর্ষণীয় রায়বেশি নৃত্য। এরপর সবথেকে বড় আকর্ষণ ছিল জনপ্রিয় ও জাতীয় পুরস্কারপ্রাপ্ত শিল্পী সাবিনা ইয়াসমিন-এর একক পরিবেশনা। বর্তমান প্রজন্মের শিল্পী নিশীতা বড়য়া-এর সংগীত পরিবেশনার মধ্য দিয়ে সাংস্কৃতিক অনুষ্ঠানের সমাপ্তি ঘোষণা করা হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">শতবর্ষে এসে শিক্ষার গুণগত মান ও পরিবেশ উন্নয়ন এবং গবেষণার পরিধি সম্প্রসারণ করে চতুর্থ শিল্প বিপ্লবের উপযোগী দক্ষ মানব সম্পদ তৈরির লক্ষ্য নিয়ে বর্তমান প্রশাসন একটি পূর্ণাঙ্গ মাস্টার প্ল্যান প্রণয়ন করেছেন।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">আমাদের পূর্বসূরি শ্রদ্ধেয় অ্যালামনাইদের নেতৃত্ব ও অংশগ্রহণে সৃষ্টি বাংলাদেশকে মুক্তিযুদ্ধের চেতনায় বঙ্গবন্ধুর আদর্শে অসাম্প্রদায়িক, গণতান্ত্রিক, মানবিক ও কল্যাণকামী উন্নত সম্বৃদ্ধ রাষ্ট্র প্রতিষ্ঠায় বর্তমান প্রজন্মকে দক্ষ মানব সম্পদ হিসেবে গড়ে তোলার ক্ষেত্রে যার যার অবস্থান থেকে শ্রদ্ধেয় অ্যালামনাইবৃন্দের প্রতি আহ্বান জানানো হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">&nbsp;</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">ঢাকা বিশ্ববিদ্যালয়ের সকল হল ও বিভাগীয় অ্যালামনাই অ্যাসোসিয়েশন একটি পরিবার হয়ে সম্মিলিত প্রচেষ্টায় মাতৃসম অ্যালমা মেটার ঢাকা বিশ্ববিদ্যালয়ের প্রতি আমাদের যে দায়বদ্ধতা তা মোচনের ক্ষেত্রে ভবিষ্যতের উদ্যোগ আরো বেগবান এবং কার্যকর হবে, শতবর্ষে দাঁড়িয়ে এই প্রত্যাশা করার মধ্য দিয়ে শতবর্ষের মিলনমেলা শেষ হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\"><strong style=\"border: 0px; font-variant: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-style: inherit; font-weight: bold; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;\">শতবর্ষের মিলনমেলার প্রকাশনা</strong></p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">ঢাকা বিশ্ববিদ্যালয়ের গৌরবময় শতবর্ষপূর্তি উপলক্ষে ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন বেশ কয়েকটি প্রকাশনা বের করে।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\"><strong style=\"border: 0px; font-variant: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-style: inherit; font-weight: bold; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;\">যাত্রিক বিশেষ সংখ্যা</strong></p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন-এর সম্মানিত সদস্যদের স্মৃতি ও ঢাকা বিশ্ববিদ্যালয় সম্পর্কিত লেখা নিয়ে নিয়মিত যাত্রিকের বিশেষ একটি সংখ্যা মুদ্রণ করা হয়। যা সম্মানিত অ্যালামনাইদের মধ্যে বিনামূল্যে বিতরণ করা হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\"><strong style=\"border: 0px; font-variant: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-style: inherit; font-weight: bold; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;\">শতবর্ষের ঢাকা বিশ্ববিদ্যালয়</strong></p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন কর্তৃক ঢাকা বিশ্ববিদ্যালয়ের শতবর্ষ উপলক্ষে&nbsp; দেশের খ্যাতিমান ও ঢাকা বিশ্ববিদ্যালয়ের বরেণ্য ১০০ জন অ্যালামনাই-এর লেখা সম্বলিত ‘শতবর্ষের ঢাকা বিশ্ববিদ্যালয় শিরোনামে শতবর্ষ স্মারকগ্রন্থ প্রকাশ করা হয়। গ্রন্থটির সম্পাদনার দায়িত্বে ছিলেন একুশে পদকপ্রাপ্ত সাংবাদিক অজয় দাশগুপ্ত। গ্রন্থটি অত্যন্ত তথ্যবহুল ও স্মৃতি বিজড়িত লেখায় পরিপূর্ণ। শতবর্ষের গৌরব, অর্জন, বৈচিত্র্য এবং এমনকি অপূর্ণতা ধারণের চেষ্টা করা হয়েছে এই গ্রন্থটিতে।</p>', 'Amin', 1, 1, 1, '4', 46, NULL, '2023-02-11 22:33:42', '2023-02-11 22:33:42'),
+(4, 10, '2023-02-12', '04:34:52', 'ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন-এর প্রতিষ্ঠার ৭৩ বছর উদযাপন', 1, 'ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের ৭৩তম প্রতিষ্ঠাবার্ষিকী উপলক্ষে ২৪ সেপ্টেম্বর ২০২১, শুক্রবার বিকেল ৪টায় ঢাকা বিশ্ববিদ্যালয়ের সিনেট ভবনস্থ অ্যালামনাই ফ্লোরে যথাযথ স্বাস্থ্যবিধি মেনে উদ্বোধনী অনুষ্ঠান, শুভেচ্ছা জ্ঞাপন এবং সাংস্কৃতিক অনুষ্ঠানের আয়োজন করা হয়।', '<p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের ৭৩তম প্রতিষ্ঠাবার্ষিকী উপলক্ষে ২৪ সেপ্টেম্বর ২০২১, শুক্রবার বিকেল ৪টায় ঢাকা বিশ্ববিদ্যালয়ের সিনেট ভবনস্থ অ্যালামনাই ফ্লোরে যথাযথ স্বাস্থ্যবিধি মেনে উদ্বোধনী অনুষ্ঠান, শুভেচ্ছা জ্ঞাপন এবং সাংস্কৃতিক অনুষ্ঠানের আয়োজন করা হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">পতাকা উত্তোলন, কেক কাটার মধ্য দিয়ে অনুষ্ঠানটি উদ্বোধন করেন ঢাকা বিশ্ববিদ্যালয়ের মাননীয় উপাচার্য ও ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের প্রধান পৃষ্ঠপোষক অধ্যাপক ড. মো. আখতারুজ্জামান। তিনি ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের কার্যনির্বাহী কমিটি, সকল জীবন সদস্যদের শুভেচ্ছা জানান এবং ঢাকা বিশ্ববিদ্যালয়ের অবকাঠামোগত উন্নয়ন ও শিক্ষার্থীদের বৃত্তি প্রদানের জন্য ধন্যবাদ জানান। এসময় আরো উপস্থিত ছিলেন ঢাকা বিশ্ববিদ্যালয়ের প্রো-ভাইস-চ্যান্সেলর (শিক্ষা) অধ্যাপক ড. এস এম মাকসুদ কামাল, ঢাকা বিশ্ববিদ্যালয় শিক্ষক সমিতির সাধারণ সম্পাদক অধ্যাপক ড. নিজামুল হক ভুঁইয়া। প্রো ভাইস-চ্যান্সেলর এবং শিক্ষক সমিতির সাধারণ সম্পাদক ঢাকা বিশ্ববিদ্যালয়ের শতবর্ষ উদ্যাপন উপলক্ষে ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন-এর অংশগ্রহণ এবং বিশ্ববিদ্যালয়ের সার্বিক উন্নয়নে সহযোগিতা প্রদান করায় কৃতজ্ঞতা প্রকাশ করেন।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">অনুষ্ঠানে সভাপতিত্ব করেন ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন-এর সভাপতি জনাব এ. কে. আজাদ।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">এরপর ঢাকা বিশ্ববিদ্যালয়ের শতবর্ষ এবং ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের ৭৩তম প্রতিষ্ঠাবার্ষিকী উপলক্ষে বিশিষ্ট ব্যক্তিবর্গ ভিডিও বার্তার মাধ্যমে শুভেচ্ছা বার্তা পাঠান। অনলাইনে যুক্ত হয়ে শুভেচ্ছা জ্ঞাপন বক্তব্য রাখেনÑ সিনিয়র সহ-সভাপতি মোল্লা মোহম্মাদ আবু কাওছার, ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের প্রাপ্তন সভাপতি ও মহাসচিব রকীবউদ্দীন আহম্মেদ। এছাড়াও শুভেচ্ছা জ্ঞাপন করেন সহ-সভাপতি আনোয়ার-উল-আলম চৌধুরী (পারভেজ), সহ-সভাপতি শাইখ সিরাজ, মহাসচিব রঞ্জন কর্মকার, কোষাধ্যক্ষ দেওয়ান রাশিদুল হাসান এবং কার্যনির্বাহী কমিটির সদস্য সেলিমা খাতুন।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\"><img src=\"https://duaa-bd.org/wp-content/uploads/2021/10/duaa73.jpg\" alt=\"\" width=\"725\" height=\"407\" class=\"aligncenter size-full wp-image-1349\" srcset=\"https://duaa-bd.org/wp-content/uploads/2021/10/duaa73.jpg 725w, https://duaa-bd.org/wp-content/uploads/2021/10/duaa73-300x168.jpg 300w\" sizes=\"(max-width: 725px) 100vw, 725px\" style=\"max-width: 100%; height: auto; vertical-align: top; margin-bottom: 0px; clear: both; display: block; margin-left: auto; margin-right: auto;\"></p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">বক্তাগণ বিশ্ববিদ্যালয়ের সার্বিক উন্নয়নে অ্যালামনাইদের সার্বিক সহযোগিতার প্রতিশ্রুতি ব্যক্ত করেন এবং শতবর্ষী বিশ্ববিদ্যালয়ের গৌরবের ও ঐতিহ্য রক্ষায় বর্তমান প্রজন্মকে আরো আন্তরিক ও সচেষ্ট হওয়ার আহ্বান জানান।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">অনুষ্ঠানটি সঞ্চালনা করেন ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন-এর যুগ্ম মহাসচিব আশরাফুল হক মুকুল।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">এরপর এক মনোজ্ঞ সাংস্কৃতিক অনুষ্ঠানে সংগীত পরিবেশন করেন শিল্পী প্রিয়াঙ্কা গোপ এবং নৃত্য পরিবেশন করেন নৃত্যশিল্পী সামিনা হোসেন প্রেমা। সাংস্কৃতিক অনুষ্ঠান পরিচালনা করেন ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের সাংস্কৃতিক সম্পাদক রোকাইয়া হাসিনা নিলি।</p>', 'Amin', 1, 1, 1, '0', 46, NULL, '2023-02-11 22:34:52', '2023-02-11 22:34:52'),
+(5, 10, '2023-02-12', '04:35:54', 'জাতীয় শোক দিবস উপলক্ষে “বাংলাদেশের বিরুদ্ধে ষড়যন্ত্র ও বঙ্গবন্ধু হত্যাকান্ড”- শীর্ষক একটি সেমিনার অনুষ্ঠিত।', 1, 'ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন-এর আয়োজনে জাতীয় শোক দিবস উপলক্ষে ‘বাংলাদেশের বিরুদ্ধে ষড়যন্ত্র ও বঙ্গবন্ধু হত্যাকান্ড-’ শীর্ষক একটি সেমিনার  ২৮ আগস্ট ২০২১, শনিবার সকাল ১০:৩০ মিনিটে ঢাকা বিশ্ববিদ্যালয়ের নবাব নওয়াব আলী চৌধুরী সিনেট ভবনস্থ অ্যালামনাই ফ্লোরে যথাযথ স্বাস্থ্যবিধি মেনে অনুষ্ঠিত হয়।', '<p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন-এর আয়োজনে জাতীয় শোক দিবস উপলক্ষে ‘বাংলাদেশের বিরুদ্ধে ষড়যন্ত্র ও বঙ্গবন্ধু হত্যাকান্ড-’ শীর্ষক একটি সেমিনার&nbsp; ২৮ আগস্ট ২০২১, শনিবার সকাল ১০:৩০ মিনিটে ঢাকা বিশ্ববিদ্যালয়ের নবাব নওয়াব আলী চৌধুরী সিনেট ভবনস্থ অ্যালামনাই ফ্লোরে যথাযথ স্বাস্থ্যবিধি মেনে অনুষ্ঠিত হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">সেমিনারে প্রধান অতিথি হিসেবে উপস্থিত ছিলেন বাংলাদেশ আওয়ামী লীগের সাধারণ সম্পাদক ও গণপ্রজাতন্ত্রী বাংলাদেশ সরকারের সড়ক পরিবহন ও সেতু মন্ত্রী জনাব ওবায়দুল কাদের, বিশেষ অতিথি হিসেবে উপস্থিত ছিলেন ঢাকা বিশ্ববিদ্যালয়ের মাননীয় উপাচার্য ও ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের প্রধান পৃষ্ঠপোষক অধ্যাপক ড. মো. আখতারুজ্জামান। মূল প্রবন্ধ উপস্থাপন করেন ঢাকা বিশ্ববিদ্যালয়ের কলা অনুষদের ডিন অধ্যাপক ড. আবু মো. দেলোয়ার হোসেন। মূল প্রবন্ধের উপর আলোচনায় অংশ নেন ঢাকা বিশ্ববিদ্যালয়ের আইন অনুষদের ডিন ও ঢাকা বিশ্ববিদ্যালয় শিক্ষক সমিতির সভাপতি অধ্যাপক ড. রহমত উল্লাহ এবং ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের সহ-সভাপতি আনোয়ার-উল-আলম চোধুরী (পারভেজ) এবং মহাসচিব জনাব রঞ্জন কর্মকার। স্বাগত বক্তব্য রাখেন ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের সিনিয়র সহ-সভাপতি মোল্লা মোহাম্মাদ আবু কাওছার। সেমিনারটি সঞ্চালনা করেন ঢাকা বিশ্ববিদ্যালয়ের ইনস্টিটিউট অব ডিজাস্টার ম্যানেজমেন্ট এন্ড ভালনারেবিলিটি স্টাডিজ এর অধ্যাপক ড. খোন্দকার মোকাদ্দেম হোসেন ও ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের সাংগঠনিক সম্পাদক এ. কে. এম. আফজালুর রহমান বাবু। সেমিনারে ওয়েবিনার যুক্ত এবং স্বশরীরে উপস্থিত ছিলেন ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের সম্মানিত জীবনসদস্যবৃন্দ।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">অনুষ্ঠানের সভাপতিত্ব করেন ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের সভাপতি জনাব এ. কে. আজাদ।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">সেমিনারের শুরুতেই ১৯৭৫ সালের ১৫ আগস্ট স্বাধীনতা বিরোধী, দেশি-বিদেশি ষড়যন্ত্রকারীদের হাতে নিহত সর্বকালের সর্বশ্রেষ্ঠ বাঙালি জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান, বঙ্গমাতা ফজিলাতুন্নেছা মুজিব সহ সকল শহীদের শ্রদ্ধা জানিয়ে পুস্পার্ঘ অর্পন এবং শহীদের প্রতি শ্রদ্ধা জানিয়ে দাঁড়িয়ে এক মিনিট নীরবতা পালন।<br>অ্যালামনাই অ্যাসোসিয়েশনের পক্ষ থেকে দাবী জানানো হয় জাতীয় কমিশন গঠন করে ১৫ আগস্ট ও ২১ আগস্ট হত্যাকান্ডের ষড়যন্ত্রকারীদের বর্তমান ও ভবিষ্যৎ প্রজন্মের কাছে তুলে ধরার।</p>', 'Amin', 1, 3, 1, '4', 46, NULL, '2023-02-11 22:35:54', '2023-02-11 22:35:54'),
+(6, 11, '2023-02-12', '04:36:57', 'Member Information Update', 1, 'Honorable DUAA members, kindly update your email address by clicking this link. https://duaa-bd.org/update/ You may also visit DUAA office to', '<p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">Honorable DUAA members, kindly update your email address by clicking this link.<br>https://duaa-bd.org/update/</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">You may also visit DUAA office to update your email address:<br>Credentials to log into DUAA’s Konnekt platform will be sent to your email.</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">About DUAA’s Konnekt Platform:<br>https://www.konnektios.net<br>https://www.youtube.com/@konnektios3721<br>https://www.facebook.com/profile.php?id=100083271254392</p>', 'Amin', 1, 1, 1, '0', 46, NULL, '2023-02-11 22:36:57', '2023-02-11 22:36:57'),
+(7, 11, '2023-02-12', '04:37:35', 'দরপত্র-বিজ্ঞপ্তি', 1, '', '', 'Amin', 1, 1, 1, '0', 46, NULL, '2023-02-11 22:37:35', '2023-02-11 22:37:35'),
+(8, 11, '2023-02-12', '04:38:28', 'সাব-কমিটি গঠন সংক্রান্ত বিজ্ঞপ্তি', 1, '', '<p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">সম্মানিত জীবন সদস্যদের জ্ঞাতার্থে জানানো যাচ্ছে যে, ঢাকা বিশ্ববিদ্যালয়ের শতবর্ষপূর্তি উপলক্ষ্যে ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন কর্তৃক আয়োজিত শতবর্ষের মিলনমেলার কাজগুলোকে সুন্দর ও সুশৃঙ্খলভাবে পরিচালনার জন্য বিভিন্ন সাব-কমিটি গঠন করা হচ্ছে। আপনি যদি সাব-কমিটিতে যুক্ত থেকে কাজ করতে আগ্রহী থাকেন তাহলে আগামী ১৩ নভেম্বর ২০২১ তারিখের মধ্যে অফিসে এসে নাম প্রদানের জন্য অনুরোধ করা হলো।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">উল্লেখ্য যে, নাম প্রদানকৃত সদস্যদেরকে অবশ্যই সময় দিতে হবে এবং কাজ করার মনোভাব থাকতে হবে।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">ধন্যবাদান্তে,</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">রঞ্জন কর্মকার<br>মহাসচিব</p>', 'Amin', 1, 1, 1, '0', 46, NULL, '2023-02-11 22:38:28', '2023-02-11 22:38:28'),
+(9, 12, '2023-02-12', '04:39:37', 'আন্তর্জাতিক মাতৃভাষা দিবসে শহিদদের প্রতি শ্রদ্ধা নিবেদন', 1, '', '', 'Amin', 1, 1, 1, '1', 46, NULL, '2023-02-11 22:39:37', '2023-02-11 22:39:37'),
+(10, 12, '2023-02-12', '04:40:55', 'সন্ত্রাস, জঙ্গিবাদ, মাদক ও বাল্যবিবাহের বিরুদ্ধে প্রচারাভিযান ২০১৮', 1, '', '', 'Amin', 1, 2, 1, '1', 46, NULL, '2023-02-11 22:40:55', '2023-02-11 22:40:55'),
+(11, 13, '2023-02-12', '04:43:08', 'সমাজ পরিবর্তনে শিক্ষার্থী অভিজ্ঞতা বিনিময় অনুষ্ঠান', 1, 'গত ০৪ মার্চ ২০১৮ ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন ২০১৫-২০১৬ শিক্ষাবর্ষের বৃত্তিপ্রাপ্ত ‘সামাজিক উদ্যোগে স্বেচ্ছাশ্রম’ কর্মকান্ডে অংশগ্রহণ করা শিক্ষার্থীদের নিয়ে ঢাকা', '<p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \" open=\"\" sans\",=\"\" serif;=\"\" font-size:=\"\" 15px;=\"\" margin-right:=\"\" 0px;=\"\" margin-bottom:=\"\" margin-left:=\"\" outline:=\"\" padding:=\"\" vertical-align:=\"\" baseline;=\"\" color:=\"\" rgb(68,=\"\" 68,=\"\" 68);\"=\"\">গত ০৪ মার্চ ২০১৮ ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন ২০১৫-২০১৬ শিক্ষাবর্ষের বৃত্তিপ্রাপ্ত ‘সামাজিক উদ্যোগে স্বেচ্ছাশ্রম’ কর্মকান্ডে অংশগ্রহণ করা শিক্ষার্থীদের নিয়ে ঢাকা বিশ্ববিদ্যালয়ের টিএসসি তে ‘সমাজ পরিবর্তনে শিক্ষার্থী অভিজ্ঞতা বিনিময় অনুষ্ঠানের’ আয়োজন করে। উক্ত অনুষ্ঠানে সভাপতিত্ত্ব করেন ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশ এর সভাপতি জনাব এ. কে. আজাদ এবং প্রধান অতিথি হিসেবে উপস্থিত ছিলেন ঢাকা বিশ্ববিদ্যালয়ে উপ-উপাচার্য (শিক্ষা) অধ্যাপক ড. নাসরীন আহমাদ এবং বিশেষ অতিথি হিসেবে উপস্থিত ছিলেন ঢাকা বিশ্ববিদ্যালয়ে শিক্ষক সমিতির সভাপতি অধ্যাপক ড. এস এম মাকসুদ কামাল।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \" open=\"\" sans\",=\"\" serif;=\"\" font-size:=\"\" 15px;=\"\" margin-right:=\"\" 0px;=\"\" margin-bottom:=\"\" margin-left:=\"\" outline:=\"\" padding:=\"\" vertical-align:=\"\" baseline;=\"\" color:=\"\" rgb(68,=\"\" 68,=\"\" 68);\"=\"\"><img class=\"alignleft size-medium wp-image-813\" src=\"https://duaa-bd.org/wp-content/uploads/2018/03/img1-300x209.jpg\" alt=\"\" width=\"300\" height=\"209\" srcset=\"https://duaa-bd.org/wp-content/uploads/2018/03/img1-300x209.jpg 300w, https://duaa-bd.org/wp-content/uploads/2018/03/img1-392x272.jpg 392w, https://duaa-bd.org/wp-content/uploads/2018/03/img1-130x90.jpg 130w, https://duaa-bd.org/wp-content/uploads/2018/03/img1.jpg 458w\" sizes=\"(max-width: 300px) 100vw, 300px\" style=\"max-width: 100%; height: auto; vertical-align: top; margin-bottom: 0px; display: inline; float: left; margin-right: 30px;\">রাজশাহী অঞ্চলে আমরা তিনটি বাল্যবিয়ে ঠেকিয়ে দিতে পেরেছি। প্রাথমিক শিক্ষা থেকে ঝরে পড়া একঝাঁক শিশুকে আবারও পড়াশোনা কিভাবে শুরু করা যাবে, দিয়েছি সেই পরামর্শ। আমাদের উৎসাহে মাগুরায় মাদক বিক্রি নিষিদ্ধে সক্রিয় উদ্যোগের প্রকাশ্য ঘোষণা দেন একজন জনপ্রতিনিধি। কোনো ধর্মেই যে জঙ্গিবাদের স্থান নেই- সে ব্যাপারেও প্রত্যন্ত অঞ্চলের শিক্ষার্থীদের সঙ্গে প্রাণখোলা আলাপ হয়েছে।<img class=\"alignright size-medium wp-image-815\" src=\"https://duaa-bd.org/wp-content/uploads/2018/03/img3-300x195.jpg\" alt=\"\" width=\"300\" height=\"195\" srcset=\"https://duaa-bd.org/wp-content/uploads/2018/03/img3-300x195.jpg 300w, https://duaa-bd.org/wp-content/uploads/2018/03/img3.jpg 488w\" sizes=\"(max-width: 300px) 100vw, 300px\" style=\"max-width: 100%; height: auto; vertical-align: top; margin-bottom: 0px; display: inline; float: right; margin-left: 30px;\"></p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \" open=\"\" sans\",=\"\" serif;=\"\" font-size:=\"\" 15px;=\"\" margin-right:=\"\" 0px;=\"\" margin-bottom:=\"\" margin-left:=\"\" outline:=\"\" padding:=\"\" vertical-align:=\"\" baseline;=\"\" color:=\"\" rgb(68,=\"\" 68,=\"\" 68);\"=\"\">&nbsp;</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \" open=\"\" sans\",=\"\" serif;=\"\" font-size:=\"\" 15px;=\"\" margin-right:=\"\" 0px;=\"\" margin-bottom:=\"\" margin-left:=\"\" outline:=\"\" padding:=\"\" vertical-align:=\"\" baseline;=\"\" color:=\"\" rgb(68,=\"\" 68,=\"\" 68);\"=\"\">&nbsp;</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \" open=\"\" sans\",=\"\" serif;=\"\" font-size:=\"\" 15px;=\"\" margin-right:=\"\" 0px;=\"\" margin-bottom:=\"\" margin-left:=\"\" outline:=\"\" padding:=\"\" vertical-align:=\"\" baseline;=\"\" color:=\"\" rgb(68,=\"\" 68,=\"\" 68);\"=\"\">এভাবেই নিজেদের অভিজ্ঞতার কথা জানান ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের উদ্যোগে পরিচালিত ‘সামাজিক উদ্যোগে স্বেচ্ছাশ্রম’ ক্যাম্পেইনে অংশগ্রহণকারী শিক্ষার্থীরা। অ্যালামনাই অ্যাসোসিয়েশনের আর্থিক সহযোগিতায় নিজেদের পারিবারিক অসচ্ছলতাকে জয় করে মেধার সর্বোচ্চ বিকাশে পরিশ্রম করে চলেছেন তারা। পাশাপাশি সম্পৃক্ত হয়েছেন সন্ত্রাস-জঙ্গিবাদ-মাদক এবং বাল্যবিয়ে প্রতিরোধের লক্ষ্যে গ্রাম ও শিক্ষা প্রতিষ্ঠান পর্যায়ে পরিচালিত প্রচার কার্যক্রমেও। গত ০৪ মার্চ ২০১৮ রোববার ঢাবির টিএসসি মিলনায়তনে ’সমাজ পরিবর্তনে শিক্ষার্থী’ শীর্ষক অনুষ্ঠানে সেই কার্যক্রমে পাওয়া অভিজ্ঞতাই বিনিময় করেন শিক্ষার্থীরা।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \" open=\"\" sans\",=\"\" serif;=\"\" font-size:=\"\" 15px;=\"\" margin-right:=\"\" 0px;=\"\" margin-bottom:=\"\" margin-left:=\"\" outline:=\"\" padding:=\"\" vertical-align:=\"\" baseline;=\"\" color:=\"\" rgb(68,=\"\" 68,=\"\" 68);\"=\"\"><img class=\"alignleft size-medium wp-image-814\" src=\"https://duaa-bd.org/wp-content/uploads/2018/03/img5-300x210.jpg\" alt=\"\" width=\"300\" height=\"210\" srcset=\"https://duaa-bd.org/wp-content/uploads/2018/03/img5-300x210.jpg 300w, https://duaa-bd.org/wp-content/uploads/2018/03/img5-130x90.jpg 130w, https://duaa-bd.org/wp-content/uploads/2018/03/img5.jpg 450w\" sizes=\"(max-width: 300px) 100vw, 300px\" style=\"max-width: 100%; height: auto; vertical-align: top; margin-bottom: 0px; display: inline; float: left; margin-right: 30px;\">ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন “শিক্ষা ও সামাজিক উন্নয়নের জন্য বৃত্তি” এই অঙ্গীকার নিয়ে ঢাকা বিশ্ববিদ্যালয়ের অসচ্ছল শিক্ষার্থীদের মধ্যে বৃত্তি কার্যক্রম শুরু করে। এরই ধারাবাহিকতায় ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন ঢাকা বিশ্ববিদ্যালয়ের ২০১৫-২০১৬ শিক্ষাবর্ষের ৭০৪ জন অসচ্ছল মেধাবী শিক্ষার্থীকে আগামী ৪ বছরের জন্য প্রতি মাসে প্রত্যেককে ২,৫০০ টাকা করে বৃত্তি প্রদান করে যাচ্ছে। বৃত্তির পাশাপাশি শিক্ষার্থীরা যাতে সামাজিক উন্নয়নে ভূমিকা রাখতে পারে সেজন্য ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন এ বছর বৃত্তিপ্রাপ্ত শিক্ষার্থীদের নিয়ে ‘সামাজিক উদ্যোগে স্বেচ্ছাশ্রম’ শীর্ষক একটি ক্যাম্পেইনের আয়োজন করে। বিশ্ববিদ্যালয়ের শীতকালীন ছুটিতে বৃত্তিপ্রাপ্ত শিক্ষার্থীরা নিজ নিজ এলাকায় গিয়ে ২০ থেকে ৩০ ডিসেম্বর ২০১৭ স্কুল ও কলেজের শিক্ষার্থী এবং এলাকার যুব সমাজের মাঝে তাদের এই সামাজিক কার্যক্রম পরিচালনা করে। ৬০টি জেলার মোট অংশগ্রহণকারী ৬১০ জন (ছেলে ৩৮৭ এবং মেয়ে ২২৩) শিক্ষার্থী ১৬৩ টি গ্রুপে ভাগ হয়ে এই কার্যক্রম পরিচালনা করে।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \" open=\"\" sans\",=\"\" serif;=\"\" font-size:=\"\" 15px;=\"\" margin-right:=\"\" 0px;=\"\" margin-bottom:=\"\" margin-left:=\"\" outline:=\"\" padding:=\"\" vertical-align:=\"\" baseline;=\"\" color:=\"\" rgb(68,=\"\" 68,=\"\" 68);\"=\"\"><img class=\"alignleft size-medium wp-image-811\" src=\"https://duaa-bd.org/wp-content/uploads/2018/03/img4-300x205.jpg\" alt=\"\" width=\"300\" height=\"205\" srcset=\"https://duaa-bd.org/wp-content/uploads/2018/03/img4-300x205.jpg 300w, https://duaa-bd.org/wp-content/uploads/2018/03/img4-130x90.jpg 130w, https://duaa-bd.org/wp-content/uploads/2018/03/img4.jpg 457w\" sizes=\"(max-width: 300px) 100vw, 300px\" style=\"max-width: 100%; height: auto; vertical-align: top; margin-bottom: 0px; display: inline; float: left; margin-right: 30px;\"></p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \" open=\"\" sans\",=\"\" serif;=\"\" font-size:=\"\" 15px;=\"\" margin-right:=\"\" 0px;=\"\" margin-bottom:=\"\" margin-left:=\"\" outline:=\"\" padding:=\"\" vertical-align:=\"\" baseline;=\"\" color:=\"\" rgb(68,=\"\" 68,=\"\" 68);\"=\"\">শিক্ষার্থীদের অভিজ্ঞতা শোনার পর প্রধান অতিথির বক্তব্যে অধ্যাপক ড. নাসরীন আহমাদ বলেন, সাবেক ও বর্তমান প্রত্যেক শিক্ষার্থী ঢাকা বিশ্ববিদ্যালয়ের একেকজন দূত। তাই অ্যালামনাইদের এমন উদ্যোগ সত্যিই প্রশংসনীয়। সন্ত্রাস-জঙ্গিবাদ-মাদক এবং বাল্যবিয়ে রোধের পাশাপাশি পরিবেশ রক্ষা, পরিস্কার-পরিচ্ছন্নতা ও সঠিক ইতিহাস জানানোর বিষয়ে সচেতনতা তৈরির আহ্বান জানান তিনি।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \" open=\"\" sans\",=\"\" serif;=\"\" font-size:=\"\" 15px;=\"\" margin-right:=\"\" 0px;=\"\" margin-bottom:=\"\" margin-left:=\"\" outline:=\"\" padding:=\"\" vertical-align:=\"\" baseline;=\"\" color:=\"\" rgb(68,=\"\" 68,=\"\" 68);\"=\"\"><br></p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \" open=\"\" sans\",=\"\" serif;=\"\" font-size:=\"\" 15px;=\"\" margin-right:=\"\" 0px;=\"\" margin-bottom:=\"\" margin-left:=\"\" outline:=\"\" padding:=\"\" vertical-align:=\"\" baseline;=\"\" color:=\"\" rgb(68,=\"\" 68,=\"\" 68);\"=\"\">&nbsp;</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \" open=\"\" sans\",=\"\" serif;=\"\" font-size:=\"\" 15px;=\"\" margin-right:=\"\" 0px;=\"\" margin-bottom:=\"\" margin-left:=\"\" outline:=\"\" padding:=\"\" vertical-align:=\"\" baseline;=\"\" color:=\"\" rgb(68,=\"\" 68,=\"\" 68);\"=\"\">&nbsp;</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \" open=\"\" sans\",=\"\" serif;=\"\" font-size:=\"\" 15px;=\"\" margin-right:=\"\" 0px;=\"\" margin-bottom:=\"\" margin-left:=\"\" outline:=\"\" padding:=\"\" vertical-align:=\"\" baseline;=\"\" color:=\"\" rgb(68,=\"\" 68,=\"\" 68);\"=\"\"><img class=\"alignleft size-medium wp-image-808\" src=\"https://duaa-bd.org/wp-content/uploads/2018/03/img2-300x212.jpg\" alt=\"\" width=\"300\" height=\"212\" srcset=\"https://duaa-bd.org/wp-content/uploads/2018/03/img2-300x212.jpg 300w, https://duaa-bd.org/wp-content/uploads/2018/03/img2.jpg 451w\" sizes=\"(max-width: 300px) 100vw, 300px\" style=\"max-width: 100%; height: auto; vertical-align: top; margin-bottom: 0px; display: inline; float: left; margin-right: 30px;\">সভাপতির বক্তব্যে এ. কে. আজাদ বলেন, সামাজিক পরিবর্তনে স্বেচ্ছা কার্যক্রমে অংশ নিয়ে শিক্ষার্থীরা অসাধ্য সাধন করেছে। তাদের অভিজ্ঞতা সবার জন্যই শিক্ষণীয়। এসব শিক্ষার্থীর মধ্যে আটজনকে ‘অ্যালামনাই অ্যাওয়ার্ড ফর সোশ্যাল অ্যাক্টিভিটিস’ প্রদান করা হবে। বিশ্ববিদ্যালয়ৈর টিএসসিসহ বিভিন্ন অবকাঠামো উন্নয়নে অ্যালামনাই অ্যাসোসিয়েশনের উদ্যোগ ও পরিকল্পনার কথা তুলে ধরে দেশের বিশিষ্ট এ উদ্যোক্তা বলেন, বিশ্বব্যাপী বিশ্ববিদ্যালয়ের উন্নয়নে অ্যালামনাইরা অগ্রণী ভূমিকা রাখেন। ঢাকা বিশ্ববিদ্যালয়ের বিপুল সম্ভাবনাকে কাজে লাগাতে এখানকার অ্যালামনাই অ্যাসোসিয়েশনও প্রস্তুত। এ ক্ষেত্রে বিশ্ববিদ্যালয় প্রশাসনের সহযোগিতা কামনা করেন তিনি।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \" open=\"\" sans\",=\"\" serif;=\"\" font-size:=\"\" 15px;=\"\" margin-right:=\"\" 0px;=\"\" margin-bottom:=\"\" margin-left:=\"\" outline:=\"\" padding:=\"\" vertical-align:=\"\" baseline;=\"\" color:=\"\" rgb(68,=\"\" 68,=\"\" 68);\"=\"\">বিশেষ অতিথির বক্তব্যে ঢাকা বিশ্ববিদ্যালয় শিক্ষক সমিতির সভাপতি অধ্যাপক ড. এস এম মাকসুদ কামাল বলেন, মাদক, বাল্য বিয়ে, জঙ্গিবাদ, ইভটিজিং একেকটি সামাজিক ক্ষত। এসবের বিরুদ্ধে সামাজিক প্রতিরোধের কোনো বিকল্প নেই।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \" open=\"\" sans\",=\"\" serif;=\"\" font-size:=\"\" 15px;=\"\" margin-right:=\"\" 0px;=\"\" margin-bottom:=\"\" margin-left:=\"\" outline:=\"\" padding:=\"\" vertical-align:=\"\" baseline;=\"\" color:=\"\" rgb(68,=\"\" 68,=\"\" 68);\"=\"\">অ্যাসোসিয়েশনের মহাসচিব রঞ্জন কর্মকারের সঞ্চালনায় অনুষ্ঠানে অন্যদের মধ্যে বক্তব্য দেন সহ-সভাপতি মোল্লা মো. আবু কাওছার, এসিআই গ্রুপের চেয়ারম্যান এম আনিস উদ দৌলা, অ্যাসোসিয়েশনের কার্যনির্বাহী সদস্য আনোয়ারুল আলম চৌধুরী পারভেজ। অ্যাসোসিয়েশনের নেতৃবৃন্দসহ অতিথিদের মধ্যে এ সময় মঞ্চে আর উপস্থিত ছিলেন মুনিরা খান, সেলিনা খালেক, মাহফুজা রহমান চৌধুরী বাবলী, শবনম শাহনাজ চৌধুরী প্রমুখ।</p>', 'Amin', 1, 1, 1, '4', 46, NULL, '2023-02-11 22:42:34', '2023-02-11 22:43:08');
 
 -- --------------------------------------------------------
 
@@ -787,7 +1073,44 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (259, 1),
 (260, 1),
 (261, 1),
-(262, 1);
+(262, 1),
+(263, 1),
+(264, 1),
+(265, 1),
+(266, 1),
+(267, 1),
+(268, 1),
+(269, 1),
+(270, 1),
+(271, 1),
+(272, 1),
+(273, 1),
+(274, 1),
+(275, 1),
+(276, 1),
+(277, 1),
+(278, 1),
+(279, 1),
+(280, 1),
+(281, 1),
+(282, 1),
+(283, 1),
+(284, 1),
+(285, 1),
+(286, 1),
+(287, 1),
+(288, 1),
+(289, 1),
+(290, 1),
+(291, 1),
+(292, 1),
+(293, 1),
+(294, 1),
+(295, 1),
+(296, 1),
+(297, 1),
+(298, 1),
+(299, 1);
 
 -- --------------------------------------------------------
 
@@ -810,6 +1133,32 @@ CREATE TABLE `sessions` (
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
 ('RjUC9Ipt1vrvpK5Vj1sbUncGUXmwFjiV2IqhM8pF', 8, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiZXFscGszdzNZa014T0tLQTNiWE1rVWN3TUdtOFZYNFR6U2NIYnM4OCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZGQtd2FsbGV0Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6ODtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJEFPVzJNTzVTRFBZVC9FeERMM25BSS41Q3l4bG1HT1VQekZZODNETS5GckQxaGdrV3pnSDdDIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRBT1cyTU81U0RQWVQvRXhETDNuQUkuNUN5eGxtR09VUHpGWTgzRE0uRnJEMWhna1d6Z0g3QyI7fQ==', 1630340574);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sliders`
+--
+
+CREATE TABLE `sliders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sub_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slider_img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0,
+  `posstion` float NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sliders`
+--
+
+INSERT INTO `sliders` (`id`, `title`, `sub_title`, `slider_img`, `status`, `posstion`, `created_at`, `updated_at`) VALUES
+(1, 'শতবর্ষের মিলনমেলা', 'শতবর্ষের মিলনমেলা', 'post-image/0212202305334563e87a39c5070.jpg', 1, 1, '2023-02-11 23:33:45', '2023-02-11 23:37:30'),
+(2, 'শতবর্ষের মিলনমেলা', 'শতবর্ষের মিলনমেলা', 'post-image/0212202305360763e87ac776043.jpg', 1, 2, '2023-02-11 23:36:07', '2023-02-11 23:36:07'),
+(4, 'শতবর্ষের মিলনমেলা', 'শতবর্ষের মিলনমেলা 3', 'post-image/0212202305380663e87b3ec9214.jpg', 1, 3, '2023-02-11 23:38:06', '2023-02-11 23:38:06');
 
 -- --------------------------------------------------------
 
@@ -869,9 +1218,55 @@ INSERT INTO `users` (`id`, `name`, `first_name`, `last_name`, `phone_number`, `e
 (58, 'ddasd dsadas', NULL, NULL, NULL, 'jonyirwer@gmail.com', NULL, 'user', NULL, '$2y$10$PiUjc5ZkNIVK5Q8NhxjEzeD/CVhPooFnHtX4Xli/ezTIMJb4WPXq.', NULL, 1, 0, NULL, '2023-01-25 09:45:19', '2023-01-25 09:47:56'),
 (59, 'Mo Ali Ali', NULL, NULL, NULL, 'moali0507@gmail.com', NULL, 'user', NULL, '$2y$10$kLkzcr8oQn4lixbEgGbrfevr2KhGa0aU0YXxYgkMbC.0lNKfKGkr.', NULL, 0, 0, NULL, '2023-01-25 09:50:31', '2023-01-25 09:50:31');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `year_batches`
+--
+
+CREATE TABLE `year_batches` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `year_batches`
+--
+
+INSERT INTO `year_batches` (`id`, `name`, `code`, `created_at`, `updated_at`) VALUES
+(1, '1949', '', '2023-02-12 04:50:23', '2023-02-12 04:52:11'),
+(2, '1950', '', '2023-02-12 04:50:32', '2023-02-12 04:52:21'),
+(3, '1951', '', '2023-02-12 04:50:37', '2023-02-12 04:52:36'),
+(4, '1952', '', '2023-02-12 04:50:41', '2023-02-12 04:52:46'),
+(5, '1953', '', '2023-02-12 04:50:46', '2023-02-12 04:52:54'),
+(6, '1954', '', '2023-02-12 04:50:49', '2023-02-12 04:53:02'),
+(7, '1955', '', '2023-02-12 04:50:54', '2023-02-12 04:53:10'),
+(8, '1956', '', '2023-02-12 04:51:00', '2023-02-12 04:53:17');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `countries`
+--
+ALTER TABLE `countries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `degrees`
+--
+ALTER TABLE `degrees`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `exam_sessions`
+--
+ALTER TABLE `exam_sessions`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -881,15 +1276,39 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `genders`
+--
+ALTER TABLE `genders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `general_settings`
 --
 ALTER TABLE `general_settings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `home_page_setups`
+--
+ALTER TABLE `home_page_setups`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `images`
 --
 ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `membership_types`
+--
+ALTER TABLE `membership_types`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `member_infos`
+--
+ALTER TABLE `member_infos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -931,6 +1350,12 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indexes for table `paying_systems`
+--
+ALTER TABLE `paying_systems`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `permissions`
 --
 ALTER TABLE `permissions`
@@ -964,6 +1389,12 @@ ALTER TABLE `sessions`
   ADD KEY `sessions_last_activity_index` (`last_activity`);
 
 --
+-- Indexes for table `sliders`
+--
+ALTER TABLE `sliders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `social_media`
 --
 ALTER TABLE `social_media`
@@ -977,8 +1408,32 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `year_batches`
+--
+ALTER TABLE `year_batches`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `countries`
+--
+ALTER TABLE `countries`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `degrees`
+--
+ALTER TABLE `degrees`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `exam_sessions`
+--
+ALTER TABLE `exam_sessions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -987,16 +1442,40 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `genders`
+--
+ALTER TABLE `genders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `general_settings`
 --
 ALTER TABLE `general_settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `home_page_setups`
+--
+ALTER TABLE `home_page_setups`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `membership_types`
+--
+ALTER TABLE `membership_types`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `member_infos`
+--
+ALTER TABLE `member_infos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `menus`
@@ -1008,7 +1487,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
 
 --
 -- AUTO_INCREMENT for table `page_rows`
@@ -1017,22 +1496,34 @@ ALTER TABLE `page_rows`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT for table `paying_systems`
+--
+ALTER TABLE `paying_systems`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=263;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `sliders`
+--
+ALTER TABLE `sliders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `social_media`
@@ -1045,6 +1536,12 @@ ALTER TABLE `social_media`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+
+--
+-- AUTO_INCREMENT for table `year_batches`
+--
+ALTER TABLE `year_batches`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
