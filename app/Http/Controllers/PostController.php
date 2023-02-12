@@ -28,7 +28,7 @@ class PostController extends Controller
     {
         $slug_detail= Menu::with(['parent_cat'])->where('slug',$slug)->first();
         if($slug_detail){
-            $data=Post::with(['parent_cat','_images'])->where('menu_id',$slug_detail->id)
+            $data=Post::with(['parent_cat','_images','_user'])->where('menu_id',$slug_detail->id)
                         ->orderBy('position','asc')
                         ->get();
             $page_name=$slug_detail->menu_name;
@@ -42,6 +42,7 @@ class PostController extends Controller
                 // Photo Gallary
                  return view('backend.admin-post.index_gallary',compact('slug_detail','page_name','data'));
             }
+           // return $data;
             return view('backend.admin-post.index',compact('data','page_name','slug_detail'));
         }else{
             return "Url Not found";
@@ -213,10 +214,11 @@ class PostController extends Controller
                         $Image->image = $_image;
                         $Image->post_id = $post_id;
                         $Image->menu_id = $request->menu_id;
-                        $Image->status = $request->status;
+                        $Image->status = $request->status ?? 1;
                         $Image->title = $request->image_title ?? '';
-                        $Image->serial   = $request->image_serial ?? '';
-                        $Image->is_dawnloadable   = $request->is_dawnloadable ?? '';
+                        $Image->serial   = $request->image_serial ?? 0;
+                        $Image->is_dawnloadable   = $request->is_dawnloadable ?? 0;
+                        $Image->created_by   = Auth::user()->id ;
                         $Image->save();
                     }
                  //}
@@ -307,7 +309,7 @@ class PostController extends Controller
     public function edit( $id)
     {
 
-         $data = Post::with(['_images','parent_cat'])->find($id);
+          $data = Post::with(['_images','parent_cat','_user'])->find($id);
          $image_details =  $data->_images ?? [];
          //echo sizeof($image_details);
         $slug_detail= Menu::with(['parent_cat'])->where('id',$data->menu_id)->first();

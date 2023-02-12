@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2023 at 12:47 PM
+-- Generation Time: Feb 12, 2023 at 05:02 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -82,24 +82,7 @@ CREATE TABLE `general_settings` (
 --
 
 INSERT INTO `general_settings` (`id`, `title`, `name`, `_address`, `keywords`, `author`, `url`, `_bin`, `_tin`, `logo`, `bg_image`, `footerContent`, `description`, `created_by`, `updated_by`, `created_at`, `updated_at`, `_phone`, `_email`, `_sales_note`, `_sales_return__note`, `_purchse_note`, `_purchase_return_note`, `_top_title`, `_ac_type`, `_sms_service`, `_barcode_service`, `_bank_group`, `_cash_group`, `_auto_lock`, `_pur_base_model_barcode`) VALUES
-(1, 'PHPOS', 'PHPOS', 'Mirpur 10,Dhaka 1216', 'PHPOS', 'Farhad', '#', '123456789098', '546789098765', 'images/0129202309234463d63b201faea.jpg', NULL, NULL, NULL, NULL, NULL, '2021-06-06 08:00:54', '2023-01-29 03:31:09', '+8801756256562, +8801677023131', 'demo@gmail.com', 'Goods sold are not returnable. If need any support, Call: +8801756256562, +8801677023131', '', '', '', '﷽', 0, 1, 0, 15, 16, 0, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `homepage_settings`
---
-
-CREATE TABLE `homepage_settings` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `menu_id` int(11) NOT NULL,
-  `serial` int(11) NOT NULL,
-  `order_by` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `limit` int(11) NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(1, 'DUGAA', 'DUGAA', 'Mirpur 10,Dhaka 1216', 'DUGAA', 'DUGAA', '#', '123456789098', '546789098765', 'images/0208202304350863e3267c09a05.jpg', NULL, NULL, NULL, NULL, NULL, '2021-06-06 08:00:54', '2023-02-07 22:35:08', '+8801756256562, +8801677023131', 'demo@gmail.com', 'Goods sold are not returnable. If need any support, Call: +8801756256562, +8801677023131', '', '', '', '﷽', 0, 1, 0, 15, 16, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -109,18 +92,36 @@ CREATE TABLE `homepage_settings` (
 
 CREATE TABLE `images` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `post_id` int(11) NOT NULL,
   `menu_id` int(11) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
-  `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `serial` int(11) NOT NULL,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sub_title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `vedio_link` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `is_video` tinyint(4) NOT NULL DEFAULT 0,
+  `_dis_cloumn` varchar(60) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `serial` float NOT NULL DEFAULT 1,
   `is_dawnloadable` tinyint(4) NOT NULL DEFAULT 0,
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`id`, `image`, `post_id`, `menu_id`, `status`, `title`, `sub_title`, `vedio_link`, `is_video`, `_dis_cloumn`, `serial`, `is_dawnloadable`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'post-image/0209202307241963e49fa3f1310.jpg', 3, 12, 1, 'Title 1', 'Sub Title 1', '', 0, '2', 1, 0, 46, NULL, '2023-02-09 01:24:19', '2023-02-09 03:54:39'),
+(2, 'post-image/0209202307251163e49fd7f2d57.jpg', 4, 12, 1, 'No', 'no', 'ttewtrttrt', 0, '2', 1, 0, 46, NULL, '2023-02-09 01:25:11', '2023-02-09 04:14:03'),
+(3, 'post-image/0209202309351063e4be4e75557.jpg', 4, 12, 1, 're', 'fsa', '<iframe width=\"640\" height=\"360\" src=\"https://www.youtube.com/embed/4RWeFMzGpmo\" title=\"SKYEXCH.NET 10PL SEASON 04 || PRINCE MOVIES -2023 { DAY 2}\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>', 0, '2', 2, 0, 46, NULL, '2023-02-09 01:25:11', '2023-02-09 04:14:03'),
+(4, 'post-image/0209202307251263e49fd800112.jpg', 4, 12, 1, '', '', '', 0, '2', 3, 0, 46, NULL, '2023-02-09 01:25:12', '2023-02-09 04:14:03'),
+(5, 'post-image/0209202309513863e4c22ada4d8.jpg', 3, 12, 1, 'Titile 2', 'sub title 2', '', 0, '2', 1, 0, 46, NULL, '2023-02-09 03:51:38', '2023-02-09 03:54:39'),
+(6, 'post-image/0209202309513863e4c22adb446.jpg', 3, 12, 1, 'Title 3', 'Sub Title 3', '', 0, '4', 1, 0, 46, NULL, '2023-02-09 03:51:38', '2023-02-09 03:53:30'),
+(7, 'post-image/0212202303441263e8608c843ac.jpg', 7, 10, 1, '', NULL, NULL, 0, NULL, 0, 0, 46, NULL, '2023-02-11 21:44:12', '2023-02-11 21:44:12'),
+(8, 'post-image/0212202303511063e8622e12f7b.jpg', 8, 11, 1, '', NULL, NULL, 0, NULL, 0, 0, 46, NULL, '2023-02-11 21:51:10', '2023-02-11 21:51:10');
 
 -- --------------------------------------------------------
 
@@ -138,11 +139,31 @@ CREATE TABLE `menus` (
   `is_main_menu_show` tinyint(4) NOT NULL DEFAULT 1,
   `is_footer_menu_show` tinyint(4) NOT NULL DEFAULT 0,
   `page_type` int(11) NOT NULL DEFAULT 1 COMMENT 'multiple post = 1,only page = 2, gallery = 3',
+  `have_child` int(11) DEFAULT 0,
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `menus`
+--
+
+INSERT INTO `menus` (`id`, `menu_name`, `slug`, `parent_id`, `serial`, `status`, `is_main_menu_show`, `is_footer_menu_show`, `page_type`, `have_child`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'Organization', 'organization', 0, 1.00, 1, 1, 1, 1, 1, 46, NULL, '2023-02-08 00:29:36', '2023-02-08 00:39:15'),
+(2, 'Journey of DUAA', 'journey-of-duaa', 1, 0.00, 1, 1, 1, 2, 0, 46, NULL, '2023-02-08 00:37:17', '2023-02-08 00:54:30'),
+(3, 'Executive Committee', 'executive-committee', 1, 0.00, 1, 1, 1, 1, 0, 46, NULL, '2023-02-08 00:37:41', '2023-02-08 00:37:41'),
+(4, 'Past Leaders', 'past-leaders', 1, 3.00, 1, 1, 1, 1, 0, 46, NULL, '2023-02-08 00:38:03', '2023-02-08 00:38:03'),
+(5, 'Constitution & Bylays', 'constitution-bylays', 1, 4.00, 1, 1, 1, 1, 0, 46, NULL, '2023-02-08 00:38:23', '2023-02-08 00:38:23'),
+(6, 'DUGAA Documents', 'dugaa-documents', 1, 5.00, 1, 1, 1, 1, 0, 46, NULL, '2023-02-08 00:38:59', '2023-02-08 00:38:59'),
+(7, 'Staff', 'staff', 1, 6.00, 1, 1, 1, 1, 0, 46, NULL, '2023-02-08 00:39:15', '2023-02-08 00:39:15'),
+(8, 'Activities', 'activities', 0, 2.00, 1, 1, 1, 1, 1, 46, NULL, '2023-02-08 00:45:46', '2023-02-08 00:46:15'),
+(9, 'Social Responsibility', 'social-responsibility', 8, 1.00, 1, 1, 0, 2, 0, 46, NULL, '2023-02-08 00:46:15', '2023-02-08 00:46:15'),
+(10, 'News', 'news', 0, 3.00, 1, 1, 1, 1, 0, 46, NULL, '2023-02-08 00:46:40', '2023-02-08 00:46:40'),
+(11, 'Notice', 'notice', 0, 4.00, 1, 1, 1, 1, 0, 46, NULL, '2023-02-08 00:46:56', '2023-02-08 00:46:56'),
+(12, 'Gallery', 'gallery', 0, 5.00, 1, 1, 1, 3, 0, 46, NULL, '2023-02-08 00:47:14', '2023-02-08 00:47:14'),
+(13, 'DHGAA Scholarship', 'dhgaa-scholarship', 0, 6.00, 1, 1, 1, 1, 0, 46, NULL, '2023-02-08 00:47:56', '2023-02-08 00:47:56');
 
 -- --------------------------------------------------------
 
@@ -166,14 +187,76 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (5, '2020_10_09_135732_create_products_table', 1),
 (6, '2021_05_31_063527_create_general_settings_table', 2),
+(7, '2021_06_01_150128_create_boards_table', 2),
 (19, '2021_06_20_180911_create_page_rows_table', 7),
 (78, '2022_02_01_143528_create_branches_table', 15),
 (88, '2020_10_09_135640_create_permission_tables', 16),
 (89, '2021_06_06_163854_create_social_media_table', 16),
-(157, '2023_02_07_101406_create_menus_table', 17),
-(158, '2023_02_07_101513_create_posts_table', 18),
-(159, '2023_02_07_101532_create_images_table', 19),
-(161, '2023_02_08_083900_create_homepage_settings_table', 20);
+(90, '2022_02_01_144222_create_account_heads_table', 16),
+(91, '2022_02_01_144223_create_account_groups_table', 16),
+(92, '2022_02_01_144249_create_account_ledgers_table', 16),
+(93, '2022_02_01_144312_create_purchase_orders_table', 16),
+(95, '2022_02_01_144327_create_purchase_order_details_table', 16),
+(96, '2022_02_01_144348_create_purchases_table', 16),
+(97, '2022_02_01_144404_create_purchase_details_table', 16),
+(98, '2022_02_01_144444_create_voucher_masters_table', 17),
+(99, '2022_02_01_144458_create_voucher_master_details_table', 17),
+(100, '2022_02_01_144610_create_sales_orders_table', 17),
+(101, '2022_02_01_144624_create_sales_order_details_table', 17),
+(102, '2022_02_01_144650_create_product_price_lists_table', 17),
+(103, '2022_02_01_144651_create_sales_table', 17),
+(105, '2022_02_01_144722_create_sales_returns_table', 17),
+(106, '2022_02_01_144738_create_sales_return_details_table', 17),
+(107, '2022_02_01_144830_create_purchase_returns_table', 17),
+(109, '2022_02_01_145002_create_proforma_sales_table', 17),
+(110, '2022_02_01_145015_create_proforma_sales_details_table', 17),
+(111, '2022_02_01_145150_create_item_inventories_table', 17),
+(112, '2022_02_01_145216_create_default_ledgers_table', 17),
+(113, '2022_02_01_145357_create_voucher_types_table', 17),
+(114, '2022_02_01_145434_create_cost_centers_table', 17),
+(115, '2022_02_01_145517_create_store_houses_table', 17),
+(116, '2022_02_01_145606_create_store_house_selves_table', 17),
+(117, '2022_03_31_155636_create_item_categories_table', 18),
+(118, '2022_02_01_144326_create_inventories_table', 19),
+(120, '2022_04_15_141902_create_purchase_accounts_table', 20),
+(121, '2022_04_19_200104_create_purchase_return_form_settings_table', 21),
+(122, '2022_04_19_202822_create_purchase_return_accounts_table', 22),
+(123, '2022_04_21_183954_create_sales_form_settings_table', 23),
+(124, '2022_04_22_163045_create_sales_accounts_table', 24),
+(125, '2022_04_22_164221_create_sales_return_accounts_table', 25),
+(126, '2022_04_22_164136_create_sales_return_form_settings_table', 26),
+(127, '2022_02_01_144705_create_sales_details_table', 27),
+(128, '2022_02_01_144901_create_purchase_return_details_table', 28),
+(129, '2022_09_15_160511_create_table_infos_table', 29),
+(130, '2022_09_15_174144_create_resturant_sales_table', 30),
+(131, '2022_09_15_174249_create_resturant_details_table', 31),
+(132, '2022_09_15_174454_create_kitchens_table', 32),
+(133, '2022_09_15_175528_create_kitchen_finish_goods_table', 33),
+(134, '2022_09_15_175551_create_kitchen_row_goods_table', 34),
+(135, '2022_09_15_225434_create_musak_four_point_threes_table', 35),
+(136, '2022_09_15_225531_create_musak_four_point_three_inputs_table', 36),
+(137, '2022_09_15_225636_create_musak_four_point_three_additions_table', 37),
+(138, '2022_09_15_235243_create_resturant_form_settings_table', 38),
+(139, '2022_09_19_174545_create_steward_allocations_table', 39),
+(140, '2022_04_22_163045_create_resturant_sales_accounts_table', 40),
+(141, '2022_10_10_231802_create_unit_conversions_table', 41),
+(142, '2022_10_31_055118_create_device_locations_table', 42),
+(143, '2022_10_31_055326_create_water_logs_table', 42),
+(144, '2022_10_31_055347_create_water_log_details_table', 42),
+(145, '2022_11_02_051936_create_locations_table', 43),
+(146, '2022_11_02_052144_create_projects_table', 43),
+(147, '2023_01_14_133104_create_service_categories_table', 44),
+(148, '2023_01_14_133312_create_currencies_table', 44),
+(149, '2023_01_14_134649_create_service_details_table', 44),
+(150, '2023_01_14_134747_create_payment_details_table', 44),
+(151, '2023_01_14_135326_create_service_rates_table', 44),
+(152, '2023_01_14_135401_create_quotetion_details_table', 44),
+(153, '2023_01_14_135731_create_service_image_details_table', 44),
+(154, '2023_01_14_140334_create_time_base_rate_settings_table', 44),
+(155, '2023_01_23_180903_create_quotation_images_table', 45),
+(156, '2023_02_07_101406_create_menus_table', 46),
+(157, '2023_02_07_101513_create_posts_table', 47),
+(158, '2023_02_07_101532_create_images_table', 48);
 
 -- --------------------------------------------------------
 
@@ -299,7 +382,15 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `type`, `created_at`, `up
 (6, 'user-create', 'web', 'User', NULL, NULL),
 (7, 'user-edit', 'web', 'User', NULL, NULL),
 (8, 'user-delete', 'web', 'User', NULL, NULL),
-(254, 'admin-settings', 'web', 'Settings', '2022-10-29 23:30:15', '2022-10-29 23:30:15');
+(254, 'admin-settings', 'web', 'Settings', '2022-10-29 23:30:15', '2022-10-29 23:30:15'),
+(255, 'main-menu-list', 'web', 'Menu/Page', NULL, NULL),
+(256, 'main-menu-create', 'web', 'Menu/Page', NULL, NULL),
+(257, 'main-menu-edit', 'web', 'Menu/Page', NULL, NULL),
+(258, 'main-menu-delete', 'web', 'Menu/Page', NULL, NULL),
+(259, 'admin-post-list', 'web', 'Page/Post', NULL, NULL),
+(260, 'admin-post-create', 'web', 'Page/Post', NULL, NULL),
+(261, 'admin-post-edit', 'web', 'Page/Post', NULL, NULL),
+(262, 'admin-post-delete', 'web', 'Page/Post', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -313,6 +404,7 @@ CREATE TABLE `posts` (
   `date` date NOT NULL,
   `time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `post_title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image_possition` tinyint(4) DEFAULT NULL,
   `post_subtitle` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `details` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `author` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -325,6 +417,20 @@ CREATE TABLE `posts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `menu_id`, `date`, `time`, `post_title`, `image_possition`, `post_subtitle`, `details`, `author`, `image_hide_show`, `position`, `status`, `column_size`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 9, '2023-02-08', '10:31:23', 'Journey of DUAA', 1, 'Jon', '<p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \"Open Sans\", serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">Twenty-fourth September 1949, Nine years after the idea was mooted, the Dhaka University Alumni Association was born. The idea was first articulated by Dr. Mumtazuddin Ahmed, graduate of 1925, who became Director of Public Instruction in East Pakistan and later Vice Chancellor of Rajshahi University. Another stalwart who contributed to the establishment of the Association was Khan Bahadur Naziruddin Ahmed, the first Registrar of the University. The first President and Secretary General of the Association was Justice M. Ibrahim and Mr. Mizanur Rahman of the first batch of students of the University who led it for 1949 to 1962 and bequeathed the ideas of the Grand Assembly, Duty Fund, branches in other towns and cities and Old Students Home. The association was called ‘Old Boys Association’ up to 1959 and then it was named ‘Old Students Association’ the following year. In order to include women students the Association was renamed ‘Alumni Association’ in 1960.</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \"Open Sans\", serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">The Association was formed as a social club of former students of the University with the objective of promoting the interests of the University and its students. It is committed to providing assistance to meritorious students of limited means and at times it has done so from its Duty Fund. It also intended to set up a centre for students’ activities and programs but could not do much in the absence of a regular office or premises of its own. Old students’ home is still an unfulfilled target. In 1965 the Association was hopeful of receiving a piece of land from the University to build an alumni centre. In 1998 Prime Minister Sheikh Hasina announced the allocation of a plot of land from the old Railway area to the association but bureaucratic procedures have blocked the process of such a transfer till now. At one time there were several branches of the Association in other towns and cities but there are none at the moment.</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: \"Open Sans\", serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">Under the dynamic leadership of the Executive Committee of DUAA (2004-2013) led by its president Syed Manzur Elahi and Secretary General Raquibuddin Ahmed since 2004 DUAA came to flashlight through arranging its own office complex in the ground floor of “Nabab Nawab Ali Chowdhury Senate Bhavan” of Dhaka University as the construction was completed in 2007 by its own fund. This has been styled as the “Alumni Floor” with 16,000 sft space that includes office rooms, meeting and conference rooms, lobby, library, cyber cafe in a computer lab, coffee house, gym and a big modern prayer hall, all covered by AC. Alumni Floor has become a get-together centre for the alumni with necessary amenities. With about 10,000 life members DUAA Executive Committee (2013-2016), led by Raquibuddin Ahmed and Dewan Rashidul Hasan as President and Secretary General respectively is now committed and actively working towards the development of our alma mater – the University of Dhaka, popularly known as the “Oxford of the East” and welfare of its students of present, past and future. To mention only one of about a dozen projects, DUAA offers about 400 scholarships every year through collecting donations and arranging a number of Trust Funds to each year of each department and Institute of Dhaka University.</p>', 'Amin', 1, 1, 1, '1', 46, NULL, '2023-02-08 04:16:34', '2023-02-08 04:31:23'),
+(2, 9, '2023-02-08', '10:17:04', 'Journey of DUAA', 1, '', '<p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">Twenty-fourth September 1949, Nine years after the idea was mooted, the Dhaka University Alumni Association was born. The idea was first articulated by Dr. Mumtazuddin Ahmed, graduate of 1925, who became Director of Public Instruction in East Pakistan and later Vice Chancellor of Rajshahi University. Another stalwart who contributed to the establishment of the Association was Khan Bahadur Naziruddin Ahmed, the first Registrar of the University. The first President and Secretary General of the Association was Justice M. Ibrahim and Mr. Mizanur Rahman of the first batch of students of the University who led it for 1949 to 1962 and bequeathed the ideas of the Grand Assembly, Duty Fund, branches in other towns and cities and Old Students Home. The association was called ‘Old Boys Association’ up to 1959 and then it was named ‘Old Students Association’ the following year. In order to include women students the Association was renamed ‘Alumni Association’ in 1960.</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">The Association was formed as a social club of former students of the University with the objective of promoting the interests of the University and its students. It is committed to providing assistance to meritorious students of limited means and at times it has done so from its Duty Fund. It also intended to set up a centre for students’ activities and programs but could not do much in the absence of a regular office or premises of its own. Old students’ home is still an unfulfilled target. In 1965 the Association was hopeful of receiving a piece of land from the University to build an alumni centre. In 1998 Prime Minister Sheikh Hasina announced the allocation of a plot of land from the old Railway area to the association but bureaucratic procedures have blocked the process of such a transfer till now. At one time there were several branches of the Association in other towns and cities but there are none at the moment.</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">Under the dynamic leadership of the Executive Committee of DUAA (2004-2013) led by its president Syed Manzur Elahi and Secretary General Raquibuddin Ahmed since 2004 DUAA came to flashlight through arranging its own office complex in the ground floor of “Nabab Nawab Ali Chowdhury Senate Bhavan” of Dhaka University as the construction was completed in 2007 by its own fund. This has been styled as the “Alumni Floor” with 16,000 sft space that includes office rooms, meeting and conference rooms, lobby, library, cyber cafe in a computer lab, coffee house, gym and a big modern prayer hall, all covered by AC. Alumni Floor has become a get-together centre for the alumni with necessary amenities. With about 10,000 life members DUAA Executive Committee (2013-2016), led by Raquibuddin Ahmed and Dewan Rashidul Hasan as President and Secretary General respectively is now committed and actively working towards the development of our alma mater – the University of Dhaka, popularly known as the “Oxford of the East” and welfare of its students of present, past and future. To mention only one of about a dozen projects, DUAA offers about 400 scholarships every year through collecting donations and arranging a number of Trust Funds to each year of each department and Institute of Dhaka University.</p>', 'Amin', 1, 1, 1, '1', 46, NULL, '2023-02-08 04:17:04', '2023-02-08 04:17:04'),
+(3, 12, '2023-02-09', '09:54:39', 'সন্ত্রাস, জঙ্গিবাদ, মাদক ও বাল্যবিবাহের বিরুদ্ধে প্রচারাভিযান ২০১৮', 1, 'sub title', '', 'Amin', 1, 1, 1, '1', 46, NULL, '2023-02-09 01:24:19', '2023-02-09 03:54:39'),
+(4, 12, '2023-02-09', '10:14:03', 'আন্তর্জাতিক মাতৃভাষা দিবসে শহিদদের প্রতি শ্রদ্ধা নিবেদন', 1, 'sub title', '', 'Amin', 1, 1, 1, '1', 46, NULL, '2023-02-09 01:25:11', '2023-02-09 04:14:03'),
+(5, 10, '2023-02-09', '11:02:50', 'ঢাকা বিশ্ববিদ্যালয়ের গৌরবময় শতবর্ষপূর্তি উপলক্ষে শতবর্ষের মিলনমেলা অনুষ্ঠিত', 1, 'অত্যন্ত আনন্দ উল্লাসে গত ১২ মার্চ ২০২২ উদ্যাপিত হলো ঢাকা বিশ্ববিদ্যালয়ের গৌরবময় শতবর্ষপূর্তি উপলক্ষে ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন আয়োজিত ‘শতবর্ষের', '<p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">অত্যন্ত আনন্দ উল্লাসে গত ১২ মার্চ ২০২২ উদ্যাপিত হলো ঢাকা বিশ্ববিদ্যালয়ের গৌরবময় শতবর্ষপূর্তি উপলক্ষে ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন আয়োজিত ‘শতবর্ষের মিলনমেলা’। ‘বাংলাদেশের পথযাত্রায় ঢাকা বিশ্ববিদ্যালয় অ্যালামনাই’ এই প্রতিপাদ্য নিয়ে প্রায় ১২,০০০ সম্মানিত সদস্যের উপস্থিতিতে ঢাকা বিশ্ববিদ্যালয় খেলার মাঠে অনুষ্ঠিত হয় ‘শতবর্ষের মিলনমেলা’।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">অনুষ্ঠানে প্রধান অতিথি হিসেবে উপস্থিত ছিলেন ঢাকা বিশ্ববিদ্যালয়ের প্রবীণতম শিক্ষার্থী মতিউল ইসলাম, বিশেষ অতিথি&nbsp; শতবর্ষ উদ্যাপন কমিটির চেয়ারম্যান জনাব সৈয়দ মঞ্জুর এলাহী, ঢাকা বিশ্ববিদ্যালয়ের মাননীয়&nbsp; প্রো-ভাইস চ্যান্সেলর (শিক্ষা) অধ্যাপক ড. এ. এস. এম. মাকসুদ কামাল,&nbsp; প্রো-ভাইস চ্যান্সেলর (প্রশাসন) অধ্যাপক ড. মুহাম্মদ সামাদ, অনুষ্ঠানে সভাপতিত্ব করেন অ্যালামনাই অ্যাসোসিয়েশনের সম্মানিত সভাপতি এ. কে. আজাদ।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">দিনব্যাপী অনুষ্ঠানের শুরুতেই জাতীয় পতাকা উত্তোলন ও বেলুন উড়ানোর মধ্য দিয়ে উদ্বোধনী অনুষ্ঠান অনুষ্ঠিত হয়। জাতীয় পতাকা উত্তোলন করেন প্রধান অতিথি ঢাকা বিশ্ববিদ্যালয়ের প্রবীণতম শিক্ষার্থী মো. মতিউল ইসলাম। ঢাকা বিশ্ববিদ্যালয়ের পতাকা উত্তোলন করেন বিশেষ অতিথি ঢাকা বিশ্ববিদ্যালয়ের প্রো-ভাইস চ্যান্সেলর (শিক্ষা) অধ্যাপক ড. এ. এস. এম. মাকসুদ কামাল, প্রো-ভাইস চ্যান্সেলর (প্রশাসন) অধ্যাপক ড. মুহাম্মদ সামাদ। ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের পতাকা উত্তোলন করেন অ্যালামনাই অ্যাসোসিয়েশন-এর সভাপতি জনাব এ. কে. আজাদ, সিনিয়র সহ-সভাপতি মোল্লা মোহাম্মাদ আবু কাওছার, মহাসচিব রঞ্জন কর্মকার, শতবর্ষ উদ্যাপন কমিটির চেয়ারম্যান জনাব সৈয়দ মঞ্জুর এলাহী, শতবর্ষ উদ্যাপন কমিটির আহ্বায়ক ও সহ-সভাপতি জনাব আনোয়ার-উল-আলম চৌধুরী পারভেজসহ ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশনের কার্যনির্বাহী কমিটির সদস্যবৃন্দ।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">উদ্বোধনী মঞ্চে উপস্থিত সম্মানিত অতিথিবৃন্দ এবং উদ্বোধনী অনুষ্ঠানে উপস্থিত সকল সম্মানিত অ্যালামনাইগণ বেলুন উড়িয়ে আনন্দ উল্লাসের মধ্য দিয়ে উদ্বোধনী অনুষ্ঠানের মাধ্যমে একে-অপরকে বরণ করে নেন।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">এরপর শত শিল্পীর লাইভ অর্কেস্ট্রা, সংগীত এবং নৃত্য পরিবেশনের মধ্য দিয়ে অনুষ্ঠান শুরু হয়। শতবর্ষ উপলক্ষে প্রকাশিত গ্রন্থসমূহের মোড়ক উম্মোচন ও ‘শিল্পীর রং তুলিতে ঢাকা বিশ্ববিদ্যালয়’ প্রদর্শনী উদ্বোধন করা হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">শতবর্ষের মিলনমেলায় ‘রং তুলিতে ঢাকা বিশ্ববিদ্যালয়’ শীর্ষক কর্মসূচিতে ১০০জন চিত্রশিল্পীর চিত্রকর্ম নিয়ে একটি প্রদর্শনীর ব্যবস্থা ছিল। এছাড়া শতবর্ষের স্মারকগ্রন্থ সহ অন্যান্য প্রকাশনাগুলো অ্যালামনাইদের মাঝে বিক্রয়ের ব্যবস্থা ছিলো। সম্মানিত অ্যালামনাইদের স্বাস্থ্য সুরক্ষার কথা বিবেচনায় নিয়ে একটি মেডিকেল ক্যাম্প করা হয়েছিল। যাতে কোনো অ্যালামনাই অসুস্থ হয়ে পড়লে তাৎক্ষণিক চিকিৎসা প্রদান করা সম্ভব হয়। এছাড়াও অংশগ্রহণকারী অ্যালামনাইদের সার্বক্ষণিক নিরাপত্তা, আপ্যায়ন ও পর্যাপ্ত সেনিটেশন-এর ব্যবস্থা রাখা হয়েছিল।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">শতবর্ষের মিলনমেলায় দিনব্যাপী অনুষ্ঠানের মধ্য দিয়ে সম্মানিত অ্যালামনাইগণ তাঁদের পুরনো দিনের স্মৃতি স্মরণ করেন এবং একে অপরকে তা সহভাগিতা করেন। শতবর্ষের মিলনমেলার মূল আকর্ষণ ছিলো জাকজমকপূর্ণ সাংস্কৃতিক অনুষ্ঠান।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">সাংস্কৃতিক অনুষ্ঠানের শুরুতে রবীন্দ্র, নজরুল ও হারানো দিনের গান পরিবেশন করেন অদিতি মহসীন, প্রিয়াংকা গোপ ও হৈমন্তী রক্ষিত। ৬০ ও ৭০ দশকের বাংলা চলচ্চিত্রের গান নিয়ে নৃত্য পরিবেশন করেন চাঁদনি, সিনথিয়া, মিম চৌধুরী ও তাঁদের দল। আধুনিক ও পুরানো দিনের গান পরিবেশনা করেন জনপ্রিয় শিল্পী সামিনা চৌধুরী ও সন্দীপন। প্রেমা ও তাঁর দলের অংশগ্রহণে পরিবেশন করা হয় আকর্ষণীয় রায়বেশি নৃত্য। এরপর সবথেকে বড় আকর্ষণ ছিল জনপ্রিয় ও জাতীয় পুরস্কারপ্রাপ্ত শিল্পী সাবিনা ইয়াসমিন-এর একক পরিবেশনা। বর্তমান প্রজন্মের শিল্পী নিশীতা বড়য়া-এর সংগীত পরিবেশনার মধ্য দিয়ে সাংস্কৃতিক অনুষ্ঠানের সমাপ্তি ঘোষণা করা হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">শতবর্ষে এসে শিক্ষার গুণগত মান ও পরিবেশ উন্নয়ন এবং গবেষণার পরিধি সম্প্রসারণ করে চতুর্থ শিল্প বিপ্লবের উপযোগী দক্ষ মানব সম্পদ তৈরির লক্ষ্য নিয়ে বর্তমান প্রশাসন একটি পূর্ণাঙ্গ মাস্টার প্ল্যান প্রণয়ন করেছেন।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">আমাদের পূর্বসূরি শ্রদ্ধেয় অ্যালামনাইদের নেতৃত্ব ও অংশগ্রহণে সৃষ্টি বাংলাদেশকে মুক্তিযুদ্ধের চেতনায় বঙ্গবন্ধুর আদর্শে অসাম্প্রদায়িক, গণতান্ত্রিক, মানবিক ও কল্যাণকামী উন্নত সম্বৃদ্ধ রাষ্ট্র প্রতিষ্ঠায় বর্তমান প্রজন্মকে দক্ষ মানব সম্পদ হিসেবে গড়ে তোলার ক্ষেত্রে যার যার অবস্থান থেকে শ্রদ্ধেয় অ্যালামনাইবৃন্দের প্রতি আহ্বান জানানো হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">&nbsp;</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">ঢাকা বিশ্ববিদ্যালয়ের সকল হল ও বিভাগীয় অ্যালামনাই অ্যাসোসিয়েশন একটি পরিবার হয়ে সম্মিলিত প্রচেষ্টায় মাতৃসম অ্যালমা মেটার ঢাকা বিশ্ববিদ্যালয়ের প্রতি আমাদের যে দায়বদ্ধতা তা মোচনের ক্ষেত্রে ভবিষ্যতের উদ্যোগ আরো বেগবান এবং কার্যকর হবে, শতবর্ষে দাঁড়িয়ে এই প্রত্যাশা করার মধ্য দিয়ে শতবর্ষের মিলনমেলা শেষ হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\"><strong style=\"border: 0px; font-variant: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-style: inherit; font-weight: bold; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;\">শতবর্ষের মিলনমেলার প্রকাশনা</strong></p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">ঢাকা বিশ্ববিদ্যালয়ের গৌরবময় শতবর্ষপূর্তি উপলক্ষে ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন বেশ কয়েকটি প্রকাশনা বের করে।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\"><strong style=\"border: 0px; font-variant: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-style: inherit; font-weight: bold; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;\">যাত্রিক বিশেষ সংখ্যা</strong></p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন-এর সম্মানিত সদস্যদের স্মৃতি ও ঢাকা বিশ্ববিদ্যালয় সম্পর্কিত লেখা নিয়ে নিয়মিত যাত্রিকের বিশেষ একটি সংখ্যা মুদ্রণ করা হয়। যা সম্মানিত অ্যালামনাইদের মধ্যে বিনামূল্যে বিতরণ করা হয়।</p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\"><strong style=\"border: 0px; font-variant: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-style: inherit; font-weight: bold; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;\">শতবর্ষের ঢাকা বিশ্ববিদ্যালয়</strong></p><p style=\"border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: 1.6; font-family: &quot;Open Sans&quot;, serif; font-size: 15px; margin-right: 0px; margin-bottom: 15px; margin-left: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: rgb(68, 68, 68);\">ঢাকা ইউনিভার্সিটি অ্যালামনাই অ্যাসোসিয়েশন কর্তৃক ঢাকা বিশ্ববিদ্যালয়ের শতবর্ষ উপলক্ষে&nbsp; দেশের খ্যাতিমান ও ঢাকা বিশ্ববিদ্যালয়ের বরেণ্য ১০০ জন অ্যালামনাই-এর লেখা সম্বলিত ‘শতবর্ষের ঢাকা বিশ্ববিদ্যালয় শিরোনামে শতবর্ষ স্মারকগ্রন্থ প্রকাশ করা হয়। গ্রন্থটির সম্পাদনার দায়িত্বে ছিলেন একুশে পদকপ্রাপ্ত সাংবাদিক অজয় দাশগুপ্ত। গ্রন্থটি অত্যন্ত তথ্যবহুল ও স্মৃতি বিজড়িত লেখায় পরিপূর্ণ। শতবর্ষের গৌরব, অর্জন, বৈচিত্র্য এবং এমনকি অপূর্ণতা ধারণের চেষ্টা করা হয়েছে এই গ্রন্থটিতে।</p>', 'Amin', 1, 1, 1, '2', 46, NULL, '2023-02-09 05:02:50', '2023-02-09 05:02:50'),
+(6, 10, '2023-02-12', '03:42:58', 'New 2', 1, 'sub news 2', '<p>News Body</p>', 'Amin', 1, 1, 1, '2', 46, NULL, '2023-02-11 21:42:58', '2023-02-11 21:42:58'),
+(7, 10, '2023-02-12', '03:44:12', 'New 2', 1, 'sub news 2', '<p>News Body</p>', 'Amin', 1, 1, 1, '2', 46, NULL, '2023-02-11 21:44:12', '2023-02-11 21:44:12'),
+(8, 11, '2023-02-12', '03:51:10', 'Notice One', 1, 'Notice sub one', '<p>Notice Details</p>', 'Amin', 1, 1, 1, '2', 46, NULL, '2023-02-11 21:51:10', '2023-02-11 21:51:10');
 
 -- --------------------------------------------------------
 
@@ -673,7 +779,15 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (137, 7),
 (244, 3),
 (251, 3),
-(254, 1);
+(254, 1),
+(255, 1),
+(256, 1),
+(257, 1),
+(258, 1),
+(259, 1),
+(260, 1),
+(261, 1),
+(262, 1);
 
 -- --------------------------------------------------------
 
@@ -770,12 +884,6 @@ ALTER TABLE `failed_jobs`
 -- Indexes for table `general_settings`
 --
 ALTER TABLE `general_settings`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `homepage_settings`
---
-ALTER TABLE `homepage_settings`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -885,28 +993,22 @@ ALTER TABLE `general_settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `homepage_settings`
---
-ALTER TABLE `homepage_settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
 
 --
 -- AUTO_INCREMENT for table `page_rows`
@@ -918,13 +1020,13 @@ ALTER TABLE `page_rows`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=255;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=263;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `roles`

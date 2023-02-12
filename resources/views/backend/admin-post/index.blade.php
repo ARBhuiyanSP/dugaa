@@ -38,13 +38,10 @@
                               <tr>
                                   <th>SL</th>
                                   <th>Action</th>
+                                  <th>Date & Time</th>
                                   <th>Title</th>
-                                  <th>Slug</th>
-                                  <th>Page Type</th>
-                                  <th>Category</th>
-                                  <th>Serial</th>
-                                  <th>Display Main Menu</th>
-                                  <th>Display Footer Menu</th>
+                                  <th>Position</th>
+                                  <th>Created By</th>
                                   <th>Status</th>
                               </tr>
                           </thead>
@@ -56,45 +53,29 @@
                                 <a class="btn btn-sm btn-info mr-2" href="{{ route('main-menu.show',$value->id) }}">
                                   <i class="nav-icon fas fa-eye"></i>
                                 </a>
-                                @can('main-menu-edit')
-                                    <a class="btn btn-sm btn-primary  mr-2" href="{{ route('main-menu.edit',$value->id) }}">
+                                @can('admin-post-edit')
+                                    <a class="btn btn-sm btn-primary  mr-2" href="{{ route('admin-post.edit',$value->id) }}">
                                       <i class="nav-icon fas fa-edit"></i>
                                     </a>
                                 @endcan
-                                @can('main-menu-delete')
-                                    {!! Form::open(['method' => 'DELETE','route' => ['main-menu.destroy', $value->id],'style'=>'display:inline']) !!}
+                                @can('admin-post-delete')
+                                    {!! Form::open(['method' => 'DELETE','route' => ['admin-post.destroy', $value->id],'style'=>'display:inline']) !!}
                                         <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-sm btn-danger">
                                             <i class="nav-icon fas fa-trash"></i>
                                         </button>
                                     {!! Form::close() !!}
                                 @endcan
                             </td>
-                              <td>{!! $value->menu_name ?? '' !!}</td>
-                              <td>{!! $value->slug ?? '' !!}</td>
-                              <td>{!! selected_page_type($value->page_type) !!}</td>
-                              <td>{!! $value->parent_cat->menu_name ?? 'Main Menu' !!}</td>
-                              <td>{!! $value->serial ?? '' !!}</td>
-                              <td>{!! selected_show_hide($value->is_main_menu_show) !!}</td>
-                              <td>{!! selected_show_hide($value->is_footer_menu_show) !!}</td>
-                              <td>{!! selected_status($value->status) !!}</td>
+                              <td>{!! $value->date ?? '' !!} {!! $value->time ?? '' !!} </td>
+                              <td>{!! $value->post_title ?? '' !!}</td>
+                              <td>{!! $value->position ?? '' !!}</td>
+                              <td>{!! $value->_user->name ?? '' !!}</td>
+                               <td>{!! selected_status($value->status) !!}</td>
                             </tr>
                             @empty
                             @endforelse
                           </tbody>
-                          <tfoot>
-                               <tr>
-                                  <th>SL</th>
-                                  <th>Action</th>
-                                  <th>Title</th>
-                                  <th>Slug</th>
-                                  <th>Page Type</th>
-                                  <th>Category</th>
-                                  <th>Serial</th>
-                                  <th>Display Main Menu</th>
-                                  <th>Display Footer Menu</th>
-                                  <th>Status</th>
-                              </tr>
-                          </tfoot>
+                          
                       </table>
                 </div>
                 <!-- /.d-flex -->
