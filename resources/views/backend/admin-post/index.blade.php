@@ -50,9 +50,7 @@
                             <tr>
                               <td>{{($key+1)}}</td>
                               <td style="display: flex;">
-                                <a class="btn btn-sm btn-info mr-2" href="{{ route('main-menu.show',$value->id) }}">
-                                  <i class="nav-icon fas fa-eye"></i>
-                                </a>
+                                
                                 @can('admin-post-edit')
                                     <a class="btn btn-sm btn-primary  mr-2" href="{{ route('admin-post.edit',$value->id) }}">
                                       <i class="nav-icon fas fa-edit"></i>

@@ -26,9 +26,10 @@ class PostController extends Controller
      */
     public function index($slug='')
     {
-        $slug_detail= Menu::with(['parent_cat'])->where('slug',$slug)->first();
+           $slug_detail= Menu::with(['parent_cat'])->where('slug',$slug)->first();
         if($slug_detail){
-            $data=Post::with(['parent_cat','_images','_user'])->where('menu_id',$slug_detail->id)
+             $data=Post::with(['parent_cat','_images','_user'])
+                        ->where('menu_id',$slug_detail->id)
                         ->orderBy('position','asc')
                         ->get();
             $page_name=$slug_detail->menu_name;
@@ -58,9 +59,11 @@ class PostController extends Controller
      */
    public function create($slug)
     {
+        //return $slug;
          $slug_detail= Menu::with(['parent_cat'])->where('slug',$slug)->first();
         $page_name=$slug_detail->menu_name;
-        echo $page_type = $slug_detail->page_type ?? 1;
+         $page_type = $slug_detail->page_type ?? 1;
+
         if($page_type ==1){
             //Multiple Post
              return view('backend.admin-post.create',compact('slug_detail','page_name'));
@@ -317,6 +320,7 @@ class PostController extends Controller
          $page_type = $slug_detail->page_type ?? 1;
         if($page_type ==1){
             //Multiple Post
+            //return $data;
              return view('backend.admin-post.edit_post',compact('slug_detail','page_name','data','image_details'));
         }elseif($page_type==2){
             //Only page

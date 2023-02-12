@@ -99,7 +99,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-3">
                             <div class="form-group">
                                 <strong>Display Possition:</strong>
-                                {!! Form::text('serial', null, array('placeholder' => 'Display Possition','class' => 'form-control')) !!}
+                                {!! Form::text('position', null, array('placeholder' => 'Display Possition','class' => 'form-control')) !!}
                             </div>
                         </div>
                        

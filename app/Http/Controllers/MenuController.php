@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Models\HomePageSetup;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
@@ -73,6 +74,18 @@ class MenuController extends Controller
         $Menu->page_type = $request->page_type ?? 0;
         $Menu->created_by = $users->id;
         $Menu->save();
+
+        $menu_id = $Menu->id;
+
+        $HomePageSetup = new HomePageSetup();
+        $HomePageSetup->menu_id = $menu_id;
+        $HomePageSetup->serial = $request->serial ?? 1;
+        $HomePageSetup->status = 0;
+        $HomePageSetup->_limit = 5;
+        $HomePageSetup->block_type = 1;
+        $HomePageSetup->save();
+
+
 
         Menu::where('id',$request->parent_id)->update(['have_child'=>1]);
 
@@ -147,8 +160,15 @@ class MenuController extends Controller
      * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Menu $menu)
+    public function destroy($id)
     {
-        //
+        $Menu = Menu::find($id);
+        $Menu->delete();
+
+        $HomePageSetup = HomePageSetup::where('menu_id',$id);
+        $HomePageSetup->delete();
+
+
+        return redirect()->back()->with('success', 'Delete Successfully');
     }
 }

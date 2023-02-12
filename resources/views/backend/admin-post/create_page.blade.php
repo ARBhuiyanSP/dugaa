@@ -91,11 +91,11 @@
                             <div class="form-group">
                                 <strong>Image Possition:</strong>
                                 @php
-                                $page_type = $data->page_type ?? 0;
+                                $image_possition = $data->image_possition ?? 0;
                                 @endphp
-                                <select class="form-control" name="page_type">
+                                <select class="form-control" name="image_possition">
                                   @forelse( image_possition() as $key=>$val)
-                                  <option value="{{$key}}" @if($key==$page_type) selected @endif >{{$val ?? '' }}</option>
+                                  <option value="{{$key}}" @if($key==$image_possition) selected @endif >{{$val ?? '' }}</option>
                                   @empty
                                   @endforelse
                                 </select>

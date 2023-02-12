@@ -27,3 +27,7 @@
 ._action{
 	width: 140px;
 }
+
+._shortable_li{
+	cursor: pointer;
+}

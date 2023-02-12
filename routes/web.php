@@ -8,6 +8,16 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\HomePageSetupController;
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\DegreeController;
+use App\Http\Controllers\ExamSessionController;
+use App\Http\Controllers\GenderController;
+use App\Http\Controllers\PayingSystemController;
+use App\Http\Controllers\YearBatchController;
+use App\Http\Controllers\MembershipTypeController;
+use App\Http\Controllers\MemberInfoController;
 
 
 
@@ -51,6 +61,16 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     Route::resource('social_media', SocialMediaController::class);
     Route::resource('main-menu', MenuController::class);
+    Route::resource('slider', SliderController::class);
+    Route::resource('home-page-setup', HomePageSetupController::class);
+    Route::resource('countries', CountryController::class);
+    Route::resource('degrees', DegreeController::class);
+    Route::resource('exam-session', ExamSessionController::class);
+    Route::resource('gender', GenderController::class);
+    Route::resource('paying-system', PayingSystemController::class);
+    Route::resource('year-batch', YearBatchController::class);
+    Route::resource('membership-type', MembershipTypeController::class);
+    Route::resource('member-info', MemberInfoController::class);
 
     
     //Admin section Route Controller

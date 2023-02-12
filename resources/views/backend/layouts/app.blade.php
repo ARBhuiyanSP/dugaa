@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="csrf-token" content="{{ csrf_token() }}" />
   <title>@yield('title')</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -17,6 +18,7 @@
   <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
  <!--  <link rel="stylesheet" href="{{asset('plugins/summernote/jquery.dataTables.min.css')}}"> -->
   <link rel="stylesheet" href="{{asset('backend/style.css')}}">
+
 
   @yield('css')
   <style type="text/css">
@@ -60,6 +62,7 @@
 
 <!-- jQuery -->
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('plugins/jquery/jquery-ui.min.js')}}" ></script>
 <!-- Bootstrap -->
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('backend/datatable/jquery.dataTables.min.js')}}"></script>
