@@ -78,6 +78,13 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('committee-history', CommitteeHistoryController::class);
     Route::resource('committee', CommitteeController::class);
 
+    Route::get('social_media','App\Http\Controllers\SocialController@index');
+    Route::get('social-create','App\Http\Controllers\SocialController@create');
+    Route::post('social-save','App\Http\Controllers\SocialController@store');
+    Route::get('social-edit/{id}','App\Http\Controllers\SocialController@edit');
+    Route::post('social-update','App\Http\Controllers\SocialController@update');
+    Route::get('social-delete/{id}','App\Http\Controllers\SocialController@delete');
+
     
     //Admin section Route Controller
     Route::get('admin-settings','App\Http\Controllers\GeneralSettingsController@settings')->name('admin-settings');

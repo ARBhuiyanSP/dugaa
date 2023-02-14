@@ -16,4 +16,6 @@ class Menu extends Model
     public function child_cat(){
     	return $this->hasMany(Menu::class,'parent_id','id');
     }
+
+   
 }
