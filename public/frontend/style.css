@@ -1,8 +1,35 @@
-#mainSection{
-	 background-image: url("/images/banner-get.jpg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 100vh;
+.logo{
+	width: 100%;
+	background: transparent;
 }
 
- 
+.logo_image{
+	width: 100%;
+	height: au;
+}
+
+
+.widget-title {
+    border-bottom: 2px solid #289dcc;
+    margin-bottom: 15px;
+    padding-bottom: 0;
+    border-bottom-color:#81d742;
+}
+.widget-title > span{
+    background-color:#81d742;
+}
+.posted-on{
+	font-size: 12px;
+    font-weight: 500;
+    color: grey;
+ }
+ .card-text-sub-news{
+ 	font-size: 15px;
+ }
+ .side-image{
+ 	padding: 3px;
+ }
+
+ .navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
