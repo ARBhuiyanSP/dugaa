@@ -34,31 +34,31 @@
                 {!! Form::open(array('route' => 'committee-history.store','method'=>'POST','enctype'=>'multipart/form-data')) !!}
                     <div class="row">
                         
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-12 col-sm-12 col-md-6">
                             <div class="form-group">
                                 <strong>Name:</strong>
                                 {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-12 col-sm-12 col-md-6">
                             <div class="form-group">
                                 <strong>Duration:</strong>
                                 {!! Form::text('period', null, array('placeholder' => 'Duration','class' => 'form-control')) !!}
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
                             <div class="form-group">
                                 <strong>Start Date:</strong>
                                 {!! Form::date('start_date', null, array('placeholder' => 'Start Date','class' => 'form-control')) !!}
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
                             <div class="form-group">
                                 <strong>End Date:</strong>
                                 {!! Form::date('end_date', null, array('placeholder' => 'End Date','class' => 'form-control')) !!}
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4">
+                        <div class="col-xs-12 col-sm-12 col-md-2">
                             <div class="form-group">
                                 <strong>Type:</strong>
                                 <select class="form-control" name="_is_current">
@@ -67,12 +67,28 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="form-group">
+                                <strong>Display Website:</strong>
+                                <select class="form-control" name="is_display">
+                                  <option value="1">Yes</option>
+                                  <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="form-group">
+                                <strong>Serial:</strong>
+                                {!! Form::text('_main_serial', old('serial'), array('placeholder' => ' Serial','class' => 'form-control')) !!}
+                                
+                            </div>
+                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                           <table class="table">
                             <thead>
                               <th>#</th>
                               <th>Member</th>
-                              <th>Committee <br>Designation</th>
+                              <th>Designation</th>
                               <th>Serial</th>
                               <th>Action</th>
 
@@ -84,10 +100,11 @@
                                  Up/Down
                                 </td>
                                 <td>
+                                   <input type="hidden" name="detail_committe_id[]" value="0" />
                                   <select class="form-control" name="member_id[]" required>
                                     <option value=""> Select</option>
                                     @forelse($members as $val)
-                                    <option value="{{ $val->id }}"> {{ $val->first_name ?? '' }} {{ $val->last_name ?? '' }}</option>
+                                    <option value="{{ $val->id }}" > {{ $val->first_name ?? '' }} {{ $val->last_name ?? '' }}</option>
                                     @empty
                                     @endforelse
                                   </select>
@@ -181,6 +198,7 @@ $(document).on("click",".add_new_member",function(){
                                  Up/Down
                                 </td>
                                 <td>
+                                  <input type="hidden" name="detail_committe_id[]" value="0" />
                                   <select class="form-control" name="member_id[]" required>
                                     <option value=""> Select</option>
                                     @forelse($members as $val)

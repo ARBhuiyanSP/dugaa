@@ -50,7 +50,7 @@
                @can('slider-list')
               <li class="nav-item">
                 <a href="{{url('slider')}}" class="nav-link {{Route::is('slider.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Slider</p>
                 </a>
               </li>
@@ -59,7 +59,7 @@
                @can('home-page-setup')
               <li class="nav-item">
                 <a href="{{url('home-page-setup')}}" class="nav-link {{Route::is('home-page-setup.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Home Page Setup</p>
                 </a>
               </li>
@@ -82,18 +82,11 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-               @can('committee-list')
-              <li class="nav-item">
-                <a href="{{url('committee')}}" class="nav-link {{Route::is('committee.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Committee </p>
-                </a>
-              </li>
-              @endcan
+               
                @can('designations-list')
               <li class="nav-item">
                 <a href="{{url('designations')}}" class="nav-link {{Route::is('designations.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Committee Designations</p>
                 </a>
               </li>
@@ -102,8 +95,8 @@
                @can('committee-history-list')
               <li class="nav-item">
                 <a href="{{url('committee-history')}}" class="nav-link {{Route::is('committee-history.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Committee Duration</p>
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>Committee</p>
                 </a>
               </li>
               @endcan
@@ -128,7 +121,7 @@
                @can('member-info-list')
               <li class="nav-item">
                 <a href="{{url('member-info')}}" class="nav-link {{Route::is('member-info.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Member Information</p>
                 </a>
               </li>
@@ -136,7 +129,7 @@
                @can('countries-list')
               <li class="nav-item">
                 <a href="{{url('countries')}}" class="nav-link {{Route::is('countries.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Country</p>
                 </a>
               </li>
@@ -145,7 +138,7 @@
                @can('degrees-list')
               <li class="nav-item">
                 <a href="{{url('degrees')}}" class="nav-link {{Route::is('degrees.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Degree</p>
                 </a>
               </li>
@@ -153,7 +146,7 @@
                @can('exam-session-list')
               <li class="nav-item">
                 <a href="{{url('exam-session')}}" class="nav-link {{Route::is('exam-session.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Exam Session</p>
                 </a>
               </li>
@@ -161,7 +154,7 @@
                @can('paying-system-list')
               <li class="nav-item">
                 <a href="{{url('paying-system')}}" class="nav-link {{Route::is('paying-system.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Paying System Method</p>
                 </a>
               </li>
@@ -169,7 +162,7 @@
                @can('year-batch-list')
               <li class="nav-item">
                 <a href="{{url('year-batch')}}" class="nav-link {{Route::is('year-batch.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Year Batch</p>
                 </a>
               </li>
@@ -177,7 +170,7 @@
                @can('membership-type-list')
               <li class="nav-item">
                 <a href="{{url('membership-type')}}" class="nav-link {{Route::is('membership-type.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Membership Type</p>
                 </a>
               </li>
@@ -185,7 +178,7 @@
                @can('gender-list')
               <li class="nav-item">
                 <a href="{{url('gender')}}" class="nav-link {{Route::is('gender.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Gender</p>
                 </a>
               </li>
@@ -223,7 +216,7 @@
             @forelse($category_without_sub as $skey=>$sval)
                 <li class="nav-item">
                     <a href="{{url('admin-post')}}/{!! $sval->slug ?? '' !!}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i><p>{!! $sval->menu_name ?? '' !!}</p>
+                      <i class="fas fa-arrow-right nav-icon"></i><p>{!! $sval->menu_name ?? '' !!}</p>
                     </a>
                 </li>
             @empty
@@ -239,7 +232,7 @@
             @forelse($category_with_sub as $key=>$cat)
               <li class="nav-item">
                   <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="fas fa-arrow-right nav-icon"></i>
                       <p>{!! $cat->menu_name ?? '' !!}<i class="right fas fa-angle-left"></i></p>
                 </a>
                 <ul class="nav nav-treeview" style="display: none;">
@@ -279,7 +272,7 @@
               <li class="nav-item">
 
                 <a href="{{url('admin-settings')}}" class="nav-link {{Route::is('admin-settings')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-arrow-right nav-icon"></i>
                   <p>General Settings</p>
                 </a>
               </li>
@@ -288,7 +281,7 @@
               <li class="nav-item">
 
                 <a href="{{url('social_media')}}" class="nav-link {{Route::is('social_media.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Social Media</p>
                 </a>
               </li>
@@ -296,7 +289,7 @@
               @can('role-list')
               <li class="nav-item">
                 <a href="{{url('roles')}}" class="nav-link {{Route::is('roles.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Role</p>
                 </a>
               </li>
@@ -304,7 +297,7 @@
               @can('user-list')
               <li class="nav-item">
                 <a href="{{url('users')}}" class="nav-link {{Route::is('users.*')   ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Users</p>
                 </a>
               </li>

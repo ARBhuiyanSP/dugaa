@@ -40,6 +40,8 @@
                                   <th>Duration</th>
                                   <th>Start Date</th>
                                   <th>End Date</th>
+                                  <th>Serial</th>
+                                  <th>Is Display</th>
                                   <th>Status</th>
                               </tr>
                           </thead>
@@ -66,6 +68,14 @@
                               <td>{!! $value->period ?? '' !!}</td>
                               <td>{!! $value->start_date ?? '' !!}</td>
                               <td>{!! $value->end_date ?? '' !!}</td>
+                              <td>{!! $value->serial ?? '' !!}</td>
+                              <td>
+                                @if($value->is_display==1)
+                                  <span class="btn btn-sm btn-success">Display Website</span>
+                                @else
+                                  <span class="btn btn-sm btn-danger">Not Display</span>
+                                @endif
+                              </td>
                               <td>
                                 @if($value->_is_current==1)
                                 <span class="btn btn-sm btn-success">Current Committee</span>

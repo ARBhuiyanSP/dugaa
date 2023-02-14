@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\CommitteeHistory;
 use App\Models\Designation;
 use App\Models\MemberInfo;
+use App\Models\Committee;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Validator;
+use Auth;
 
 
 class CommitteeHistoryController extends Controller
@@ -54,6 +56,9 @@ class CommitteeHistoryController extends Controller
      */
     public function store(Request $request)
     {
+
+        //dump($request->all());
+       // return $request->all();
         
         if($request->_is_current ==1){
             \DB::table('committee_histories')->update(['_is_current'=>0]);
@@ -66,6 +71,9 @@ class CommitteeHistoryController extends Controller
         $data->_is_current = $request->_is_current ?? 0;
         $data->start_date = $request->start_date ?? 0;
         $data->end_date = $request->end_date ?? 0;
+        $data->is_display = $request->is_display ?? 0;
+        $data->serial = $request->_main_serial ?? 0;
+
 
                    
 
@@ -75,6 +83,40 @@ class CommitteeHistoryController extends Controller
         }
 
         $data->save();
+
+        $users = Auth::user();
+
+        $committee_his_id = $data->id;
+
+        $member_ids = $request->member_id ?? [];
+        $detail_committe_ids = $request->detail_committe_id ?? [];
+        $member_ids = $request->member_id ?? [];
+        $designation_ids = $request->designation_id ?? [];
+        $serials = $request->serial ?? [];
+        $row_number = $request->row_number ?? 0;
+        if(sizeof($member_ids) > 0){
+            for ($i=0; $i <sizeof($detail_committe_ids) ; $i++) { 
+                $id = $detail_committe_ids[$i] ?? 0;
+                if($id ==0){
+                    $Committee = new Committee();
+                }else{
+                    $Committee = Committee::find($id);
+                }
+                $Committee->member_id = $member_ids[$i] ?? 0;
+                $Committee->designation_id = $designation_ids[$i] ?? 0;
+                $Committee->serial = $serials[$i] ?? 0;
+                $Committee->committee_his_id = $committee_his_id;
+                $Committee->status = 1;
+                $Committee->created_by = $users->id;
+                $Committee->save();
+                
+            }
+            
+        }
+
+
+
+
          return redirect()->back()
                         ->with('success','Data insert successfully'); 
 
@@ -99,9 +141,14 @@ class CommitteeHistoryController extends Controller
      */
     public function edit($id)
     {
-        $data = CommitteeHistory::find($id);
+       $data = CommitteeHistory::with(['committee_members'])->find($id);
         $page_name = "Committee Duration";
-        return view("backend.committee-history.edit",compact('data','page_name'));
+        $designations = Designation::orderBy('name','asc')->get();
+        $members = MemberInfo::select('member_id','first_name','last_name','id')
+                            ->orderBy('first_name','asc')
+                            ->get();
+
+        return view("backend.committee-history.edit",compact('data','page_name','designations','members'));
     }
 
     /**
@@ -126,6 +173,8 @@ class CommitteeHistoryController extends Controller
         $data->_is_current = $request->_is_current ?? 0;
         $data->start_date = $request->start_date ?? 0;
         $data->end_date = $request->end_date ?? 0;
+        $data->is_display = $request->is_display ?? 0;
+        $data->serial = $request->_main_serial ?? 0;
         
         $validator = Validator::make($data->toArray(), $data->rules());
         if ($validator->fails()) {
@@ -133,6 +182,44 @@ class CommitteeHistoryController extends Controller
         }
 
         $data->save();
+
+
+
+        $users = Auth::user();
+
+        $committee_his_id = $data->id;
+        Committee::where('committee_his_id',$committee_his_id)->update(['status'=>0]);
+
+
+        $member_ids = $request->member_id ?? [];
+        $detail_committe_ids = $request->detail_committe_id ?? [];
+        $member_ids = $request->member_id ?? [];
+        $designation_ids = $request->designation_id ?? [];
+        $serials = $request->serial ?? [];
+        $row_number = $request->row_number ?? 0;
+        if(sizeof($member_ids) > 0){
+            for ($i=0; $i <sizeof($detail_committe_ids) ; $i++) { 
+                $id = $detail_committe_ids[$i] ?? 0;
+                if($id ==0){
+                    $Committee = new Committee();
+                }else{
+                    $Committee = Committee::find($id);
+                }
+                $Committee->member_id = $member_ids[$i] ?? 0;
+                $Committee->designation_id = $designation_ids[$i] ?? 0;
+                $Committee->serial = $serials[$i] ?? 0;
+                $Committee->committee_his_id = $committee_his_id;
+                $Committee->status = 1;
+                $Committee->created_by = $users->id;
+                $Committee->save();
+                
+            }
+            
+        }
+
+
+
+
         return redirect()->back()
                         ->with('success','Data insert successfully'); 
     }

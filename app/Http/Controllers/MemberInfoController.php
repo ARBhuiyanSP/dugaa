@@ -112,12 +112,18 @@ class MemberInfoController extends Controller
         $MemberInfo->save();
         $member_id = $MemberInfo->id;
 
-       $member_number = MemberInfo::where('alumni_category',$request->alumni_category)
+
+        $member_inforamation = MemberInfo::where('alumni_category',$request->alumni_category)
                                     ->where('batch',$request->batch)
                                     ->where('entery_degree_completion_year',$request->entery_degree_completion_year)
-                                    ->count();
+                                    ->orderBy('unique_count_id','DESC')
+                                    ->limit(1)
+                                    ->first();
+
+        $member_number = (($member_inforamation->unique_count_id ?? 0)+1);
+
         $alumin_id = alumni_category_code_by_id($request->alumni_category).$request->batch."B".$request->entery_degree_completion_year."M".$member_number;
-        MemberInfo::where('id',$member_id)->update(['member_id'=>$alumin_id]);
+        MemberInfo::where('id',$member_id)->update(['member_id'=>$alumin_id,'unique_count_id'=>$member_number]);
 
         return redirect()->back()->with('success','Data insert successfully'); 
 
@@ -170,8 +176,32 @@ class MemberInfoController extends Controller
             'entery_degree_completion_year' => 'required',
         ]);
         $MemberInfo = MemberInfo::find($id);
+         $old_member_info = $MemberInfo;
+
+         //Check old catetory to new category,old batch to new batch, old entery_degree_completion_year to new entery_degree_completion_year
+
+         if( $old_member_info->batch !=$request->batch || $old_member_info->alumni_category !=$request->alumni_category || $old_member_info->entery_degree_completion_year !=$request->entery_degree_completion_year ){
+            $member_inforamation = MemberInfo::where('alumni_category',$request->alumni_category)
+                                    ->where('batch',$request->batch)
+                                    ->where('entery_degree_completion_year',$request->entery_degree_completion_year)
+                                    ->orderBy('unique_count_id','DESC')
+                                    ->limit(1)
+                                    ->first();
+
+        $member_number = (($member_inforamation->unique_count_id ?? 0)+1);
+
+        $alumin_id = alumni_category_code_by_id($request->alumni_category).$request->batch."B".$request->entery_degree_completion_year."M".$member_number;
+
+        MemberInfo::where('id',$id)->update(['member_id'=>$alumin_id,'unique_count_id'=>$member_number]);
+        $member_id = $alumin_id;
+
+         }else{
+            $member_id = $request->member_id;
+         }
+
+
         $MemberInfo->first_name= $request->first_name ?? '';
-        $MemberInfo->member_id= $request->member_id ?? '';
+        $MemberInfo->member_id= $member_id ?? '';
         $MemberInfo->last_name= $request->last_name ?? '';
         $MemberInfo->batch= $request->batch ?? '';
         $MemberInfo->entery_degree= $request->entery_degree ?? '';
@@ -198,13 +228,6 @@ class MemberInfoController extends Controller
         }
         $MemberInfo->save();
         $member_id = $MemberInfo->id;
-
-       // $member_number = MemberInfo::where('alumni_category',$request->alumni_category)
-       //                              ->where('batch',$request->batch)
-       //                              ->where('entery_degree_completion_year',$request->entery_degree_completion_year)
-       //                              ->count();
-       //  $alumin_id = alumni_category_code_by_id($request->alumni_category).$request->batch."B".$request->entery_degree_completion_year."M".$member_number;
-       //  MemberInfo::where('id',$member_id)->update(['member_id'=>$alumin_id]);
 
         return redirect()->back()->with('success','Data insert successfully'); 
     }
