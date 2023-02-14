@@ -12,6 +12,7 @@
 <!--- Bootstrap 5 included--->
 	<link rel="stylesheet" id="twb-open-sans-css"  href="https://fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C500%2C600%2C700%2C800&amp;display=swap&amp;ver=e7a280f66bc7651400a61779a9e607b3" type="text/css"/>
   	<link rel="stylesheet" id="twb-open-sans-css"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" type="text/css"/>
+
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/cache/wpfc-minified/lnu7bea7/2i15s.css')}}" media="all"/>
 	<script src="{{asset('assets/cache/wpfc-minified/l9615f0f/2awee.js')}}" type="text/javascript"></script>
 	<script src="{{asset('assets/cache/wpfc-minified/2b5i5tp6/2awee.js')}}" type="text/javascript"></script>
