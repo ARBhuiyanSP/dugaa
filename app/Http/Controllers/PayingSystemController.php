@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PayingSystem;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Validator;
 
 class PayingSystemController extends Controller
 {
@@ -46,12 +47,14 @@ class PayingSystemController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-        ]);
+       
         $data = new PayingSystem();
         $data->name = $request->name ?? '';
         $data->code = $request->code ?? '';
+        $validator = Validator::make($data->toArray(), $data->rules());
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
         $data->save();
          return redirect()->back()
                         ->with('success','Data insert successfully'); 
@@ -91,13 +94,17 @@ class PayingSystemController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-        ]);
+        
 
         $data = PayingSystem::find($id);
         $data->name = $request->name ?? '';
         $data->code = $request->code ?? '';
+        
+        $validator = Validator::make($data->toArray(), $data->rules());
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
         $data->save();
         return redirect()->back()
                         ->with('success','Data insert successfully'); 

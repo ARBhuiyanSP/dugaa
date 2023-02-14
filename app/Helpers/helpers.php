@@ -38,6 +38,13 @@ if (! function_exists('image_possition')) {
         return $image_possition =[0=>'None',1=>'Top',2=>'Right',3=>'Left',4=>'Bottom'];                         
     }
 }
+if (! function_exists('alumni_category_code_by_id')) {
+    function alumni_category_code_by_id($id)
+    {
+        $data =  \App\Models\MembershipType::find($id); 
+        return $data->code ?? '';                        
+    }
+}
 
 
 if (! function_exists('selected_im_poss')) {

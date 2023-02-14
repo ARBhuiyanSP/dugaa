@@ -4,8 +4,14 @@
 }
 
 .banner_image_create{
-	width: 100%;
-	height: auto;
+	margin-top: 5px;
+    width: 140px;
+    border: 1px solid silver;
+    padding: 2px;
+}
+.message-area{
+	width: 96%;
+    margin: 0px auto;
 }
 
 .alert-success {

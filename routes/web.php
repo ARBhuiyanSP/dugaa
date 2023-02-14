@@ -18,6 +18,9 @@ use App\Http\Controllers\PayingSystemController;
 use App\Http\Controllers\YearBatchController;
 use App\Http\Controllers\MembershipTypeController;
 use App\Http\Controllers\MemberInfoController;
+use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\CommitteeHistoryController;
+use App\Http\Controllers\CommitteeController;
 
 
 
@@ -71,6 +74,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('year-batch', YearBatchController::class);
     Route::resource('membership-type', MembershipTypeController::class);
     Route::resource('member-info', MemberInfoController::class);
+    Route::resource('designations', DesignationController::class);
+    Route::resource('committee-history', CommitteeHistoryController::class);
+    Route::resource('committee', CommitteeController::class);
 
     
     //Admin section Route Controller

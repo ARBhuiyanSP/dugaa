@@ -13,7 +13,7 @@
             <ol class="breadcrumb float-sm-right">
               @can('main-menu-list')
               <li class="breadcrumb-item active">
-                 <a class="btn btn-primary" href="{{ route('main-menu.index') }}"> {{$page_name ?? '' }}</a>
+                 <a class="btn btn-sm btn-primary" href="{{ route('main-menu.index') }}"> {{$page_name ?? '' }}</a>
                </li>
                @endcan
             </ol>
@@ -22,16 +22,7 @@
       </div><!-- /.container-fluid -->
     </div>
     <div class="message-area">
-    @if (count($errors) > 0)
-           <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-                </ul>
-            </div>
-        @endif
+     @include('backend.common.message')
     </div>
     <div class="content">
       <div class="container-fluid">

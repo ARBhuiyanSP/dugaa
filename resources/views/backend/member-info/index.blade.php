@@ -12,18 +12,16 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                @can('member-info-create')
-                        <a class="btn btn-success" href="{{ route('member-info.create') }}"> New {!! $page_name ?? '' !!}</a>
+                        <a class="btn btn-sm btn-success" href="{{ route('member-info.create') }}"> New {!! $page_name ?? '' !!}</a>
                 @endcan
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success">
-      <p>{{ $message }}</p>
+    <div class="message-area">
+     @include('backend.common.message')
     </div>
-    @endif
     <!-- /.content-header -->
 <div class="content">
       <div class="container-fluid">
@@ -38,8 +36,11 @@
                               <tr>
                                   <th>SL</th>
                                   <th>Action</th>
+                                  <th>Alumni ID</th>
                                   <th>Name</th>
-                                  <th>Code</th>
+                                  <th>Image</th>
+                                  <th>Session</th>
+                                  <th>Category</th>
                               </tr>
                           </thead>
                           <tbody>
@@ -61,8 +62,14 @@
                                     {!! Form::close() !!}
                                 @endcan
                             </td>
-                              <td>{!! $value->name ?? '' !!}</td>
-                              <td>{!! $value->code ?? '' !!}</td>
+                              <td>{!! $value->member_id ?? '' !!}</td>
+                              <td>{!! $value->first_name ?? '' !!} {!! $value->last_name ?? '' !!}</td>
+                              
+                              <td>
+                                <img style="padding: 5px;width: 80px;"  class="banner_image_create" src="{{asset('/')}}{{$value->member_image ?? ''}}" />
+                              </td>
+                              <td>{{ $value->admission_session ?? '' }}</td>
+                              <td>{{ $value->_member_ship_type->name ?? '' }}</td>
                             </tr>
                             @empty
                             @endforelse

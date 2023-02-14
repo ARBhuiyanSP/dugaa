@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\YearBatch;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Validator;
 
 class YearBatchController extends Controller
 {
@@ -46,12 +47,16 @@ class YearBatchController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-        ]);
+        
         $data = new YearBatch();
         $data->name = $request->name ?? '';
         $data->code = $request->code ?? '';
+
+        $validator = Validator::make($data->toArray(), $data->rules());
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
         $data->save();
          return redirect()->back()
                         ->with('success','Data insert successfully'); 
@@ -91,13 +96,17 @@ class YearBatchController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-        ]);
+       
 
         $data = YearBatch::find($id);
         $data->name = $request->name ?? '';
         $data->code = $request->code ?? '';
+        
+        $validator = Validator::make($data->toArray(), $data->rules());
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
         $data->save();
         return redirect()->back()
                         ->with('success','Data insert successfully'); 

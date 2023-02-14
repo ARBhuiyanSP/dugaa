@@ -12,7 +12,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                @can('year-batch-create')
-                        <a class="btn btn-success" href="{{ route('year-batch.create') }}"> New {!! $page_name ?? '' !!}</a>
+                        <a class="btn btn-sm btn-success" href="{{ route('year-batch.create') }}"> New {!! $page_name ?? '' !!}</a>
                 @endcan
             </ol>
           </div><!-- /.col -->

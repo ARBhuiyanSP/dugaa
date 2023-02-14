@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2023 at 12:57 PM
+-- Generation Time: Feb 14, 2023 at 04:31 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -20,6 +20,51 @@ SET time_zone = "+00:00";
 --
 -- Database: `du_alumni`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `committees`
+--
+
+CREATE TABLE `committees` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `committee_his_id` int(11) NOT NULL,
+  `member_id` int(11) NOT NULL,
+  `designation_id` int(11) NOT NULL,
+  `serial` double(8,2) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `committee_histories`
+--
+
+CREATE TABLE `committee_histories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `period` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
+  `_is_current` int(11) NOT NULL DEFAULT 0,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `committee_histories`
+--
+
+INSERT INTO `committee_histories` (`id`, `name`, `period`, `status`, `_is_current`, `start_date`, `end_date`, `created_at`, `updated_at`) VALUES
+(1, 'Executive Committee Members (2022-2025)', '2022-2025', 1, 1, '2022-01-01', '2023-02-28', '2023-02-13 03:54:05', '2023-02-13 21:27:02'),
+(2, 'Executive Committee Members (2023-2027)', '2023-2027', 1, 0, '2023-01-01', '2027-12-31', '2023-02-13 04:22:16', '2023-02-13 04:22:51');
 
 -- --------------------------------------------------------
 
@@ -66,7 +111,47 @@ INSERT INTO `degrees` (`id`, `name`, `code`, `created_at`, `updated_at`) VALUES
 (3, 'MPhil', 'P', '2023-02-12 04:48:14', '2023-02-12 04:48:14'),
 (4, 'Doctorate', 'D', '2023-02-12 04:48:25', '2023-02-12 04:48:25'),
 (5, 'Other', 'O', '2023-02-12 04:48:33', '2023-02-12 04:48:33'),
-(6, 'NA', 'N', '2023-02-12 04:48:40', '2023-02-12 04:48:40');
+(6, 'NA', 'N', '2023-02-12 04:48:40', '2023-02-12 04:48:40'),
+(7, 'President', '', '2023-02-13 03:29:10', '2023-02-13 03:29:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `designations`
+--
+
+CREATE TABLE `designations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `designations`
+--
+
+INSERT INTO `designations` (`id`, `name`, `code`, `created_at`, `updated_at`) VALUES
+(1, 'President', '', '2023-02-13 03:30:18', '2023-02-13 03:30:18'),
+(2, 'Senior Vice President', '', '2023-02-13 03:31:30', '2023-02-13 03:31:30'),
+(3, 'Vice President', '', '2023-02-13 03:31:38', '2023-02-13 03:31:38'),
+(4, 'Secretary General', '', '2023-02-13 03:31:59', '2023-02-13 03:31:59'),
+(5, 'Treasurer', '', '2023-02-13 03:32:07', '2023-02-13 03:32:07'),
+(6, 'Joint Secretary General', '', '2023-02-13 03:32:14', '2023-02-13 03:32:14'),
+(7, 'Organizing Secretary', '', '2023-02-13 03:32:28', '2023-02-13 03:32:28'),
+(8, 'Literary & Publications Secretary', '', '2023-02-13 03:32:35', '2023-02-13 03:32:35'),
+(9, 'Education & Library Secretary', '', '2023-02-13 03:32:42', '2023-02-13 03:32:42'),
+(10, 'Publicity & Public Relations Secretary', '', '2023-02-13 03:32:48', '2023-02-13 03:32:48'),
+(11, 'Office Secretary', '', '2023-02-13 03:32:54', '2023-02-13 03:32:54'),
+(12, 'Cultural Secretary', '', '2023-02-13 03:33:00', '2023-02-13 03:33:00'),
+(13, 'Law Secretary', '', '2023-02-13 03:33:08', '2023-02-13 03:33:08'),
+(14, 'Social Welfare Secretary', '', '2023-02-13 03:33:13', '2023-02-13 03:33:13'),
+(15, 'Entertainment Secretary', '', '2023-02-13 03:33:23', '2023-02-13 03:33:23'),
+(16, 'International Communication Secretary', '', '2023-02-13 03:33:33', '2023-02-13 03:33:33'),
+(17, 'Ex-Officio Member of Executive Committee As Immediate Past President', '', '2023-02-13 03:33:40', '2023-02-13 03:33:40'),
+(18, 'Ex-Officio Member of Executive Committee As Immediate Past Secretary General', '', '2023-02-13 03:33:47', '2023-02-13 03:33:47'),
+(19, 'Executive Committee Member', '', '2023-02-13 03:33:54', '2023-02-13 03:33:54');
 
 -- --------------------------------------------------------
 
@@ -309,10 +394,11 @@ INSERT INTO `membership_types` (`id`, `name`, `code`, `created_at`, `updated_at`
 
 CREATE TABLE `member_infos` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
   `member_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `entery_degree` int(11) DEFAULT NULL,
   `batch` int(11) DEFAULT NULL,
-  `admission_session` int(11) DEFAULT NULL,
+  `admission_session` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `alumni_category` int(11) DEFAULT NULL,
   `entery_degree_completion_year` int(11) DEFAULT NULL,
   `first_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -325,6 +411,7 @@ CREATE TABLE `member_infos` (
   `contact_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `parmanent_address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `current_address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `note` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `scanced_form` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `member_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -333,6 +420,14 @@ CREATE TABLE `member_infos` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `member_infos`
+--
+
+INSERT INTO `member_infos` (`id`, `date`, `member_id`, `entery_degree`, `batch`, `admission_session`, `alumni_category`, `entery_degree_completion_year`, `first_name`, `last_name`, `gender_id`, `exit_degree`, `exit_year`, `current_affiliation`, `designation`, `contact_no`, `email`, `parmanent_address`, `current_address`, `note`, `scanced_form`, `member_image`, `entry_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, '2023-02-13', 'A12B1957M5', 1, 12, '1954-55', 2, 1957, 'Farhad', 'Ali', NULL, 2, 1958, 'Current Affrication', 'Designation', '8979879879', 'farhadali0507@gmail.com', 'Permanente  Address', 'Current Address', 'Note', 'member-images/0213202305052563e9c5152f4aa.png', 'member-images/0213202305052563e9c5152f11a.jpg', 46, NULL, '2023-02-12 23:05:25', '2023-02-13 00:20:35'),
+(6, '2023-02-13', 'S10B1980M1', 1, 10, '1951-52', 5, 1980, 'Kazi Matin Uddin', 'Ahmed', NULL, 2, 1981, 'Department of Geology, University of Dhaka', 'Chairman and Professor', '+8801711846840', 'kmahmed@du.ac.bd', 'Vill+PO: Ratanpur\r\nPS: Nabinagar\r\nDis: Brahmanbaria', 'Department of Geology\r\nCurzon Hall Campus\r\nUniversity of Dhaka\r\nDhaka 1000', 'note', 'member-images/0213202306200363e9d693d876e.jpg', 'member-images/0213202305185363e9c83d56646.jpg', 46, NULL, '2023-02-12 23:18:53', '2023-02-13 00:20:03');
 
 -- --------------------------------------------------------
 
@@ -477,7 +572,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (165, '2023_02_12_090705_create_exam_sessions_table', 55),
 (166, '2023_02_12_090731_create_genders_table', 56),
 (167, '2023_02_12_090757_create_year_batches_table', 57),
-(168, '2023_02_12_091718_create_member_infos_table', 58);
+(168, '2023_02_12_091718_create_member_infos_table', 58),
+(169, '2023_02_13_071126_create_designations_table', 59),
+(170, '2023_02_13_071343_create_committees_table', 60),
+(171, '2023_02_13_071358_create_committee_histories_table', 61);
 
 -- --------------------------------------------------------
 
@@ -673,7 +771,19 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `type`, `created_at`, `up
 (296, 'member-info-list', 'web', 'Member Information', NULL, NULL),
 (297, 'member-info-create', 'web', 'Member Information', NULL, NULL),
 (298, 'member-info-edit', 'web', 'Member Information', NULL, NULL),
-(299, 'member-info-delete', 'web', 'Member Information', NULL, NULL);
+(299, 'member-info-delete', 'web', 'Member Information', NULL, NULL),
+(300, 'designations-list', 'web', 'Designations', NULL, NULL),
+(301, 'designations-create', 'web', 'Designations', NULL, NULL),
+(302, 'designations-edit', 'web', 'Designations', NULL, NULL),
+(303, 'designations-delete', 'web', 'Designations', NULL, NULL),
+(304, 'committee-history-list', 'web', 'Committee History', NULL, NULL),
+(305, 'committee-history-create', 'web', 'Committee History', NULL, NULL),
+(306, 'committee-history-edit', 'web', 'Committee History', NULL, NULL),
+(307, 'committee-history-delete', 'web', 'Committee History', NULL, NULL),
+(308, 'committee-list', 'web', 'Committee', NULL, NULL),
+(309, 'committee-create', 'web', 'Committee', NULL, NULL),
+(310, 'committee-edit', 'web', 'Committee', NULL, NULL),
+(311, 'committee-delete', 'web', 'Committee', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1110,7 +1220,19 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (296, 1),
 (297, 1),
 (298, 1),
-(299, 1);
+(299, 1),
+(300, 1),
+(301, 1),
+(302, 1),
+(303, 1),
+(304, 1),
+(305, 1),
+(306, 1),
+(307, 1),
+(308, 1),
+(309, 1),
+(310, 1),
+(311, 1);
 
 -- --------------------------------------------------------
 
@@ -1251,6 +1373,18 @@ INSERT INTO `year_batches` (`id`, `name`, `code`, `created_at`, `updated_at`) VA
 --
 
 --
+-- Indexes for table `committees`
+--
+ALTER TABLE `committees`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `committee_histories`
+--
+ALTER TABLE `committee_histories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `countries`
 --
 ALTER TABLE `countries`
@@ -1260,6 +1394,12 @@ ALTER TABLE `countries`
 -- Indexes for table `degrees`
 --
 ALTER TABLE `degrees`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `designations`
+--
+ALTER TABLE `designations`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1418,6 +1558,18 @@ ALTER TABLE `year_batches`
 --
 
 --
+-- AUTO_INCREMENT for table `committees`
+--
+ALTER TABLE `committees`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `committee_histories`
+--
+ALTER TABLE `committee_histories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
@@ -1427,7 +1579,13 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `degrees`
 --
 ALTER TABLE `degrees`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `designations`
+--
+ALTER TABLE `designations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `exam_sessions`
@@ -1475,7 +1633,7 @@ ALTER TABLE `membership_types`
 -- AUTO_INCREMENT for table `member_infos`
 --
 ALTER TABLE `member_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `menus`
@@ -1487,7 +1645,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
 
 --
 -- AUTO_INCREMENT for table `page_rows`
@@ -1505,7 +1663,7 @@ ALTER TABLE `paying_systems`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=312;
 
 --
 -- AUTO_INCREMENT for table `posts`

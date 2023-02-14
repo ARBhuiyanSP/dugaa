@@ -70,6 +70,51 @@
             </ul>
           </li>
 
+
+
+          <li class="nav-item {{ Route::is('designations.*') || Route::is('committee-history.*') || Route::is('committee.*')   ? 'menu-is-opening menu-open' : '' }}">
+            
+            <a href="#" class="nav-link {{ Route::is('designations.*') ||  Route::is('committee-history.*')  ||  Route::is('committee.*')    ? 'active' : '' }}">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Committee
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+               @can('committee-list')
+              <li class="nav-item">
+                <a href="{{url('committee')}}" class="nav-link {{Route::is('committee.*')   ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Committee </p>
+                </a>
+              </li>
+              @endcan
+               @can('designations-list')
+              <li class="nav-item">
+                <a href="{{url('designations')}}" class="nav-link {{Route::is('designations.*')   ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Committee Designations</p>
+                </a>
+              </li>
+              @endcan
+
+               @can('committee-history-list')
+              <li class="nav-item">
+                <a href="{{url('committee-history')}}" class="nav-link {{Route::is('committee-history.*')   ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Committee Duration</p>
+                </a>
+              </li>
+              @endcan
+               
+              
+              
+            </ul>
+          </li>
+
+          
+
           <li class="nav-item {{ Route::is('countries.*') || Route::is('exam-session.*') || Route::is('degrees.*') || Route::is('paying-system.*') || Route::is('year-batch.*') || Route::is('membership-type.*') || Route::is('gender.*')  || Route::is('member-info.*')   ? 'menu-is-opening menu-open' : '' }}">
             
             <a href="#" class="nav-link {{ Route::is('countries.*') ||  Route::is('exam-session.*') ||  Route::is('degrees.*') ||  Route::is('paying-system.*') ||  Route::is('year-batch.*') ||  Route::is('membership-type.*') ||  Route::is('gender.*') ||  Route::is('member-info.*')   ? 'active' : '' }}">

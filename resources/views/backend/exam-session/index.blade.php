@@ -12,18 +12,16 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                @can('exam-session-create')
-                        <a class="btn btn-success" href="{{ route('exam-session.create') }}"> New {!! $page_name ?? '' !!}</a>
+                        <a class="btn btn-sm btn-success" href="{{ route('exam-session.create') }}"> New {!! $page_name ?? '' !!}</a>
                 @endcan
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success">
-      <p>{{ $message }}</p>
+    <div class="message-area">
+     @include('backend.common.message')
     </div>
-    @endif
     <!-- /.content-header -->
 <div class="content">
       <div class="container-fluid">

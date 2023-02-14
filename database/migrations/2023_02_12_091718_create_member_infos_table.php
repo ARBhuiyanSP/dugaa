@@ -30,7 +30,8 @@ class CreateMemberInfosTable extends Migration
             $table->string('designation')->nullable();
             $table->string('contact_no')->nullable();
             $table->string('email')->nullable();
-            $table->string('parmanent_address')->nullable();
+            $table->text('parmanent_address')->nullable();
+            $table->text('current_address')->nullable();
             $table->string('note')->nullable();
             $table->string('scanced_form')->nullable();
             $table->string('member_image')->nullable();
