@@ -19,7 +19,7 @@
 
       @forelse($nav_menus as $nav_key=>$nav_val)
       @if($nav_val->have_child==0)
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link" href="{{url('page')}}/{!! $nav_val->slug ?? '' !!}">{{ $nav_val->menu_name ?? '' }} <span class="sr-only">(current)</span></a>
       </li>
       @else

@@ -33,3 +33,19 @@
  .navbar-dark .navbar-nav .nav-link {
     color: #fff;
 }
+
+.nav-link{
+	display: block;
+    float: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 12px;
+    text-transform: uppercase;
+}
+
+.nav-item:hover{
+	background: #289dcc;
+}
+.bg-dark{
+	border-top: 3px solid #289dcc;
+}
