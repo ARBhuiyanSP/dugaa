@@ -58,12 +58,7 @@ if (! function_exists('selected_im_poss')) {
     }
 }
 
-if (! function_exists('status')) {
-    function status()
-    {
-        return $page_types =[1=>'published',0=>'Unpublished'];                         
-    }
-}
+
 
 if (! function_exists('selected_page_type')) {
     function selected_page_type($id)
@@ -76,6 +71,13 @@ if (! function_exists('selected_page_type')) {
     }
 }
 
+if (! function_exists('status')) {
+    function status()
+    {
+        return $page_types =[1=>'published',0=>'Unpublished'];                         
+    }
+}
+
 if (! function_exists('selected_status')) {
     function selected_status($id)
     {
@@ -83,6 +85,25 @@ if (! function_exists('selected_status')) {
                   if($key==$id){
                   	return $value;
                   }               	
+                }                   
+    }
+}
+
+
+if (! function_exists('hide_show')) {
+    function hide_show()
+    {
+        return $page_types =[1=>'Show',0=>'Hide'];                         
+    }
+}
+
+if (! function_exists('selected_hide_show')) {
+    function selected_hide_show($id)
+    {
+              foreach ( hide_show() as $key => $value) {
+                  if($key==$id){
+                    return $value;
+                  }                 
                 }                   
     }
 }

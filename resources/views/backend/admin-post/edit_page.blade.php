@@ -58,10 +58,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Post Sub  Title:</strong>
-                                 <input type="text" name="post_subtitle" 
-                                    class="form-control" 
-                                    value="{{$data->post_subtitle ?? '' }}" 
-                                    placeholder="Post Sub Title">
+                                 {!! Form::textArea('post_subtitle', $data->post_subtitle ?? '', array('placeholder' => 'Post Sub Title','class' => 'form-control summernote')) !!}
 
                                 
                             </div>
@@ -132,6 +129,37 @@
                                <img id="output_1" class="banner_image_create" src="{{asset('/')}}{{$settings->logo ?? ''}}" />
                             </div>
                             
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="form-group">
+                                <strong>Image Hide/Show :</strong>
+                                <select class="form-control" name="image_hide_show">
+                                  @forelse(hide_show() as $key=>$val)
+                                  <option value="{{$key}}" @if($key==$data->image_hide_show) selected @endif >{{$val ?? '' }}</option>
+                                  @empty
+                                  @endforelse
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-9">
+                            <div class="form-group">
+                                <strong>Youtube Embade  Code :(  width="640" height="360" Replace With style="width:100%;hight:auto;"    )</strong>
+                                 {!! Form::textArea('_vedio_link', $data->_vedio_link, array('placeholder' => 'Youtube Embade  Code','class' => 'form-control')) !!}
+                            </div>
+                        </div>
+                        @php
+                        $_vedio_link_show = $data->_vedio_link_show ?? 0;
+                        @endphp
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="form-group">
+                                <strong>Is Display Vedio Link on Font :</strong>
+                                <select class="form-control" name="_vedio_link_show">
+                                  @forelse(hide_show() as $key=>$val)
+                                  <option value="{{$key}}" @if($key==$_vedio_link_show) selected @endif  >{{$val ?? '' }}</option>
+                                  @empty
+                                  @endforelse
+                                </select>
+                            </div>
                         </div>
                         
                         

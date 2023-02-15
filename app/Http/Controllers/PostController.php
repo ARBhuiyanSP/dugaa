@@ -39,7 +39,7 @@ class PostController extends Controller
                 //Only page
 
                  return view('backend.admin-post.create_page',compact('slug_detail','page_name','data'));
-            }elseif ($page_type==3) {
+            }elseif ($page_type==3){
                 // Photo Gallary
                  return view('backend.admin-post.index_gallary',compact('slug_detail','page_name','data'));
             }
@@ -64,10 +64,7 @@ class PostController extends Controller
         $page_name=$slug_detail->menu_name;
          $page_type = $slug_detail->page_type ?? 1;
 
-        if($page_type ==1){
-            //Multiple Post
-             return view('backend.admin-post.create',compact('slug_detail','page_name'));
-        }elseif($page_type==2){
+        if($page_type==2){
             //Only page
              return view('backend.admin-post.create_page',compact('slug_detail','page_name'));
         }elseif ($page_type==3) {
@@ -98,7 +95,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
        // dump($request->all());
-        //return $request->all();
+       // return $request->all();
 
          $this->validate($request, [
             'menu_id' => 'required',
@@ -127,7 +124,11 @@ class PostController extends Controller
                  $Post->position = $request->position ?? 1;
                  $Post->status = $request->status ?? 1;
                  $Post->column_size = $request->column_size ?? 1;
+                 $Post->_vedio_link_show = $request->_vedio_link_show ?? 0;
+                 $Post->_vedio_link = $request->_vedio_link ?? '';
                  $Post->created_by = Auth::user()->id ?? '';
+
+
                  $Post->save();
                  $post_id = $Post->id;
 
@@ -199,6 +200,8 @@ class PostController extends Controller
                  $Post->status = $request->status ?? 1;
                  $Post->column_size = $request->column_size ?? 1;
                  $Post->created_by = Auth::user()->id ?? '';
+                 $Post->_vedio_link_show = $request->_vedio_link_show ?? 0;
+                 $Post->_vedio_link = $request->_vedio_link ?? '';
                  $Post->save();
                  $post_id = $Post->id;
 
@@ -248,14 +251,19 @@ class PostController extends Controller
                  $Post->status = $request->status ?? 1;
                  $Post->column_size = $request->column_size ?? 1;
                  $Post->created_by = Auth::user()->id ?? '';
+                 $Post->_vedio_link_show = $request->_vedio_link_show ?? 0;
+                 $Post->_vedio_link = $request->_vedio_link ?? '';
                  $Post->save();
                  $post_id = $Post->id;
 
+                 
+
                  $page_type = $request->page_type;
-                 if($page_type==2){
+                
 
                     if($request->hasFile('image')){ 
-                        $image_id = $request->image_id ?? 0;
+                        ImageModel::where('post_id',$post_id)->update(['status'=>0]);
+                         $image_id = $request->image_id ?? 0;
                         if($image_id ==0){
                             $Image  = new ImageModel();
                         }else{
@@ -266,13 +274,15 @@ class PostController extends Controller
                         $Image->image = $_image;
                         $Image->post_id = $post_id;
                         $Image->menu_id = $request->menu_id;
-                        $Image->status = $request->status;
+                        $Image->status = 1;
                         $Image->title = $request->image_title ?? '';
-                        $Image->serial   = $request->image_serial ?? '';
-                        $Image->is_dawnloadable   = $request->is_dawnloadable ?? '';
+                        $Image->created_by = Auth::user()->id;
+                        $Image->serial   = $request->image_serial ?? 1;
+                        $Image->is_dawnloadable   = $request->is_dawnloadable ?? 0;
                         $Image->save();
+                         
                     }
-                 }
+                 
          }
          
          
@@ -356,6 +366,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        return $id;
+        $Post = Post::find($id);
+        $Post->delete();
+        return redirect()->back()->with('success', 'Delete Successfully');
+        
     }
 }

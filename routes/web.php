@@ -21,6 +21,7 @@ use App\Http\Controllers\MemberInfoController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\CommitteeHistoryController;
 use App\Http\Controllers\CommitteeController;
+use App\Http\Controllers\FrontendController;
 
 
 
@@ -97,4 +98,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('post-image-remove', [PostController::class,'postImageRemove'])->name('post-image-remove');
     Route::resource('admin-post', PostController::class);
 });
+
+Route::get('page/{slug}', [FrontendController::class, 'customPage'])->name('home');
+
 
