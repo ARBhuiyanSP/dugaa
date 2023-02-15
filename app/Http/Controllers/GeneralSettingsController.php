@@ -37,6 +37,9 @@ class GeneralSettingsController extends Controller
     	}
     	$settings->title = $request->title ?? '';
     	$settings->name = $request->name ?? '';
+    	$settings->_address = $request->_address ?? '';
+    	$settings->_phone = $request->_phone ?? '';
+    	$settings->_email = $request->_email ?? '';
     	$settings->keywords = $request->keywords ?? '';
     	$settings->author = $request->author ?? '';
     	$settings->url = $request->url ?? '';

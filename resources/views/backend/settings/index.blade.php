@@ -55,6 +55,24 @@
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
+                                <strong>Address:</strong>
+                               <input type="text" name="_address" required class="form-control" value="{{old('name',$settings->_address ?? '' )}}">
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <strong>Phone:</strong>
+                               <input type="text" name="_phone" required class="form-control" value="{{old('name',$settings->_phone ?? '' )}}">
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <strong>Email:</strong>
+                               <input type="text" name="_email" required class="form-control" value="{{old('name',$settings->_email ?? '' )}}">
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
                                 <strong>Keywords:</strong>
                                <input type="text" name="keywords" required class="form-control" value="{{old('keywords',$settings->keywords ?? '' )}}">
                             </div>
