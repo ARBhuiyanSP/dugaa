@@ -20,11 +20,21 @@ class SocialController extends Controller
     }
 
     public function store(Request $request){
+
+        $this->validate($request, [
+            'name' => 'required',
+            'url' => 'required',
+            'icon' => 'required'
+        ]);
+
+
     	DB::table('social_media')->insert([
     		'name'=>$request->name,
-    		'id_link'=>$request->id_link,
+    		'url'=>$request->url,
+            'icon'=>$request->icon,
+            'status'=>$request->status ?? 0,
     	]);
-    	return back();
+    	return back()->with('success','Data insert successfully');
     }
 
     public function edit($id){
@@ -34,17 +44,26 @@ class SocialController extends Controller
     }
 
     public function update(Request $request){
+         $this->validate($request, [
+            'name' => 'required',
+            'url' => 'required',
+            'icon' => 'required'
+        ]);
     	DB::table('social_media')->where('id',$request->id)
     	->update([
     		'name'=>$request->name,
-    		'id_link'=>$request->id_link,
+    		'url'=>$request->url,
+            'icon'=>$request->icon,
+            'status'=>$request->status ?? 0,
     	]);
-    	return redirect('social');
+    	return redirect()->back()->with('success','Data insert successfully'); ;
     }
 
     public function delete($id){
+
+       // return $id;
     	
     	DB::table('social_media')->where('id',$id)->delete();
-    	return redirect('social');
+    	return redirect()->back()->with('success','Data deleted successfully'); ;
     }
 }

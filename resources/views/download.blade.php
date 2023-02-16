@@ -1,34 +1,42 @@
-@include('layouts.header')
-<div id="main" class="clearfix">
-    <div class="inner-wrap clearfix">
-        <div id="primary">
-            <header class="page-header">
-                <h1 class="page-title" style="border-bottom-color: #289DCC"><span style="background-color: #289DCC"><i class="fa fa-download" aria-hidden="true" style="color:#fff;"></i> Available Downloads</span></h1>		
-            </header><!-- .page-header -->
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>File name</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Membership Application Form</td>
-                        <td><button type="button" class="btn btn-primary btn-sm" style="margin:0;"> Download</button></td>
-                    </tr>
-                    <tr>
-                        <td>Scholarship Application Form (2022)</td>
-                        <td><button type="button" class="btn btn-primary btn-sm" style="margin:0;"> Download</button></td>
-                    </tr>
-                </tbody>
-            </table>     
-        </div><!-- #primary -->
+@extends('layouts.app')
+@section('title',$settings->title ?? '' )
+@section('content')
 
-        <div id="secondary">
-            @include('layouts.sidebar')
-        </div>
-    </div><!-- .inner-wrap -->
-</div><!-- #main -->
-</hr> 
-@include('layouts.footer')
+<div class="container-fluid mt-1">
+
+<section class="blog-section mt-2"> <!-- Slider Start -->
+    <div class="row">
+        <div class=" col-xs-12 col-sm-8 col-md-8 col-lg-8">
+           <h3 class="widget-title mt-1" style="">
+                <span style="color: #fff;
+                font-weight: 500;
+                padding-right: 5px;
+                padding-left: 5px;">
+                    {!! $page_name ?? '' !!}</span>
+            </h3>
+            <div class=" p-2">
+               <table class="table table-bordered">
+                @forelse($documents as $key=>$value)
+                   <tr>
+                       <td>{!! $value->name ?? '' !!}</td>
+                       <td><a href="{{asset('/')}}{{$value->_doc_file ?? ''}}" download="{{asset('/')}}{{$value->_doc_file ?? ''}}" class="btn btn-sm btn-info">Download</a></td>
+                   </tr>
+                @empty
+                @endforelse
+               </table>
+            </div>
+
+            
+           
+               
+            
+        </div><!-- Left side content End -->
+        <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            @include('includes.side_bar')
+        </div><!-- Right Side bar End-->
+    </div>
+ 
+</section> <!-- Slider End -->
+
+ </div> <!-- End Container -->
+@stop

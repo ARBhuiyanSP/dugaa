@@ -37,3 +37,12 @@
 ._shortable_li{
 	cursor: pointer;
 }
+
+.nav-link {
+    display: block;
+    padding-bottom: 2px !important;
+}
+
+.nav-sidebar .nav-item>.nav-link  > i {
+    font-size: 14px !important;
+}

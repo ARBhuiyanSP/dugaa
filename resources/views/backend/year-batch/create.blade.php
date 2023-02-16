@@ -42,8 +42,8 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Code:</strong>
-                                {!! Form::text('code', null, array('placeholder' => 'Code','class' => 'form-control')) !!}
+                                <strong>Batch:</strong>
+                                {!! Form::text('code', null, array('placeholder' => 'Batch','class' => 'form-control')) !!}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

@@ -8,7 +8,9 @@
     <!-- Sidebar -->
     <div class="sidebar">
 
-      
+@php
+    $current_url = Route::current()->getName();
+@endphp
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -24,43 +26,80 @@
               </p>
             </a>
           </li>
-          @can('main-menu-list')
-          <li class="nav-item">
-            <a href="{{url('main-menu')}}" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Menu 
-              </p>
-            </a>
-          </li>
-          @endcan
-          
-          
-
-          <li class="nav-item {{ Route::is('slider.*') || Route::is('home-page-setup.*')   ? 'menu-is-opening menu-open' : '' }}">
-            
-            <a href="#" class="nav-link {{ Route::is('slider.*') ||  Route::is('home-page-setup.*')    ? 'active' : '' }}">
+         
+          <li class="nav-item {{ Route::is('roles.*') || Route::is('users.*') || Route::is('admin-settings') || Route::is('main-menu.*') || ( $current_url=='social_media' ) || Route::is('document-upload.*') || Route::is('slider.*') || Route::is('home-page-setup.*') ? 'menu-is-opening menu-open' : '' }}">
+            <a href="#" class="nav-link {{ Route::is('roles.*') || Route::is('users.*') || Route::is('admin-settings') || Route::is('main-menu.*')  || Route::is('document-upload.*')   || Route::is('home-page-setup.*')  || ( $current_url=='social_media' )  || Route::is('slider.*')   ? 'active' : '' }}">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Home Page
+                 {{ __('label.Master Setup') }}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
-               @can('slider-list')
+              @can('role-list')
+              <li class="nav-item">
+                <a href="{{url('roles')}}" class="nav-link {{Route::is('roles.*')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.Role') }}</p>
+                </a>
+              </li>
+              @endcan
+              @can('user-list')
+              <li class="nav-item">
+                <a href="{{url('users')}}" class="nav-link {{Route::is('users.*')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.Users') }}</p>
+                </a>
+              </li>
+              @endcan
+               @can('admin-settings')
+              <li class="nav-item">
+
+                <a href="{{url('admin-settings')}}" class="nav-link {{Route::is('admin-settings')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.General Settings') }}</p>
+                </a>
+              </li>
+              @endcan
+              @can('social_media-list')
+              <li class="nav-item">
+
+                <a href="{{url('social_media')}}" class="nav-link {{ ( $current_url=='social_media' )  ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.Social Media') }}</p>
+                </a>
+              </li>
+              @endcan
+              @can('document-upload-list')
+              <li class="nav-item">
+                <a href="{{url('document-upload')}}" class="nav-link {{Route::is('document-upload.*')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.Downloadable Document') }}</p>
+                </a>
+              </li>
+              @endcan
+              @can('main-menu-list')
+              <li class="nav-item">
+                <a href="{{url('main-menu')}}" class="nav-link {{Route::is('main-menu.*')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.Menu') }}</p>
+                </a>
+              </li>
+              @endcan
+              @can('slider-list')
               <li class="nav-item">
                 <a href="{{url('slider')}}" class="nav-link {{Route::is('slider.*')   ? 'active' : '' }}">
                   <i class="fas fa-arrow-right nav-icon"></i>
-                  <p>Slider</p>
+                  <p>{{ __('label.Slider') }}</p>
                 </a>
               </li>
               @endcan
 
-               @can('home-page-setup')
+              @can('home-page-setup')
               <li class="nav-item">
                 <a href="{{url('home-page-setup')}}" class="nav-link {{Route::is('home-page-setup.*')   ? 'active' : '' }}">
                   <i class="fas fa-arrow-right nav-icon"></i>
-                  <p>Home Page Setup</p>
+                  <p>{{ __('label.Home Page Setup') }}</p>
                 </a>
               </li>
               @endcan
@@ -70,50 +109,22 @@
             </ul>
           </li>
 
-
-
-          <li class="nav-item {{ Route::is('designations.*') || Route::is('committee-history.*') || Route::is('committee.*')   ? 'menu-is-opening menu-open' : '' }}">
-            
-            <a href="#" class="nav-link {{ Route::is('designations.*') ||  Route::is('committee-history.*')  ||  Route::is('committee.*')    ? 'active' : '' }}">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Committee
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-               
-               @can('designations-list')
-              <li class="nav-item">
-                <a href="{{url('designations')}}" class="nav-link {{Route::is('designations.*')   ? 'active' : '' }}">
-                  <i class="fas fa-arrow-right nav-icon"></i>
-                  <p>Committee Designations</p>
-                </a>
-              </li>
-              @endcan
-
-               @can('committee-history-list')
-              <li class="nav-item">
-                <a href="{{url('committee-history')}}" class="nav-link {{Route::is('committee-history.*')   ? 'active' : '' }}">
-                  <i class="fas fa-arrow-right nav-icon"></i>
-                  <p>Committee</p>
-                </a>
-              </li>
-              @endcan
-               
-              
-              
-            </ul>
-          </li>
+         
 
           
+          
+          
 
-          <li class="nav-item {{ Route::is('countries.*') || Route::is('exam-session.*') || Route::is('degrees.*') || Route::is('paying-system.*') || Route::is('year-batch.*') || Route::is('membership-type.*') || Route::is('gender.*')  || Route::is('member-info.*')   ? 'menu-is-opening menu-open' : '' }}">
+
+
+          
+@can('alumni-section')
+          <li class="nav-item {{ Route::is('countries.*') || Route::is('exam-session.*') || Route::is('degrees.*') || Route::is('paying-system.*') || Route::is('year-batch.*') || Route::is('membership-type.*') || Route::is('gender.*')  || Route::is('member-info.*') || Route::is('committee-history.*') || Route::is('committee.*') || Route::is('designations.*')   ? 'menu-is-opening menu-open' : '' }}">
             
-            <a href="#" class="nav-link {{ Route::is('countries.*') ||  Route::is('exam-session.*') ||  Route::is('degrees.*') ||  Route::is('paying-system.*') ||  Route::is('year-batch.*') ||  Route::is('membership-type.*') ||  Route::is('gender.*') ||  Route::is('member-info.*')   ? 'active' : '' }}">
+            <a href="#" class="nav-link {{ Route::is('countries.*') ||  Route::is('exam-session.*') ||  Route::is('degrees.*') ||  Route::is('paying-system.*') ||  Route::is('year-batch.*') ||  Route::is('membership-type.*') ||  Route::is('gender.*') ||  Route::is('member-info.*') || Route::is('committee-history.*') || Route::is('committee.*')  || Route::is('designations.*')   ? 'active' : '' }}">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Membar Info Section
+                {{ __('label.alumni-section') }}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -123,6 +134,24 @@
                 <a href="{{url('member-info')}}" class="nav-link {{Route::is('member-info.*')   ? 'active' : '' }}">
                   <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Member Information</p>
+                </a>
+              </li>
+              @endcan
+
+
+               @can('committee-history-list')
+              <li class="nav-item">
+                <a href="{{url('committee-history')}}" class="nav-link {{Route::is('committee-history.*')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>Committee</p>
+                </a>
+              </li>
+              @endcan
+               @can('designations-list')
+              <li class="nav-item">
+                <a href="{{url('designations')}}" class="nav-link {{Route::is('designations.*')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>Committee Designations</p>
                 </a>
               </li>
               @endcan
@@ -188,17 +217,19 @@
             </ul>
           </li>
 
-
+@endcan
          
           @can('admin-post-list')
           @php
+          $url_post_pats=[];
           $current = request()->path();
           $url_paths =  explode("/", $current);
-          $first_path=$url_paths[0] ?? '';
+           $first_path=$url_paths[0] ?? '';
+           $second_path=$url_paths[1] ?? '';
 
           @endphp
           <li class="nav-item {{ ($first_path=='admin-post') || ($first_path=='admin-post-create')  || ($first_path=='admin-post-edit')    ? 'menu-is-opening menu-open' : '' }}">
-              <a href="#" class="nav-link">
+              <a href="#" class="nav-link  {{ ($first_path=='admin-post') || ($first_path=='admin-post-create')  || ($first_path=='admin-post-edit')  ? 'active' : '' }}">
               <i class="nav-icon fas fa-circle"></i>
                   <p>
                   Page And Post
@@ -214,8 +245,14 @@
                   ->get();
             @endphp
             @forelse($category_without_sub as $skey=>$sval)
+
+            @php
+          
+          array_push($url_post_pats,$sval->slug ?? '');
+         
+          @endphp
                 <li class="nav-item">
-                    <a href="{{url('admin-post')}}/{!! $sval->slug ?? '' !!}" class="nav-link">
+                    <a href="{{url('admin-post')}}/{!! $sval->slug ?? '' !!}" class="nav-link @if(in_array($second_path,$url_post_pats) && ($second_path==$sval->slug) ) active @endif">
                       <i class="fas fa-arrow-right nav-icon"></i><p>{!! $sval->menu_name ?? '' !!}</p>
                     </a>
                 </li>
@@ -223,28 +260,43 @@
             @endforelse
 
             @php
+             $sub_menu_paths=[];
             $category_with_sub = \App\Models\Menu::with(['child_cat'])->where('parent_id',0)
                                   ->where('have_child',1)
                                   ->orderBy('serial','ASC')
                                   ->orderBy('menu_name','ASC')
                                   ->get();
             @endphp
+
+      
             @forelse($category_with_sub as $key=>$cat)
-              <li class="nav-item">
-                  <a href="#" class="nav-link">
+              <li class="nav-item " id="nav_itenm_sub_menu_parrent__{{$key}}">
+                  <a href="#" class="nav-link " id="sub_menu_parrent__{{$key}}">
                     <i class="fas fa-arrow-right nav-icon"></i>
                       <p>{!! $cat->menu_name ?? '' !!}<i class="right fas fa-angle-left"></i></p>
                 </a>
-                <ul class="nav nav-treeview" style="display: none;">
+                <ul class="nav nav-treeview" >
                   @php
                   $child_cat = $cat->child_cat ?? [];
                   @endphp
                   @forelse($child_cat as $ch_key=>$ch_val)
+          @php
+          array_push($sub_menu_paths,$ch_val->slug ?? '');
+          @endphp
                   <li class="nav-item">
-                    <a  href="{{url('admin-post')}}/{!! $ch_val->slug ?? '' !!}" class="nav-link">
+                    <a  href="{{url('admin-post')}}/{!! $ch_val->slug ?? '' !!}"
+                     class="nav-link @if(in_array($second_path,$sub_menu_paths) && ($second_path==$ch_val->slug) ) active @endif">
                       <i class="far fa-dot-circle nav-icon"></i><p>{!! $ch_val->menu_name ?? '' !!}</p>
                     </a>
                   </li>
+                  @if(in_array($second_path,$sub_menu_paths) && ($second_path==$ch_val->slug) )
+                  <script type="text/javascript">
+                        var __key_id = 'sub_menu_parrent__'+'{{$key}}';
+                        var nav_idtem_id = '#nav_itenm_sub_menu_parrent__'+'{{$key}}';
+                        
+                  </script>
+                   @endif
+
                   @empty
                   @endforelse
                
@@ -259,52 +311,7 @@
           @endcan
           
          
-          <li class="nav-item {{ Route::is('roles.*') || Route::is('users.*') || Route::is('admin-settings') || Route::is('banners.*') || Route::is('social_media.*') || Route::is('board.*') || Route::is('profession.*')  ? 'menu-is-opening menu-open' : '' }}">
-            <a href="#" class="nav-link {{ Route::is('roles.*') || Route::is('users.*') || Route::is('admin-settings') || Route::is('banners.*')  || Route::is('profession.*')  || Route::is('front-banner.*')   ? 'active' : '' }}">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Settings
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-               @can('admin-settings')
-              <li class="nav-item">
-
-                <a href="{{url('admin-settings')}}" class="nav-link {{Route::is('admin-settings')   ? 'active' : '' }}">
-                  <i class="fas fa-arrow-right nav-icon"></i>
-                  <p>General Settings</p>
-                </a>
-              </li>
-              @endcan
-              @can('social_media-list')
-              <li class="nav-item">
-
-                <a href="{{url('social_media')}}" class="nav-link {{Route::is('social_media.*')   ? 'active' : '' }}">
-                  <i class="fas fa-arrow-right nav-icon"></i>
-                  <p>Social Media</p>
-                </a>
-              </li>
-              @endcan
-              @can('role-list')
-              <li class="nav-item">
-                <a href="{{url('roles')}}" class="nav-link {{Route::is('roles.*')   ? 'active' : '' }}">
-                  <i class="fas fa-arrow-right nav-icon"></i>
-                  <p>Role</p>
-                </a>
-              </li>
-              @endcan
-              @can('user-list')
-              <li class="nav-item">
-                <a href="{{url('users')}}" class="nav-link {{Route::is('users.*')   ? 'active' : '' }}">
-                  <i class="fas fa-arrow-right nav-icon"></i>
-                  <p>Users</p>
-                </a>
-              </li>
-              @endcan
-              
-            </ul>
-          </li>
+          
           
          
          

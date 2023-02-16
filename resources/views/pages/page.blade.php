@@ -29,9 +29,9 @@
 								<time class="entry-date published" datetime="{{$value->date ?? '' }}"></time>{{$value->created_at ?? '' }}
 						</span>                       
 						</div>
-					    <p class="card-text">
+					    <h4 class="card-text">
 					    	{!! $value->post_subtitle ?? '' !!}
-					    </p>
+					    </h4>
 					    <div>
 					    	{!! $value->details ?? '' !!}
 					    </div>

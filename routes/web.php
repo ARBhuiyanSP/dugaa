@@ -22,6 +22,7 @@ use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\CommitteeHistoryController;
 use App\Http\Controllers\CommitteeController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\DocumentDownloadController;
 
 
 
@@ -78,8 +79,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('designations', DesignationController::class);
     Route::resource('committee-history', CommitteeHistoryController::class);
     Route::resource('committee', CommitteeController::class);
+    Route::resource('document-upload', DocumentDownloadController::class);
 
-    Route::get('social_media','App\Http\Controllers\SocialController@index');
+    Route::get('social_media','App\Http\Controllers\SocialController@index')->name('social_media');
     Route::get('social-create','App\Http\Controllers\SocialController@create');
     Route::post('social-save','App\Http\Controllers\SocialController@store');
     Route::get('social-edit/{id}','App\Http\Controllers\SocialController@edit');
@@ -91,14 +93,16 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('admin-settings','App\Http\Controllers\GeneralSettingsController@settings')->name('admin-settings');
     Route::post('admin-settings-store','App\Http\Controllers\GeneralSettingsController@settingsSave')->name('admin-settings-store');
 
-    Route::get('admin-post/{slug}', [PostController::class,'index']);
-    Route::get('admin-post-create/{slug}', [PostController::class,'create']);
-    Route::get('admin-post-edit/{id}', [PostController::class,'edit']);
+    Route::get('admin-post/{slug}', [PostController::class,'index'])->name('admin-post');
+    Route::get('admin-post-create/{slug}', [PostController::class,'create'])->name('admin-post-create');
+    Route::get('admin-post-edit/{id}', [PostController::class,'edit'])->name('admin-post-edit');
     Route::post('admin-post', [PostController::class,'store'])->name('admin-post.store');
     Route::get('post-image-remove', [PostController::class,'postImageRemove'])->name('post-image-remove');
     Route::resource('admin-post', PostController::class);
 });
 
 Route::get('page/{slug}', [FrontendController::class, 'customPage'])->name('home');
+Route::get('post-detail/{slug}', [FrontendController::class, 'postDetail'])->name('post-detail');
+Route::get('page-committee/{id}', [FrontendController::class, 'pageCommittee'])->name('page-committee');
 
 

@@ -8,6 +8,7 @@ use App\Models\ImageModel;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
+use Str;
 
 class PostController extends Controller
 {
@@ -116,6 +117,7 @@ class PostController extends Controller
                  $Post->date = date('Y-m-d');
                  $Post->time = $current_time;
                  $Post->post_title = $request->post_title ?? '';
+                 $Post->post_slug = Str::slug($request->post_title ?? '');
                  $Post->image_possition = $request->image_possition ?? 1;
                  $Post->post_subtitle = $request->post_subtitle ?? '';
                  $Post->details = $request->details ?? '';
@@ -191,6 +193,7 @@ class PostController extends Controller
                  $Post->date = date('Y-m-d');
                  $Post->time = $current_time;
                  $Post->post_title = $request->post_title ?? '';
+                 $Post->post_slug = Str::slug($request->post_title ?? '');
                  $Post->image_possition = $request->image_possition ?? 1;
                  $Post->post_subtitle = $request->post_subtitle ?? '';
                  $Post->details = $request->details ?? '';
@@ -242,6 +245,7 @@ class PostController extends Controller
                  $Post->date = date('Y-m-d');
                  $Post->time = $current_time;
                  $Post->post_title = $request->post_title ?? '';
+                 $Post->post_slug = Str::slug($request->post_title ?? '');
                  $Post->image_possition = $request->image_possition ?? 1;
                  $Post->post_subtitle = $request->post_subtitle ?? '';
                  $Post->details = $request->details ?? '';

@@ -15,6 +15,6 @@ class CommitteeHistory extends Model
 	}
 
 	public function committee_members(){
-		return $this->hasMany(Committee::class,'committee_his_id','id')->with(['_member','_designation'])->where('status',1);
+		return $this->hasMany(Committee::class,'committee_his_id','id')->with(['_member','_designation'])->where('status',1)->orderBy('serial','asc');
 	}
 }

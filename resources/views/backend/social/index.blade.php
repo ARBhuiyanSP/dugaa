@@ -24,16 +24,19 @@
     </div>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Manage Logo</h6>
-            </div>
+            
+            <div class="message-area">
+             @include('backend.common.message')
+         </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" style="width: 100%">
                         <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Icon</th>
                             <th>Link</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -42,7 +45,9 @@
                         @foreach($medias as $media)
                             <tr>
                                 <td>{!! $media->name ?? null  !!}</td>
-                                <td>{!! $media->id_link ?? null  !!}</td>
+                                <td>{!! $media->icon ?? null  !!}</td>
+                                <td>{!! $media->url ?? null  !!}</td>
+                                 <td>{!! selected_status($media->status) !!}</td>
                                 <td>
                                     <a href="{!! url('/social-edit/'.$media->id) !!}" class="btn btn-success">
                                         <span class="fa fa-edit"></span>

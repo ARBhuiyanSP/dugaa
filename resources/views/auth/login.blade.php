@@ -42,6 +42,8 @@ button:hover {
 
 .imgcontainer {
   text-align: center;
+    width: 50%;
+    margin: 0px auto;
 }
 
 img.avatar {
@@ -71,7 +73,11 @@ span.psw {
 </head>
 <body>
 
-
+<div class="imgcontainer">
+    <a href="{{url('/')}}">
+        <img src="{{url('/')}}/{{$settings->logo ?? ''}}" alt="Avatar" style="width: 100%;">
+    </a>
+  </div>
 <div style="width: 320px;
     margin: 0px auto;
     margin-top: 10vh;
@@ -79,14 +85,11 @@ span.psw {
     background-color: #ffffff;
     ">
    
-    <h2 style="text-align:center">{{ $settings->title ?? '' }}</h2>
+    
+    
 <form method="POST" action="{!!  route('login')  !!}">
                         @csrf
-  <div class="imgcontainer">
-    <a href="{{url('/')}}">
-        <img src="{{url('/')}}/{{$settings->logo ?? ''}}" alt="Avatar" class="avatar">
-    </a>
-  </div>
+  <p style="text-align: center;">Sign in to start your session</p>
 
   <div class="container">
     <label for="email"><b> {!!  __('E-Mail Address')  !!}</b></label>

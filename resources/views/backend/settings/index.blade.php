@@ -39,7 +39,13 @@
                 <form method="POST" action="{{route('admin-settings-store')}}" enctype="multipart/form-data">
                @csrf
                     <div class="row">
-                      
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <strong>LOGO:</strong>
+                               <input type="file" accept="image/*" onchange="loadFile(event,1 )"  name="logo" class="form-control">
+                               <img id="output_1" class="banner_image_create" src="{{asset('/')}}{{$settings->logo ?? ''}}" />
+                            </div>
+                        </div>
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <strong>Title:</strong>
@@ -56,19 +62,22 @@
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <strong>Address:</strong>
-                               <input type="text" name="_address" required class="form-control" value="{{old('name',$settings->_address ?? '' )}}">
+                                <textarea class="form-control summernote" name="_address">{{old('_address',$settings->_address ?? '' )}}</textarea>
+                              
                             </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <strong>Phone:</strong>
-                               <input type="text" name="_phone" required class="form-control" value="{{old('name',$settings->_phone ?? '' )}}">
+                                <textarea class="form-control summernote" name="_phone">{{old('_phone',$settings->_phone ?? '' )}}</textarea>
                             </div>
                         </div>
+                        
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <strong>Email:</strong>
-                               <input type="text" name="_email" required class="form-control" value="{{old('name',$settings->_email ?? '' )}}">
+                                <textarea class="form-control summernote" name="_email">{{old('_email',$settings->_email ?? '' )}}</textarea>
+                               
                             </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6">
@@ -89,11 +98,17 @@
                                <input type="text" name="url" required class="form-control" value="{{old('url',$settings->url ?? '' )}}">
                             </div>
                         </div>
+                      
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
-                                <strong>LOGO:</strong>
-                               <input type="file" accept="image/*" onchange="loadFile(event,1 )"  name="logo" class="form-control">
-                               <img id="output_1" class="banner_image_create" src="{{asset('/')}}{{$settings->logo ?? ''}}" />
+                                <strong>Footer Content:</strong>
+                                <textarea class="form-control summernote" name="footerContent">{{old('footerContent',$settings->footerContent ?? '' )}}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <strong>Google Map Embed Code:</strong>
+                                <textarea class="form-control" name="bg_image">{{old('bg_image',$settings->bg_image ?? '' )}}</textarea>
                             </div>
                         </div>
                         

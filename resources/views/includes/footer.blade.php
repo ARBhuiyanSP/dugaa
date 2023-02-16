@@ -17,24 +17,24 @@
       <!-- Left -->
 
       <!-- Right -->
-      <div>
-        <a href="" class="text-white me-4">
-          <i class="fa fa-facebook-f"></i>
+      <div >
+        <a href="" >
+         <i class="fab fa-facebook"></i>
         </a>
-        <a href="" class="text-white me-4">
-          <i class="fa fa-twitter"></i>
+        <a href="" >
+          <i class="fab fa-twitter"></i>
         </a>
-        <a href="" class="text-white me-4">
-          <i class="fa fa-google"></i>
+        <a href="" >
+          <i class="fab fa-google"></i>
         </a>
-        <a href="" class="text-white me-4">
-          <i class="fa fa-instagram"></i>
+        <a href="" >
+          <i class="fab fa-instagram"></i>
         </a>
-        <a href="" class="text-white me-4">
-          <i class="fa fa-linkedin"></i>
+        <a href="" >
+          <i class="fab fa-linkedin"></i>
         </a>
-        <a href="" class="text-white me-4">
-          <i class="fa fa-github"></i>
+        <a href="" >
+          <i class="fab fa-github"></i>
         </a>
       </div>
       <!-- Right -->
@@ -65,9 +65,12 @@
                 class="mb-4 mt-0 d-inline-block mx-auto"
                 style="width: 60px; background-color: #7c4dff; height: 2px"
                 />
-            <p><i class="fa fa-home mr-3"></i>{{ $settings->_address ?? '' }}</p>
-            <p><i class="fa fa-envelope mr-3"></i> {{ $settings->_email ?? '' }}</p>
-            <p><i class="fa fa-phone mr-3"></i> {{ $settings->_phone ?? '' }}</p>
+                <div style="text-align: left;">
+                  {!! $settings->_address ?? '' !!}
+                  {!! $settings->_email ?? '' !!}
+                   {!! $settings->_phone ?? '' !!}
+                </div>
+          
           </div>
           <!-- Grid column -->
         </div>
@@ -77,15 +80,17 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div
-         class="text-center p-3"
-         style="background-color: rgba(0, 0, 0, 0.2)"
-         >
-      © {{date('Y')}} Copyright:
-      <a class="text-white" href="https://mdbootstrap.com/"
-         >{{ $settings->title ?? '' }}</a
-        >
-    </div>
+    <div class="footer-socket-wrapper clearfix p-1">
+          <div class="inner-wrap">
+          <div class="footer-socket-area">
+          <font color="white">
+          <span style="float: left;">Copyright © {{date('Y')}} {{$settings->name ?? '' }}</span> 
+          <span style="float: right;">Designed and Developed by <a href="http://www.88innovationsltd.com/">88innovationsltd</a></span>
+          </font>
+          <br>                
+          </div>
+          </div>
+          </div>
     <!-- Copyright -->
   </footer>
   <!-- Footer -->

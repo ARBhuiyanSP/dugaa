@@ -30,6 +30,8 @@ class GeneralSettingsController extends Controller
     }
 
     public function settingsSave(Request $request){
+
+        //return $request->all();
     	if($request->id ==''){
     		$settings = new GeneralSettings();
     	}else{
@@ -43,6 +45,8 @@ class GeneralSettingsController extends Controller
     	$settings->keywords = $request->keywords ?? '';
     	$settings->author = $request->author ?? '';
     	$settings->url = $request->url ?? '';
+        $settings->bg_image = $request->bg_image ?? '';
+        $settings->footerContent = $request->footerContent ?? '';
     	if($request->hasFile('logo')){ 
                 $logo = $this->UserImageUpload($request->logo); 
                 $settings->logo = $logo;

@@ -97,7 +97,7 @@
                                 <select name="admission_session" class="form-control col-sm-8" required="true">
                                   <option value="">--Select--</option>
                                   @forelse($examsessions as $key=>$val)
-                                    <option value="{{ $val->name }}"  @if($data->admission_session==$val->name) selected @endif  >{{ $val->name ?? '' }}</option>
+                                    <option value="{{ $val->id }}"  @if($data->admission_session==$val->id) selected @endif  >{{ $val->name ?? '' }}</option>
                                   @empty
                                   @endforelse
                                 </select>

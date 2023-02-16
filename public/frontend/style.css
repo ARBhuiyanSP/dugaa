@@ -3,10 +3,6 @@
 	background: transparent;
 }
 
-.logo_image{
-	width: 100%;
-	height: au;
-}
 
 
 .widget-title {
@@ -48,4 +44,23 @@
 }
 .bg-dark{
 	border-top: 3px solid #289dcc;
+    background: #fff !important;
+}
+
+
+.nav-item {
+    background: #0a3523;
+    margin-right: 2px;
+}
+
+
+
+/* styles for tablets and desktops */
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .logo_image{
+    width: 100%;
+  }
 }

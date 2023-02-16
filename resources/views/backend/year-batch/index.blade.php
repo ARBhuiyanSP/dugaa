@@ -39,7 +39,7 @@
                                   <th>SL</th>
                                   <th>Action</th>
                                   <th>Name</th>
-                                  <th>Code</th>
+                                  <th>Batch</th>
                               </tr>
                           </thead>
                           <tbody>

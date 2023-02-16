@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Menu;
+use App\Models\CommitteeHistory;
+use App\Models\DocumentDownload;
 use App\Models\ImageModel;
 
 //use DB;
@@ -45,19 +47,24 @@ class FrontendController extends Controller
             return view('notices');
         }
 
-    public function scholarship()
+    public function pageCommittee($id)
         {
-            return view('scholarship');
+             $data = CommitteeHistory::with(['committee_members'])->where('id',$id)->first();
+            $page_name = $data->name ?? '';
+            return view('pages.committee',compact('page_name','data'));
         }
 
     public function download()
         {
-            return view('download');
+            $page_name="Download";
+            $documents = DocumentDownload::where('status',1)->orderBy('serial','asc')->get();
+            return view('download',compact('page_name','documents'));
         }
 
     public function contact()
         {
-            return view('contact');
+            $page_name ="Contact Us";
+            return view('contact',compact('page_name'));
         }
 
 
@@ -86,6 +93,28 @@ class FrontendController extends Controller
         }
         
     }
+
+
+
+    public function postDetail($slug=''){
+        
+           
+             $data=Post::with(['parent_cat','_images','_user'])
+                        ->where('post_slug',$slug)
+                        ->first();
+        if($data){
+            $page_name=$data->parent_cat->menu_name ?? '';
+            $page_type = $slug_detail->page_type ?? 1;
+            
+            return view('post.detail',compact('data','page_name'));
+
+        }else{
+            return view('404');
+        }
+        
+    }
+
+    
 
     
 }

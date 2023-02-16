@@ -95,9 +95,21 @@
     // Summernote
     $('.summernote').summernote()
 
+
   })
 $(document).ready(function () {
     $('#example').DataTable();
+    
+     setTimeout(function() {
+      console.log(nav_idtem_id)
+    // Code to execute after 2 seconds
+    //$(nav_idtem_id).css({"background":"#ffffffe6"});
+    $(nav_idtem_id).addClass("menu-is-opening menu-open").addClass("active");
+  }, 500);
+
+     
+
+     
 });
 </script>
 </body>
