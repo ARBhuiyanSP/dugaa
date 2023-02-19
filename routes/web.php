@@ -23,6 +23,7 @@ use App\Http\Controllers\CommitteeHistoryController;
 use App\Http\Controllers\CommitteeController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DocumentDownloadController;
+use App\Http\Controllers\EventManageController;
 
 
 
@@ -63,6 +64,7 @@ Route::group(['middleware' => ['auth']], function() {
     //Admin Section start
 
     Route::resource('roles', RoleController::class);
+    Route::resource('event-management', EventManageController::class);
     Route::resource('users', UserController::class);
     Route::resource('social_media', SocialMediaController::class);
     Route::resource('main-menu', MenuController::class);
@@ -76,6 +78,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('year-batch', YearBatchController::class);
     Route::resource('membership-type', MembershipTypeController::class);
     Route::resource('member-info', MemberInfoController::class);
+    Route::get('own-profile', [MemberInfoController::class,"ownProfile"])->name('own-profile');
+    Route::post('own-profile-update', [MemberInfoController::class,"ownProfileUpdate"])->name('own-profile-update');
+
     Route::resource('designations', DesignationController::class);
     Route::resource('committee-history', CommitteeHistoryController::class);
     Route::resource('committee', CommitteeController::class);

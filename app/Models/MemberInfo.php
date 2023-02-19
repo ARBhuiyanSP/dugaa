@@ -24,5 +24,13 @@ class MemberInfo extends Model
     	return $this->hasOne(Degree::class,'id','exit_degree');
     }
 
+    public function _alumni_cat(){
+        return $this->hasOne(MembershipType::class,'id','alumni_category');
+    }
+
+    public function user_info(){
+        return $this->hasOne(User::class,'member_id','id');
+    }
+
    
 }

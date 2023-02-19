@@ -11,15 +11,15 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-               @can('member-info-create')
-                        <a class="btn btn-sm btn-success" href="{{ route('member-info.create') }}"> New {!! $page_name ?? '' !!}</a>
+               @can('event-management-create')
+                        <a class="btn btn-sm btn-success" href="{{ route('event-management.create') }}"> New {!! $page_name ?? '' !!}</a>
                 @endcan
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <div class="message-area">
+   <div class="message-area">
      @include('backend.common.message')
     </div>
     <!-- /.content-header -->
@@ -36,18 +36,12 @@
                               <tr>
                                   <th>SL</th>
                                   <th>Action</th>
-                                  <th>Alumni ID</th>
-                                  <th>Photo</th>
                                   <th>Name</th>
-                                  <th>BSc(Honors) Batch</th>
-                                  <th>Degre Year</th>
-                                  <th>Member Type</th>
-                                  <th>Affiliation</th>
-                                  <th>Contact No</th>
-                                  <th>Email</th>
-                                  <th>User Email</th>
+                                  <th>Date</th>
+                                  <th>Image 1</th>
+                                  <th>Image 2</th>
+                                  <th>Image 3</th>
                               </tr>
-
                           </thead>
                           <tbody>
                             @forelse($data as $key=>$value)
@@ -55,39 +49,30 @@
                               <td>{{($key+1)}}</td>
                               <td style="display: flex;">
                                 
-                                @can('member-info-edit')
-                                    <a class="btn btn-sm btn-primary  mr-2" href="{{ route('member-info.edit',$value->id) }}">
+                                @can('event-management-edit')
+                                    <a class="btn btn-sm btn-primary  mr-2" href="{{ route('event-management.edit',$value->id) }}">
                                       <i class="nav-icon fas fa-edit"></i>
                                     </a>
                                 @endcan
-                                @can('member-info-delete')
-                                    {!! Form::open(['method' => 'DELETE','route' => ['member-info.destroy', $value->id],'style'=>'display:inline']) !!}
+                                @can('event-management-delete')
+                                    {!! Form::open(['method' => 'DELETE','route' => ['event-management.destroy', $value->id],'style'=>'display:inline']) !!}
                                         <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-sm btn-danger">
                                             <i class="nav-icon fas fa-trash"></i>
                                         </button>
                                     {!! Form::close() !!}
                                 @endcan
                             </td>
-                              <td>{!! $value->member_id ?? '' !!}</td>
-                             <td>
-                                
-                                @php
-                                 $file_path = asset('/')."/".$value->member_image;
-                                @endphp
-                                @if(file_exists($file_path))
-                                <img style="padding: 5px;width: 80px;"  class="banner_image_create" src="{{asset('/')}}{{$value->member_image ?? ''}}" />
-                                @endif
+                              <td>{!! $value->name ?? '' !!}</td>
+                              <td>{!! $value->event_date ?? '' !!}</td>
+                              <td>
+                                <img id="output_1" class="banner_image_create" src="{{asset('/')}}{{$value->card_left_image ?? ''}}" />
                               </td>
-                            
-                              <td>{!! $value->first_name ?? '' !!} {!! $value->last_name ?? '' !!}</td>
-                              <td>{!! $value->batch ?? '' !!} </td>
-                              <td>{!! $value->entery_degree_completion_year ?? '' !!} </td>
-                              <td>{{ $value->_member_ship_type->name ?? '' }}</td>
-
-                              <td>{{ $value->current_affiliation ?? '' }}</td>
-                              <td>{{ $value->contact_no ?? '' }}</td>
-                              <td>{{ $value->email ?? '' }}</td>
-                              <td>{{ $value->user_name ?? '' }} </td>
+                              <td>
+                                <img id="output_2" class="banner_image_create" src="{{asset('/')}}{{$value->card_right_image ?? ''}}" />
+                              </td>
+                              <td>
+                                 <img id="output_3" class="banner_image_create" src="{{asset('/')}}{{$value->background_image ?? ''}}" />
+                              </td>
                             </tr>
                             @empty
                             @endforelse

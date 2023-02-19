@@ -99,7 +99,13 @@ span.psw {
     <input type="password" placeholder="Enter Password" name="password" required>
         
     <button type="submit"><img src="https://img.icons8.com/ios-filled/50/000000/login-rounded-right.png"/></i>
+
  </button>
+ @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{!!  route('password.request')  !!}" >
+                                        {!!  __('Forgot Your Password?')  !!}
+                                    </a>
+                                @endif
     
   </div>
 

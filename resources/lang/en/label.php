@@ -23,5 +23,7 @@ return [
     'Slider' => 'Slider',
     'Home Page Setup' => 'Home Page Setup',
     'alumni-section' => 'Alumni Section',
+    'event-management' => 'Event Management',
+    'profile' => 'Profile',
 
 ];

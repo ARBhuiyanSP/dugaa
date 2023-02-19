@@ -28,7 +28,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $paginate = $request->paginate ?? 10;
-        $data = User::where('user_type','admin')->orderBy('id','DESC')->paginate();
+        $data = User::orderBy('id','DESC')->paginate();
         return view('users.index',compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * $paginate);
     }

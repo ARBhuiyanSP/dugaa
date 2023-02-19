@@ -35,42 +35,67 @@
                 
                     <div class="row">
                       
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <div class="form-group row">
-                                 <label for="member_id" class="col-sm-4 col-form-label">Alumni Id:</label>
-                                 <div class="col-sm-8">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="form-group ">
+                                 <label for="member_id" class=" col-form-label">Alumni Id:</label>
+                                 <div class="">
                                 {!! Form::text('member_id', $data->member_id, array('placeholder' => 'Alumni Id','class' => 'form-control','readonly'=>'true','id'=>'member_id')) !!}
                               </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <div class="form-group row">
-                              <label for="first_name" class="col-sm-4 col-form-label">First Name:</label>
-                               <div class="col-sm-8">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="form-group ">
+                              <label for="user_name" class="col-form-label">User Email:</label>
+                               <div class="">
+                                {!! Form::text('user_name', null, array('placeholder' => 'User Email','class' => 'form-control','id'=>'user_name')) !!}
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="form-group ">
+                              <label for="first_name" class=" col-form-label">First Name:</label>
+                               <div class="">
                                 {!! Form::text('first_name', null, array('placeholder' => 'First Name','class' => 'form-control','id'=>'first_name')) !!}
                               </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <div class="form-group row">
-                               <label for="last_name" class="col-sm-4 col-form-label">Last Name:</label>
-                               <div class="col-sm-8">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="form-group ">
+                               <label for="last_name" class=" col-form-label">Last Name:</label>
+                               <div class="">
                                 {!! Form::text('last_name', null, array('placeholder' => 'Last Name','class' => 'form-control','id'=>'last_name')) !!}
                               </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <div class="form-group row">
-                              <label for="batch" class="col-sm-4 col-form-label">Batch:</label>
+                       <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="form-group ">
+                              <label for="bsc_year_passing" class=" col-form-label">BSc (Honors) Year of Passing:</label>
+                              @php
+                                $bsc_year_passing = \DB::table('year_batches')->orderBy('name','asc')->get()
+                              @endphp
                                
-                                {!! Form::text('batch', null, array('placeholder' => 'Batch','class' => 'form-control col-sm-8','id'=>'batch')) !!}
+                               <select class="form-control bsc_year_passing" name="bsc_year_passing" id="bsc_year_passing" onchange ="getSelectedBatch()">
+                                @forelse($bsc_year_passing as $key=>$val)
+                                 <option value="{{ $val->name ?? '' }}" data-batch="{{ $val->code ?? '' }}" @if($data->bsc_year_passing=== $val->name) selected @endif >{{ $val->name ?? '' }} - {{ $val->code ?? '' }}</option>
+                                 @empty
+                                 @endforelse
+                               </select>
                             </div>
                         </div>
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="form-group ">
+                              <label for="batch" class=" col-form-label">Batch:</label>
+                               
+                                {!! Form::text('batch', null, array('placeholder' => 'Batch','readonly'=>'true','class' => 'form-control ','id'=>'batch')) !!}
+                            </div>
+                        </div>
+                        
 
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <div class="form-group row">
-                                <strong class="col-sm-4">Gender:</strong>
-                                <select name="entery_degree" class="form-control col-sm-8" required="true">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="form-group ">
+                               <label for="gender_id" class=" col-form-label">Gender:</label>
+                              
+                                <select name="gender_id" class="form-control" required="true">
                                   <option value="">Select Gender</option>
                                   @forelse($genders as $key=>$val)
                                     <option value="{{$val->id}}" @if($data->entery_degree==$val->id) selected @endif >{{ $val->name ?? '' }}</option>
@@ -79,10 +104,10 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <div class="form-group row">
-                                <strong class="col-sm-4">Alumni Category:</strong>
-                                <select name="alumni_category" class="form-control col-sm-8" required="true">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="form-group ">
+                                <label class=" col-form-label">Alumni Category:</label>
+                                <select name="alumni_category" class="form-control " required="true">
                                   <option value="">--Select--</option>
                                   @forelse($membership_types as $key=>$val)
                                     <option value="{{$val->id}}" @if($data->alumni_category==$val->id) selected @endif >{{ $val->name ?? '' }}</option>
@@ -91,10 +116,11 @@
                                 </select>
                             </div>
                         </div>
+
                         <div class="col-xs-12 col-sm-12 col-md-4">
-                            <div class="form-group row">
-                                <strong class="col-sm-4">Admission Session:</strong>
-                                <select name="admission_session" class="form-control col-sm-8" required="true">
+                            <div class="form-group ">
+                               <label class=" col-form-label">Admission Session:</label>
+                                <select name="admission_session" class="form-control " required="true">
                                   <option value="">--Select--</option>
                                   @forelse($examsessions as $key=>$val)
                                     <option value="{{ $val->id }}"  @if($data->admission_session==$val->id) selected @endif  >{{ $val->name ?? '' }}</option>
@@ -105,9 +131,9 @@
                         </div>
                        
                         <div class="col-xs-12 col-sm-12 col-md-4">
-                            <div class="form-group row">
-                                <strong class="col-sm-4">Entery Degree:</strong>
-                                <select name="entery_degree" class="form-control col-sm-8" required="true">
+                            <div class="form-group ">
+                               <label class=" col-form-label">Entery Degree:</label>
+                                <select name="entery_degree" class="form-control " required="true">
                                   <option value="">Select Degree</option>
                                   @forelse($degress as $key=>$val)
                                     <option value="{{$val->id}}" @if($data->entery_degree==$val->id) selected @endif >{{ $val->name ?? '' }}</option>
@@ -117,9 +143,9 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-4">
-                            <div class="form-group row">
-                                <strong class="col-sm-4">Exit Degree:</strong>
-                                <select name="exit_degree" class="form-control col-sm-8" required="true">
+                            <div class="form-group ">
+                              <label class=" col-form-label">Exit Degree:</label>
+                                <select name="exit_degree" class="form-control " required="true">
                                   <option value="">Select Degree</option>
                                   @forelse($degress as $key=>$val)
                                     <option value="{{$val->id}}" @if($data->exit_degree==$val->id) selected @endif  >{{ $val->name ?? '' }}</option>
@@ -132,11 +158,11 @@
                         
                         
                         
-                        <div class="col-xs-12 col-sm-12 col-md-6">
+                        <div class="col-xs-12 col-sm-12 col-md-4">
                             <div class="form-group row">
-                                <strong class="col-sm-4">Entry Degree Comletion Year:</strong>
+                               <label class=" col-form-label">Entry Degree Comletion Year:</label>
                                 <select name="entery_degree_completion_year" 
-                                class="form-control col-sm-8" >
+                                class="form-control " >
                                   <option value="0000">0000</option>
                                  @for ($year = 1940; $year <= 2050; $year++) 
                                 <option value="{{$year}}" @if($data->entery_degree_completion_year==$year) selected @endif >{{ $year ?? '' }}</option>
@@ -145,10 +171,11 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6">
-                            <div class="form-group row">
-                                <strong class="col-sm-4">Exit Degree Comletion Year:</strong>
-                                <select name="exit_year" class="form-control col-sm-8" >
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <div class="form-group ">
+                               <label class=" col-form-label">Exit Degree Comletion Year:</label>
+                                
+                                <select name="exit_year" class="form-control " >
                                   <option value="0000">0000</option>
                                  @for ($year = 1940; $year <= 2050; $year++) 
                                 <option value="{{$year}}" @if($data->exit_year==$year) selected @endif >{{ $year ?? '' }}</option>
@@ -216,6 +243,16 @@
                                 <img style="margin-top: 5px;width: 140px;" id="output_2" class="banner_image_create" src="{{asset('/')}}{{$data->scanced_form ?? ''}}" />
                             </div>
                         </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <div class="form-group ">
+                                <label class=" col-form-label">Change Password and Send Mail:</label>
+                                <select name="change_pssword_send_mail" >
+                                  <option value="0">No</option>
+                                <option value="1">Yes</option>
+                                </select>
+                                
+                            </div>
+                        </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -235,4 +272,17 @@
     </div>
 </div>
 
+@endsection
+
+@section('script')
+
+<script type="text/javascript">
+  function getSelectedBatch() {
+      var select = document.getElementById("bsc_year_passing");
+      var option = select.options[select.selectedIndex];
+      var batch = option.getAttribute("data-batch");
+      $(document).find("#batch").val(batch)   
+}
+
+</script>
 @endsection

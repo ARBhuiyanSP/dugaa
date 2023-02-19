@@ -26,7 +26,18 @@
               </p>
             </a>
           </li>
-         
+          @can('own-profile-update')
+          <li class="nav-item ">
+            <a href="{{url('own-profile')}}" class="nav-link {{ ( $current_url=='own-profile' ) ? 'nest_active' : '' }}"  >
+              <i class="fa fa-credit-card nav-icon" aria-hidden="true"></i>
+              <p>
+                  {{ __('label.profile') }}
+              </p>
+            </a>
+          </li>
+          @endcan
+
+           @can('master-menu')
           <li class="nav-item {{ Route::is('roles.*') || Route::is('users.*') || Route::is('admin-settings') || Route::is('main-menu.*') || ( $current_url=='social_media' ) || Route::is('document-upload.*') || Route::is('slider.*') || Route::is('home-page-setup.*') ? 'menu-is-opening menu-open' : '' }}">
             <a href="#" class="nav-link {{ Route::is('roles.*') || Route::is('users.*') || Route::is('admin-settings') || Route::is('main-menu.*')  || Route::is('document-upload.*')   || Route::is('home-page-setup.*')  || ( $current_url=='social_media' )  || Route::is('slider.*')   ? 'active' : '' }}">
               <i class="nav-icon fas fa-chart-pie"></i>
@@ -108,6 +119,7 @@
               
             </ul>
           </li>
+    @endcan
 
          
 
@@ -119,9 +131,9 @@
 
           
 @can('alumni-section')
-          <li class="nav-item {{ Route::is('countries.*') || Route::is('exam-session.*') || Route::is('degrees.*') || Route::is('paying-system.*') || Route::is('year-batch.*') || Route::is('membership-type.*') || Route::is('gender.*')  || Route::is('member-info.*') || Route::is('committee-history.*') || Route::is('committee.*') || Route::is('designations.*')   ? 'menu-is-opening menu-open' : '' }}">
+          <li class="nav-item {{ Route::is('countries.*') || Route::is('exam-session.*') || Route::is('degrees.*') || Route::is('paying-system.*') || Route::is('year-batch.*') || Route::is('membership-type.*') || Route::is('gender.*')  || Route::is('member-info.*') || Route::is('committee-history.*') || Route::is('committee.*') || Route::is('designations.*') || Route::is('event-management.*')   ? 'menu-is-opening menu-open' : '' }}">
             
-            <a href="#" class="nav-link {{ Route::is('countries.*') ||  Route::is('exam-session.*') ||  Route::is('degrees.*') ||  Route::is('paying-system.*') ||  Route::is('year-batch.*') ||  Route::is('membership-type.*') ||  Route::is('gender.*') ||  Route::is('member-info.*') || Route::is('committee-history.*') || Route::is('committee.*')  || Route::is('designations.*')   ? 'active' : '' }}">
+            <a href="#" class="nav-link {{ Route::is('countries.*') ||  Route::is('exam-session.*') ||  Route::is('degrees.*') ||  Route::is('paying-system.*') ||  Route::is('year-batch.*') ||  Route::is('membership-type.*') ||  Route::is('gender.*') ||  Route::is('member-info.*') || Route::is('committee-history.*') || Route::is('committee.*')  || Route::is('designations.*') || Route::is('event-management.*')   ? 'active' : '' }}">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 {{ __('label.alumni-section') }}
@@ -144,6 +156,14 @@
                 <a href="{{url('committee-history')}}" class="nav-link {{Route::is('committee-history.*')   ? 'active' : '' }}">
                   <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Committee</p>
+                </a>
+              </li>
+              @endcan
+               @can('event-management-list')
+              <li class="nav-item">
+                <a href="{{url('event-management')}}" class="nav-link {{Route::is('event-management.*')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.event-management') }}</p>
                 </a>
               </li>
               @endcan
