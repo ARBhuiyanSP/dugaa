@@ -193,18 +193,22 @@ class MemberInfoController extends Controller
         $yearbatches = YearBatch::orderBy('name','ASC')->get();
         $examsessions = ExamSession::orderBy('name','ASC')->get();
         $degress = Degree::orderBy('name','ASC')->get();
-        $user_id = \Auth::user()->id;
 
-         $member_user = \App\Models\User::with(['member_info'])->find($user_id);
+        $user_id = \Auth::user()->id ?? '';
+
+
+          $member_user = \App\Models\User::with(['member_info'])->find($user_id);
           $data = $member_user->member_info ?? '';
         if($data ==''){
-            return redirect()->back()->with('message','Member Information not found');
+            return redirect('/')->with('message','Member Information not found');
         }
         return view('backend.member-info.own_profile',compact('membership_types','page_name','countries','genders','yearbatches','examsessions','degress','member_user','data'));
        
     }
 
     public function ownProfileUpdate(Request $request){
+      //dump( $request->all());
+      //return $request->all();
 
         $this->validate($request, [
             'first_name' => 'required',
@@ -214,9 +218,9 @@ class MemberInfoController extends Controller
             'entery_degree_completion_year' => 'required',
         ]);
         $id = \Auth::user()->member_id ?? '';
-        $MemberInfo = MemberInfo::find($id);
-        if($MemberInfo){
-            return redirect()->back()->with('message','Member Information not found');
+         $MemberInfo = MemberInfo::find($id);
+        if(!$MemberInfo){
+            return redirect()->back()->with('success','Member Information not found');
         }
          $old_member_info = $MemberInfo;
 
@@ -262,6 +266,7 @@ class MemberInfoController extends Controller
         $MemberInfo->note= $request->note ?? '';
         $MemberInfo->entry_by= \Auth::user()->id;
         if($request->hasFile('member_image')){ 
+          
             $member_image = $this->UserImageUpload($request->member_image);
             $MemberInfo->member_image = $member_image; 
         }
@@ -437,7 +442,11 @@ class MemberInfoController extends Controller
 
         $user->assignRole('user');
 
-             $data = [
+             
+              //return $request->_new_quotation_email;
+        $email= $request->user_name;
+        if($request->change_pssword_send_mail ==1){
+          $data = [
               "subject"=>"Your Dugaa Account user name and password",
               "user_name"=>$name,
               "email"=>$request->user_name,
@@ -445,9 +454,6 @@ class MemberInfoController extends Controller
               "_side_url"=>url('login'),
               "_site_name"=>"DUGAA",
               ];
-              //return $request->_new_quotation_email;
-        $email= $request->user_name;
-        if($request->change_pssword_send_mail ==1){
                Mail::to($email)->send(new MemberMail($data));
            }
 

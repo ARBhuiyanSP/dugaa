@@ -49,7 +49,7 @@
 					    	</a>
 					    </p>
 					    <p class="card-text">
-					    	{{ $post_val->post_subtitle ?? '' }}
+					    	{!! $post_val->post_subtitle ?? '' !!}
 					    </p>
 					    <a href="{{url('post-detail')}}/{{ $post_val->post_slug ?? $post_val->id }}" class="btn btn-sm btn-info">Read More</a>
 					  </div>

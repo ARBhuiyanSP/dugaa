@@ -7,6 +7,13 @@ use App\Models\GeneralSettings;
 
 class GeneralSettingsController extends Controller
 {
+
+     function __construct()
+    {
+         $this->middleware('permission:admin-settings|admin-settings-store', ['only' => ['settings','settingsSave']]);
+         $this->middleware('permission:lock-permission', ['only' => ['lockAction','allLockSystem','allLock']]);
+         
+    }
     /*
     * General Settings Update
     *
@@ -26,7 +33,17 @@ class GeneralSettingsController extends Controller
 
     public function settings(Request $request){
     	$settings = GeneralSettings::first();
-    	return view('backend.settings.index',compact('settings'));
+        $_accounts_group = \DB::table('account_groups')->select('id','_name')->where('_account_head_id',1)->get();
+    	return view('backend.settings.index',compact('settings','_accounts_group'));
+    }
+
+      public function lockAction(Request $request){
+        $_action = $request->_action;
+        $_id = $request->_id;
+        $_table_name = $request->_table_name;
+        \DB::table($_table_name)->where('id',$_id)->update(['_lock'=>$_action]);
+        return "ok";
+
     }
 
     public function settingsSave(Request $request){
@@ -47,9 +64,16 @@ class GeneralSettingsController extends Controller
     	$settings->url = $request->url ?? '';
         $settings->bg_image = $request->bg_image ?? '';
         $settings->footerContent = $request->footerContent ?? '';
+        $settings->_cash_group = $request->_cash_group ?? '';
+        $settings->_bank_group = $request->_bank_group ?? '';
+        $settings->reg_notice = $request->reg_notice ?? '';
     	if($request->hasFile('logo')){ 
                 $logo = $this->UserImageUpload($request->logo); 
                 $settings->logo = $logo;
+            }
+        if($request->hasFile('footer_logo')){ 
+                $footer_logo = $this->UserImageUpload($request->footer_logo); 
+                $settings->footer_logo = $footer_logo;
             }
         $settings->save();
         return redirect()->back()

@@ -131,9 +131,9 @@
 
           
 @can('alumni-section')
-          <li class="nav-item {{ Route::is('countries.*') || Route::is('exam-session.*') || Route::is('degrees.*') || Route::is('paying-system.*') || Route::is('year-batch.*') || Route::is('membership-type.*') || Route::is('gender.*')  || Route::is('member-info.*') || Route::is('committee-history.*') || Route::is('committee.*') || Route::is('designations.*') || Route::is('event-management.*')   ? 'menu-is-opening menu-open' : '' }}">
+          <li class="nav-item {{ Route::is('countries.*') || Route::is('exam-session.*') || Route::is('degrees.*') || Route::is('paying-system.*') || Route::is('year-batch.*') || Route::is('membership-type.*') || Route::is('gender.*')  || Route::is('member-info.*') || Route::is('committee-history.*') || Route::is('committee.*') || Route::is('designations.*') || Route::is('event-management.*')  || Route::is('member-registration.*')   ? 'menu-is-opening menu-open' : '' }}">
             
-            <a href="#" class="nav-link {{ Route::is('countries.*') ||  Route::is('exam-session.*') ||  Route::is('degrees.*') ||  Route::is('paying-system.*') ||  Route::is('year-batch.*') ||  Route::is('membership-type.*') ||  Route::is('gender.*') ||  Route::is('member-info.*') || Route::is('committee-history.*') || Route::is('committee.*')  || Route::is('designations.*') || Route::is('event-management.*')   ? 'active' : '' }}">
+            <a href="#" class="nav-link {{ Route::is('countries.*') ||  Route::is('exam-session.*') ||  Route::is('degrees.*') ||  Route::is('paying-system.*') ||  Route::is('year-batch.*') ||  Route::is('membership-type.*') ||  Route::is('gender.*') ||  Route::is('member-info.*') || Route::is('committee-history.*') || Route::is('committee.*')  || Route::is('designations.*') || Route::is('event-management.*')|| Route::is('member-registration.*')   ? 'active' : '' }}">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 {{ __('label.alumni-section') }}
@@ -146,6 +146,14 @@
                 <a href="{{url('member-info')}}" class="nav-link {{Route::is('member-info.*')   ? 'active' : '' }}">
                   <i class="fas fa-arrow-right nav-icon"></i>
                   <p>Member Information</p>
+                </a>
+              </li>
+              @endcan
+               @can('member-registration-list')
+              <li class="nav-item">
+                <a href="{{url('member-registration')}}" class="nav-link {{Route::is('member-registration.*')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>Online Member Application</p>
                 </a>
               </li>
               @endcan
@@ -330,7 +338,104 @@
 
           @endcan
           
-         
+                  
+@can('account-module')
+          <li class="nav-item {{ Route::is('main-accounts.*') || Route::is('account-type.*')  || Route::is('account-group.*') || Route::is('account-ledger.*') || Route::is('voucher.*') || Route::is('cash-payment')  || Route::is('cash-receive')|| Route::is('bank-payment')  || Route::is('bank-receive')   ? 'menu-is-opening menu-open' : '' }}">
+            
+            <a href="#" class="nav-link {{ Route::is('account-type.*') || Route::is('main-accounts.*')  || Route::is('account-group.*')  || Route::is('account-ledger.*')   || Route::is('voucher.*') || Route::is('cash-payment')  || Route::is('cash-receive')|| Route::is('bank-payment')  || Route::is('bank-receive')   ? 'active' : '' }}">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                {{ __('label.Accounts Module') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item sidebar_subtitle">
+                <p> {{ __('label.Enty') }}</p>
+              </li>
+              @can('voucher-list')
+              <li class="nav-item">
+                <a href="{{url('voucher')}}" class="nav-link {{Route::is('voucher.*')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.voucher') }}</p>
+                </a>
+              </li>
+              @endcan
+
+              @can('cash-receive')
+              <li class="nav-item">
+                <a href="{{url('cash-receive')}}" class="nav-link {{Route::is('cash-receive')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.cash-receive') }}</p>
+                </a>
+              </li>
+              @endcan
+              @can('cash-payment')
+              <li class="nav-item">
+                <a href="{{url('cash-payment')}}" class="nav-link {{Route::is('cash-payment')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.cash-payment') }}</p>
+                </a>
+              </li>
+              @endcan
+              @can('bank-receive')
+              <li class="nav-item">
+                <a href="{{url('bank-receive')}}" class="nav-link {{Route::is('bank-receive')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.bank-receive') }}</p>
+                </a>
+              </li>
+              @endcan
+              @can('bank-payment')
+              <li class="nav-item">
+                <a href="{{url('bank-payment')}}" class="nav-link {{Route::is('bank-payment')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.bank-payment') }}</p>
+                </a>
+              </li>
+              @endcan
+              <li class="nav-item sidebar_subtitle">
+                <p> {{ __('label.Accounts Master Setup') }}</p>
+              </li>
+               @can('main-accounts-list')
+              <li class="nav-item">
+                <a href="{{url('main-accounts')}}" class="nav-link {{Route::is('main-accounts.*')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.Main Accounts') }}</p>
+                </a>
+              </li>
+              @endcan
+               @can('account-type-list')
+              <li class="nav-item">
+                <a href="{{url('account-type')}}" class="nav-link {{Route::is('account-type.*')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.account-type') }}</p>
+                </a>
+              </li>
+              @endcan
+               @can('account-group-list')
+              <li class="nav-item">
+                <a href="{{url('account-group')}}" class="nav-link {{Route::is('account-group.*')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.account-group') }}</p>
+                </a>
+              </li>
+              @endcan
+               @can('account-ledger-list')
+              <li class="nav-item">
+                <a href="{{url('account-ledger')}}" class="nav-link {{Route::is('account-ledger.*')   ? 'active' : '' }}">
+                  <i class="fas fa-arrow-right nav-icon"></i>
+                  <p>{{ __('label.account-ledger') }}</p>
+                </a>
+              </li>
+              @endcan
+              
+              
+              
+            </ul>
+          </li>
+
+@endcan
           
           
          

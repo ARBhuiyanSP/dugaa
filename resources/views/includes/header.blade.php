@@ -1,4 +1,4 @@
-<div class="logo">
+<div class="logo mt-1 mb-1">
   <img class="logo_image" src="{{asset('/')}}/{{$settings->logo ?? '' }}">
 </div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -76,6 +76,9 @@
       </li>
       <li class="nav-item ">
         <a class="nav-link" href="{{url('login')}}">My Account </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="{{url('new-member')}}">New Member </a>
       </li>
       
     </ul>

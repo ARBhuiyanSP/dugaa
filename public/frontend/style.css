@@ -44,18 +44,19 @@
 }
 .bg-dark{
 	border-top: 3px solid #289dcc;
-    background: #fff !important;
 }
 
-
-.nav-item {
-    background: #0a3523;
-    margin-right: 2px;
+.title_span{
+    color: #fff;
+    font-weight: 500;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
+._requried{
+    color: red;
+}
 
-
-/* styles for tablets and desktops */
 
 
 @media only screen and (max-width: 768px) {

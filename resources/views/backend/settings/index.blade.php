@@ -41,9 +41,16 @@
                     <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
-                                <strong>LOGO:</strong>
+                                <strong>Header LOGO:</strong>
                                <input type="file" accept="image/*" onchange="loadFile(event,1 )"  name="logo" class="form-control">
                                <img id="output_1" class="banner_image_create" src="{{asset('/')}}{{$settings->logo ?? ''}}" />
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <strong>Footer LOGO:</strong>
+                               <input type="file" accept="image/*" onchange="loadFile(event,2 )"  name="footer_logo" class="form-control">
+                               <img id="output_2" class="banner_image_create" src="{{asset('/')}}{{$settings->footer_logo ?? ''}}" />
                             </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6">
@@ -98,6 +105,29 @@
                                <input type="text" name="url" required class="form-control" value="{{old('url',$settings->url ?? '' )}}">
                             </div>
                         </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                              <div class="form-group">
+                                  <label>Cash Group:</label>
+                                   <select class="form-control " name="_cash_group">
+                                    @forelse($_accounts_group as $_group)
+                                      <option value="{{$_group->id}}" @if($settings->_cash_group==$_group->id) selected @endif >{{$_group->_name ?? ''}}</option>
+                                    @empty
+                                    @endforelse
+                                    </select>
+                              </div>
+                                
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                  <label>Bank Group:</label>
+                                   <select class="form-control " name="_bank_group">
+                                      @forelse($_accounts_group as $_group)
+                                      <option value="{{$_group->id}}" @if($settings->_bank_group==$_group->id) selected @endif >{{$_group->_name ?? ''}}</option>
+                                    @empty
+                                    @endforelse
+                                    </select>
+                                </div>
+                            </div>
                       
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
@@ -109,6 +139,12 @@
                             <div class="form-group">
                                 <strong>Google Map Embed Code:</strong>
                                 <textarea class="form-control" name="bg_image">{{old('bg_image',$settings->bg_image ?? '' )}}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <strong>Member Registration Form Notice:</strong>
+                                <textarea class="form-control summernote" name="reg_notice">{{old('reg_notice',$settings->reg_notice ?? '' )}}</textarea>
                             </div>
                         </div>
                         

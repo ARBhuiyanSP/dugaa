@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
-        'reference' => 'fad28c113aa80d0a9a8bb66d0dbd8f54876f81db',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => NULL,
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -413,9 +413,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => 'fad28c113aa80d0a9a8bb66d0dbd8f54876f81db',
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => NULL,
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -577,6 +577,15 @@
             'reference' => '3d81e4309d2a927abbe66df935f4bb60082805ad',
             'type' => 'library',
             'install_path' => __DIR__ . '/../opis/closure',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'owen-it/laravel-auditing' => array(
+            'pretty_version' => 'v13.1.0',
+            'version' => '13.1.0.0',
+            'reference' => '216630ea7f1b091444ca659e60119f35664bd4eb',
+            'type' => 'package',
+            'install_path' => __DIR__ . '/../owen-it/laravel-auditing',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -748,8 +757,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0',
             ),
         ),
         'psr/simple-cache' => array(

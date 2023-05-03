@@ -37,6 +37,7 @@
                                   <th>SL</th>
                                   <th>Action</th>
                                   <th>Name</th>
+                                  <th>Department Name</th>
                                   <th>Date</th>
                                   <th>Image 1</th>
                                   <th>Image 2</th>
@@ -49,6 +50,11 @@
                               <td>{{($key+1)}}</td>
                               <td style="display: flex;">
                                 
+                                @can('event-base-card')
+                                    <a class="btn btn-sm btn-primary  mr-2" href="{{ url('event-base-card') }}/{{$value->id}}">
+                                      Card
+                                    </a>
+                                @endcan
                                 @can('event-management-edit')
                                     <a class="btn btn-sm btn-primary  mr-2" href="{{ route('event-management.edit',$value->id) }}">
                                       <i class="nav-icon fas fa-edit"></i>
@@ -63,6 +69,7 @@
                                 @endcan
                             </td>
                               <td>{!! $value->name ?? '' !!}</td>
+                              <td>{!! $value->department_name ?? '' !!}</td>
                               <td>{!! $value->event_date ?? '' !!}</td>
                               <td>
                                 <img id="output_1" class="banner_image_create" src="{{asset('/')}}{{$value->card_left_image ?? ''}}" />

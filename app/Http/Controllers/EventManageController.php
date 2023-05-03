@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EventManage;
+use App\Models\MemberInfo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Validator;
@@ -26,6 +27,14 @@ class EventManageController extends Controller
         $data= EventManage::orderBy('name','asc')->get();
         $page_name ="Event Management";
         return view('backend.event-management.index',compact('data','page_name'));
+    }
+
+
+    public function eventBaseCardPrint($id){
+        $data = EventManage::find($id);
+        $members = MemberInfo::with(['_alumni_cat','_entry_degree','_entery_degree_completion_year'])->orderBy('alumni_category','ASC')->get();
+        $page_name = "Event Wise Card";
+        return view('backend.event-management.card',compact('data','page_name','members'));
     }
 
     /**
@@ -53,6 +62,7 @@ class EventManageController extends Controller
         $data = new EventManage();
         $data->name = $request->name ?? '';
         $data->event_date = $request->event_date ?? '';
+        $data->department_name = $request->department_name ?? '';
          if($request->hasFile('card_left_image')){
             $card_left_image = image_uploader($event_folder,$request->card_left_image);
             $data->card_left_image = $card_left_image ?? '';
@@ -116,6 +126,7 @@ class EventManageController extends Controller
         $data = EventManage::find($id);
         $data->name = $request->name ?? '';
         $data->event_date = $request->event_date ?? '';
+        $data->department_name = $request->department_name ?? '';
          if($request->hasFile('card_left_image')){
             $card_left_image = image_uploader($event_folder,$request->card_left_image);
             $data->card_left_image = $card_left_image ?? '';

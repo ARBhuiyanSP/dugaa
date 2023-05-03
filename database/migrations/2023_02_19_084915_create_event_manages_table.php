@@ -16,6 +16,7 @@ class CreateEventManagesTable extends Migration
         Schema::create('event_manages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('department_name')->nullable();
             $table->string('card_left_image')->nullable();
             $table->string('card_right_image')->nullable();
             $table->date('event_date')->nullable();

@@ -74,7 +74,7 @@
                                 $bsc_year_passing = \DB::table('year_batches')->orderBy('name','asc')->get()
                               @endphp
                                
-                               <select class="form-control bsc_year_passing" name="bsc_year_passing" id="bsc_year_passing" onchange ="getSelectedBatch()">
+                               <select class="form-control bsc_year_passing  " disabled name="bsc_year_passing" id="bsc_year_passing" onchange ="getSelectedBatch()">
                                 @forelse($bsc_year_passing as $key=>$val)
                                  <option value="{{ $val->name ?? '' }}" data-batch="{{ $val->code ?? '' }}" @if($data->bsc_year_passing=== $val->name) selected @endif >{{ $val->name ?? '' }} - {{ $val->code ?? '' }}</option>
                                  @empty
@@ -218,10 +218,10 @@
                                 {!! Form::email('email', null, array('placeholder' => 'Email','class' => 'form-control col-sm-8')) !!}
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-12 col-sm-12 col-md-12 " style="display: none;">
                             <div class="form-group row">
                                 <strong class="col-sm-2">Note:</strong>
-                                {!! Form::text('note', null, array('placeholder' => 'Note','class' => 'form-control col-sm-10')) !!}
+                                {!! Form::text('note', null, array('placeholder' => 'Note','class' => 'form-control col-sm-10 ', 'readonly'=>'true')) !!}
                             </div>
                         </div>
                          <div class="col-xs-12 col-sm-12 col-md-6">

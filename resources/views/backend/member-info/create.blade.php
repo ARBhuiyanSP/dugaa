@@ -70,7 +70,7 @@
                             <div class="form-group ">
                               <label for="bsc_year_passing" class=" col-form-label">BSc (Honors) Year of Passing:</label>
                               @php
-                                $bsc_year_passing = \DB::table('year_batches')->orderBy('name','asc')->get()
+                                $bsc_year_passing = \DB::table('year_batches')->orderBy('name','asc')->get();
                               @endphp
                                
                                <select class="form-control bsc_year_passing" name="bsc_year_passing" id="bsc_year_passing" onchange ="getSelectedBatch()">
@@ -103,7 +103,8 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-3">
                             <div class="form-group ">
-                                <label class="">Alumni Category:</label>
+                              <label for="Membership Type" class=" col-form-label">Membership Type:</label>
+                               
                                 <select name="alumni_category" class="form-control " required="true">
                                   <option value="">--Select--</option>
                                   @forelse($membership_types as $key=>$val)

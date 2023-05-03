@@ -36,14 +36,21 @@
                         
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Name:</strong>
-                                {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+                                <strong>Event Name:</strong>
+                                {!! Form::text('name', null, array('placeholder' => 'Event Name','class' => 'form-control')) !!}
                             </div>
                         </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Department Name:</strong>
+                                {!! Form::text('department_name', null, array('placeholder' => 'Department Name','class' => 'form-control')) !!}
+                            </div>
+                        </div>
+
                         <div class="col-xs-12 col-sm-12 col-md-6">
                             <div class="form-group">
-                                <strong>Event Date:</strong>
-                                {!! Form::date('event_date', null, array('placeholder' => 'Event Date','class' => 'form-control')) !!}
+                                <strong>Event Date Detail:</strong>
+                                {!! Form::text('event_date', null, array('placeholder' => 'Event Date','class' => 'form-control')) !!}
                             </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6">

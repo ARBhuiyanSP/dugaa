@@ -98,7 +98,7 @@
                                 <select name="gender_id" class="form-control" required="true">
                                   <option value="">Select Gender</option>
                                   @forelse($genders as $key=>$val)
-                                    <option value="{{$val->id}}" @if($data->entery_degree==$val->id) selected @endif >{{ $val->name ?? '' }}</option>
+                                    <option value="{{$val->id}}" @if($data->gender_id==$val->id) selected @endif >{{ $val->name ?? '' }}</option>
                                   @empty
                                   @endforelse
                                 </select>
@@ -253,6 +253,7 @@
                                 
                             </div>
                         </div>
+                       
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="btn btn-primary">Submit</button>

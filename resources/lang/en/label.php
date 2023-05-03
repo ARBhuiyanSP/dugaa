@@ -25,5 +25,20 @@ return [
     'alumni-section' => 'Alumni Section',
     'event-management' => 'Event Management',
     'profile' => 'Profile',
+    'Accounts Module' => 'Accounts Module',
+    'Accounts Master Setup' => 'Accounts Master Setup',
+    'Main Accounts' => 'Main Accounts',
+    'account-type' => 'Accounts Type',
+    'account-group' => 'Account Group',
+    'account-ledger' => 'Account Ledger',
+    'Enty' => 'Enty',
+    'voucher' => 'Journal Voucher',
+    'cash-payment' => 'Cash Payment',
+    'bank-payment' => 'Bank Payment',
+    'bank-receive' => 'Bank Receive',
+    'cash-receive' => 'cash Receive',
+
+
+
 
 ];

@@ -18,24 +18,16 @@
 
       <!-- Right -->
       <div >
-        <a href="" >
-         <i class="fab fa-facebook"></i>
+        @php
+        $social_medias = \DB::table("social_media")->where('status',1)->get();
+        @endphp
+        @forelse($social_medias as $key=>$val)
+        <a target="__blank" href="{{$val->url ?? '' }}" >
+         <i class="{{ $val->icon ?? '' }}"></i>
         </a>
-        <a href="" >
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="" >
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="" >
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="" >
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="" >
-          <i class="fab fa-github"></i>
-        </a>
+        @empty
+        @endforelse
+        
       </div>
       <!-- Right -->
     </section>
@@ -49,7 +41,8 @@
           <!-- Grid column -->
           <div class="col-md-9 col-lg-8 col-xl-8 mx-auto mb-4">
             <!-- Content -->
-            <img src="{{asset('/')}}/{{$settings->logo}}" style="width: 100%;height: auto;">
+            <img src="{{asset('/')}}/{{$settings->footer_logo ?? '' }}" style="width: 100%;height: auto;"><br>
+            {!! $settings->footerContent ?? '' !!}
           </div>
           <!-- Grid column -->
 

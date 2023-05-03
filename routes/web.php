@@ -24,6 +24,17 @@ use App\Http\Controllers\CommitteeController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DocumentDownloadController;
 use App\Http\Controllers\EventManageController;
+use App\Http\Controllers\MemberRegistrationController;
+
+
+//Account's Module
+
+use App\Http\Controllers\AccountHeadController;
+use App\Http\Controllers\MainAccountsController;
+use App\Http\Controllers\AccountGroupController;
+use App\Http\Controllers\AccountLedgerController;
+use App\Http\Controllers\VoucherMasterController;
+
 
 
 
@@ -55,16 +66,71 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::get('new-member', 'App\Http\Controllers\FrontendController@newMember')->name('new-member');
+Route::post('new-member-save', 'App\Http\Controllers\FrontendController@newMemberSave')->name('new-member-save');
 
 
+
+
+
+Route::get('own-profile', [MemberInfoController::class,"ownProfile"])->name('own-profile');
+    Route::post('own-profile-update', [MemberInfoController::class,"ownProfileUpdate"])->name('own-profile-update');
 
 
 
 Route::group(['middleware' => ['auth']], function() {
+
+
+    //#############################
+    //
+    //Account's Module Routes
+    //
+    //##############################
+
+    Route::resource('account-type',AccountHeadController::class);
+    Route::resource('main-accounts',MainAccountsController::class);
+    Route::resource('account-group',AccountGroupController::class);
+    Route::resource('account-ledger',AccountLedgerController::class);
+   
+
+
+    //Searching section 
+    Route::any('ledger-search','App\Http\Controllers\AccountLedgerController@ledger_search');
+    Route::any('main-ledger-search','App\Http\Controllers\AccountLedgerController@mainLedgerSearch');
+    Route::any('type_base_group','App\Http\Controllers\AccountLedgerController@type_base_group');
+    Route::any('group-base-ledger','App\Http\Controllers\AccountLedgerController@groupBaseLedger');
+    Route::any('group-base-sms-ledger','App\Http\Controllers\AccountLedgerController@groupBaseSmsLedger');
+    Route::any('group-base-bill-party-ledger','App\Http\Controllers\AccountLedgerController@groupBaseBillParty');
+
+    
+    Route::resource('voucher', VoucherMasterController::class);
+    Route::post('voucher/update', 'App\Http\Controllers\VoucherMasterController@update');
+    Route::get('voucher/print/{id}', 'App\Http\Controllers\VoucherMasterController@voucherPrint');
+    Route::get('voucher-main-print', 'App\Http\Controllers\VoucherMasterController@voucherMainPrint');
+    Route::get('voucher-detail-print', 'App\Http\Controllers\VoucherMasterController@voucherDetailPrint');
+    Route::get('voucher-reset', 'App\Http\Controllers\VoucherMasterController@reset');
+    Route::get('money-receipt-print/{id}', 'App\Http\Controllers\VoucherMasterController@moneyReceiptPrint');
+    Route::get('money-payment-receipt/{id}', 'App\Http\Controllers\VoucherMasterController@moneyPaymentReceiptPrint');
+
+    Route::post('master-base-detils','App\Http\Controllers\VoucherMasterController@masterBseDetails');
+    Route::get('cash-receive','App\Http\Controllers\VoucherMasterController@cashReceive')->name('cash-receive');
+    Route::get('bank-receive','App\Http\Controllers\VoucherMasterController@bankReceive')->name('bank-receive');
+    Route::get('cash-payment','App\Http\Controllers\VoucherMasterController@cashPayment')->name('cash-payment');
+    Route::get('bank-payment','App\Http\Controllers\VoucherMasterController@bankPayment')->name('bank-payment');
+
+
+
+    Route::post('voucher-save','App\Http\Controllers\VoucherMasterController@voucherSave');
+
+
     //Admin Section start
 
     Route::resource('roles', RoleController::class);
+    Route::resource('member-registration', MemberRegistrationController::class);
+
     Route::resource('event-management', EventManageController::class);
+    Route::get('event-base-card/{id}', [EventManageController::class,'eventBaseCardPrint']);
+
     Route::resource('users', UserController::class);
     Route::resource('social_media', SocialMediaController::class);
     Route::resource('main-menu', MenuController::class);
@@ -78,8 +144,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('year-batch', YearBatchController::class);
     Route::resource('membership-type', MembershipTypeController::class);
     Route::resource('member-info', MemberInfoController::class);
-    Route::get('own-profile', [MemberInfoController::class,"ownProfile"])->name('own-profile');
-    Route::post('own-profile-update', [MemberInfoController::class,"ownProfileUpdate"])->name('own-profile-update');
+    
 
     Route::resource('designations', DesignationController::class);
     Route::resource('committee-history', CommitteeHistoryController::class);
@@ -97,6 +162,7 @@ Route::group(['middleware' => ['auth']], function() {
     //Admin section Route Controller
     Route::get('admin-settings','App\Http\Controllers\GeneralSettingsController@settings')->name('admin-settings');
     Route::post('admin-settings-store','App\Http\Controllers\GeneralSettingsController@settingsSave')->name('admin-settings-store');
+    Route::post('_lock_action','App\Http\Controllers\GeneralSettingsController@lockAction');
 
     Route::get('admin-post/{slug}', [PostController::class,'index'])->name('admin-post');
     Route::get('admin-post-create/{slug}', [PostController::class,'create'])->name('admin-post-create');

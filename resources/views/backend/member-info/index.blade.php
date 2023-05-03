@@ -74,9 +74,9 @@
                                 @php
                                  $file_path = asset('/')."/".$value->member_image;
                                 @endphp
-                                @if(file_exists($file_path))
+                              
                                 <img style="padding: 5px;width: 80px;"  class="banner_image_create" src="{{asset('/')}}{{$value->member_image ?? ''}}" />
-                                @endif
+                              
                               </td>
                             
                               <td>{!! $value->first_name ?? '' !!} {!! $value->last_name ?? '' !!}</td>
